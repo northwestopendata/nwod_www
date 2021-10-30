@@ -98,4 +98,4 @@ A five step journey to fully open format
 
 The Code was written by Shehla Husain and dated 27th February 2015
 
-include::partials$tcrefs.adoc[]
+include::partial$tcrefs.adoc[]
