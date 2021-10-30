@@ -64,6 +64,11 @@ done
 == Expectation Meets Reality
 I decided to arbitrarily score each of the authorities for ease of use and access to the data primarily with a view to automating download of the relevant CSV files. Here’s the results
 
+[format="csv", options="header"]
+|===
+include::cwlancashire-council-scores.csv[]
+|===
 
-chart::lancashire-council-scores.csv[bar,800,500]
+
+--
 
