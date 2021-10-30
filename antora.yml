@@ -1,0 +1,8 @@
+name: nortwestopendata
+title: Northwest Open Data
+version: master
+nav:
+- modules/ROOT/nav.adoc
+- modules/blog/partials/nav.adoc
+
+

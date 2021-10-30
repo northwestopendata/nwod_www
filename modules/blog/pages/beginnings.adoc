@@ -1,0 +1,57 @@
+= Beginnings
+
+:author: NorthwestOpenData
+:revdate: 08.01.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+It was December 2019 I was looking at some features of the PostgreSQL database
+and needed a set of reasonably diverse data to load into a table to do
+something.  I had heard about Government Open data and selected a dataset off
+the
+https://inside.cheshirewestandchester.gov.uk/find_out_more/datasets_and_statistics/opendata/contracts_over_5000[Cheshire
+West and Chester Council(CWAC)] website. 
+It was the 2018-2019 Contracts over £5000 set, it was presented and an Excel
+file, I downloaded it and spent a couple of hours getting it into a clean enough
+format to bulk load into my PostgreSQL table.  While doing this I had noticed
+that there were some line items that included peoples names but to be honest I
+was more concerned with getting a usable data.
+
+[quote, Vanessa Whiting, CWAC’s Director of Governance]
+____
+We take our responsibility for personal information very seriously.  It appears
+that, due to a processing error, surnames and initials of some individuals have
+been included in data published on our website. 
+This has now been removed. Our data protection officer is investigating this
+incident and the council has reported it to the Information Commissioner.
+____
+
+Sometime later I noticed
+https://www.cheshire-live.co.uk/news/chester-cheshire-news/confidential-details-published-error-cheshire-17403564[“Confidential
+details published in error on Cheshire West and Chester website”] on my Twitter
+feed. 
+It was an article by David Holmes from
+https://www.cheshire-live.co.uk/[CheshireLive]. It seemed that someone else had
+noticed something similar in another dataset on the CWAC website. 
+I contacted the Council and informed them that they had a problem with the
+dataset I was looking at, this was then taken down from their website and they
+said they would _“complete our investigation and review our current open data
+processes“_.
+
+Over Christmas this set me thinking about the situation and doing some research
+about the Open data landscape, I’m a database person by profession, the quality
+of what was presented was fairly poor, the format, labelling(metadata) didn’t
+exactly make it easy to use and the fact that 46% of the data on a column/row
+basis was missing didn’t fill me with much confidence. 
+
+I read the government Code for Open data, skimmed the history and checked some
+other Councils. 
+There seemed to be huge variations in quality, accessibility, clarity and
+completeness. 
+I decided to take a closer look at the situation in a systematic manner, as
+there is a huge amount of datasets now available I decided to restrict the study
+to the North West of England, even so I think it might be a long journey…
+
+
+

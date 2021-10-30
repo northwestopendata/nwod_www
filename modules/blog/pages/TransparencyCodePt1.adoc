@@ -1,0 +1,173 @@
+= Transparency Code Part 1
+
+:author: NorthwestOpenData
+:revdate: 13.01.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+
+This post summarises the first section of the Department for Communities and
+https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Local
+Government Local Government Transparency Code 2015]. The document is split into
+3 parts with 3 related Annexes
+
+include::partial$blog1.adoc[]
+
+== Part 1 : Introduction
+
+=== Policy Context
+Government desire
+
+* More power into citizen’s hands
+* Increase democratic accountability
+* Ease local citizens contribution to decision making
+* Help shape public services
+* Transparency giving a greater role in society
+* Help open new markets for local business, voluntaryand community and social
+* enterprises to run or manage public services
+
+
+Data is
+
+* Objective and factual
+* Used in policy decisions
+* Used to assess public services
+
+[quote, Part 1, Section 4]
+____
+_“the Government believes that in principle *all data* held and managed by local
+authorities should be made available to local people unless there are specific
+sensitivities (eg.protecting vulnerable people or commercial and operational
+considerations) to doing so.“_
+____
+
+Three basic principles of this code
+
+* Demand led
+* Open
+* Timely
+
+The Code will ensure local people can see
+
+* How money is spent
+* Use of assets
+* Decision making and senior staff pay
+* Important local issues
+
+Local authorities are encouraged to review the responses to a
+https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/266815/Transparency_Code_Government_Response.pdf[Government
+consultation]
+
+Fraud considerations
+
+* Fraud thrives where decisions not open to scrutiny
+* Transparency helps combat fraud
+* https://www.cipfa.org/[Chartered Institute of Public Finance and Accountancy]
+* Code of Practice, (site needs an account to dowload documents)
+
+=== Application
+Section 9-13 set out the legal context and framework
+
+[quote, Part 1 Section 13]
+_”The Code applies in England only. “_
+
+
+
+=== Definitions
+“local authority” means
+
+* a county council in England
+* a district council
+* a parish council which has gross annual income or expenditure (whichever is
+the higher) exceeding £200,000
+* a London borough council
+* the Common Council of the City of London in its capacity as a local authority
+* the Council of the Isles of Scilly
+* a National Park authority for a National Park in England
+* the Broads Authority
+* the Greater London Authority so far as it exercises its functions through the Mayor
+* the London Fire and Emergency Planning Authority
+* Transport for London
+* a fire and rescue authority (constituted by a scheme undersection 2 of the
+Fire and Rescue Services Act 2004 or a scheme to which section 4 of that Act
+applies, and a metropolitan county fire and rescue authority)
+* a joint authority established by Part IVi of the Local Government Act 1985 (fire
+and rescue services and transport)
+* a joint waste authority, i.e. an authority established for an area in England
+by an order undersection 207of the Local Government and Public Involvement in
+Health Act 2007
+* an economic prosperity board established under section 88 of the Local
+Democracy, Economic Development and Construction Act 2009
+* a combined authority established under section 103 of that Act
+* a waste disposal authority, i.e. an authority established under section 10 of
+the Local Government Act 1985, and
+* an integrated transport authority for an integrated transport area in England.
+
+
+=== Data Protection
+The Codes relationship with the
+https://www.legislation.gov.uk/ukpga/2018/12/contents/enacted[Data Protection
+Act 1998] is discussed
+
+* published data must be compliant with the act
+* the act doeas not restrict information being published because there is a
+*"legitimate public interest”* about councillors and senior council officials
+* the act does not automatically prevent suppliers (including sole traders)
+* being named due to “*accountability and transparency*“
+* when the act specifically prohibits disclosure the Information Commissioner’s
+Office has guidelines on ‘anonymisation’ so insightful yet compliant data can
+ be published
+* section 17 and 18 describe special treatment for disclosing social housing
+ data to protect individuals
+
+The anonymisation link referenced is no longer active, it has been archived on
+the ICO website. It can now be found at
+https://ico.org.uk/media/for-organisations/documents/1061/anonymisation-code.pdf[Anonymisation
+Code]. The Data Protection Act has been updated, the latest version is Data
+protection Act 2018. The document should probably be updated to be compliant
+with the latest act
+
+=== Licences
+An note of caution to avoid infringement of licence agreement with the Royal Mail
+
+=== Commercial Confidentiality
+[quote, Part 1 Section 20]
+_”Local authorities should expect to publish details of contracts newly entered
+into –commercial confidentiality should not, in itself, be a reason for local
+authorities to not follow the provisions of this Code.“
+
+
+=== Exclusions and Exemptions
+Local authorities must not contravene the following sections of the https://www.legislation.gov.uk/ukpga/1972/70/contents[Local Government Act 1972]
+
+* 100A – Information revealed in non-public principal council meeting
+* 100B – Meeting reports and agendas related to non-public council meetings
+* 100F – Exempt documents
+
+Where information would fall within the disclosure exemptions of the following
+
+* https://www.legislation.gov.uk/ukpga/2000/36/contents[Freedom of Information Act 2000]
+* https://www.legislation.gov.uk/uksi/2004/3391/contents/made[Environmental Regulations 2004]
+* https://www.legislation.gov.uk/uksi/2009/3157[Infrastructure for Spatial Information in the European Community (INSPIRE) Regulations 2009]
+* https://www.legislation.gov.uk/ukpga/1972/70/section/12A[Schedule 12A to the Local Government Act 1972]
+
+=== Timeliness and Errors
+Emphasis on accuracy at first publication, emphasising “robust information
+management processes”. Where revised information is required the ammendments
+should be made clear.
+
+=== Further Guidance and Support
+The Local Government Association has published guidance, the link doesnt work
+but the Guides can be found
+https://www.local.gov.uk/our-support/research-and-data/data-and-transparency/local-transparency-guidance[here].
+The guides will be covered in the second post in this series where the technical
+specifications of of the reports will be discussed.
+
+The local authority has to report other datasets to Central Government, the
+latest list can be found on the
+https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/979251/Single_Data_List_2021-22.pdf[The
+Single Data List].
+
+
+
