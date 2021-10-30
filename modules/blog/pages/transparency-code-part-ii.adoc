@@ -73,7 +73,7 @@ Details of invitation to tender for contracts for goods, staff and services that
 * review date
 * local authority department
 
-Local authorities must also publish details of any contract(including consultancy), commissioned activity, purchase order,framework agreement or any legally enforcible agreement that exceeds £5000. The following must be published
+Local authorities must also publish details of any contract(including consultancy), commissioned activity, purchase order, framework agreement or any legally enforcible agreement that exceeds £5000. The following must be published
 
 * reference number
 * title
