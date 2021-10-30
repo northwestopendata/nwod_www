@@ -17,8 +17,6 @@ eg https://www.cheshire-live.co.uk/news/chester-cheshire-news/portable-wards-che
 All A&Es are under pressure in the winter but I wanted to put that into some kind of context 
 for the region. I produced the following charts after a few hours work
 
-image::https://docs.google.com/spreadsheets/d/1_tWllupucm1e3KNlI2g7lPGrncSVTbtw2uL8lKsENS0/edit?usp=sharing[250,350]
-
 image::2020-01-18-14_48_52-NW-NHS-Dec-2019-attendances-Google-Sheets.png[]
 
 image::2020-01-18-14_49_43-NW-NHS-Dec-2019-attendances-Google-Sheets.png[]

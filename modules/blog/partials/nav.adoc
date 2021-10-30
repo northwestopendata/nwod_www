@@ -1,4 +1,5 @@
 .Blog Posts
+* 2020 June
 * 2020 January
 ** xref:next-steps.adoc[Next Steps]
 ** xref:transparency-code-iii.adoc[Transparency Code Part 3]
