@@ -17,16 +17,12 @@ eg https://www.cheshire-live.co.uk/news/chester-cheshire-news/portable-wards-che
 All A&Es are under pressure in the winter but I wanted to put that into some kind of context 
 for the region. I produced the following charts after a few hours work
 
-.Attendance vs Hospital A & E
 image:2020-01-18-14_48_52-NW-NHS-Dec-2019-attendances-Google-Sheets.png
 
-.Percent of Attendees waiting more than 4 hours
 image:2020-01-18-14_49_43-NW-NHS-Dec-2019-attendances-Google-Sheets.png
 
-.Admissions vs A & E
 image:2020-01-18-14_50_24-NW-NHS-Dec-2019-attendances-Google-Sheets.png
 
-.Percent of Admissions waiting more than 4 hours
 image:2020-01-18-14_50_51-NW-NHS-Dec-2019-attendances-Google-Sheets.png
 
 
@@ -39,7 +35,7 @@ In brief in December they had 6556 attendances, resulting in 3669 admissions(not
 be through A&E). That’s an average of 211 per day, 9 every hour or 1 person through their doors 
 every 6 or 7 minutes.
 
-A ‘https://www.cheshire-live.co.uk/news/chester-cheshire-news/chester-hospitals-new-look-ae-16977543[new look]‘ 
+A https://www.cheshire-live.co.uk/news/chester-cheshire-news/chester-hospitals-new-look-ae-16977543['new look'] 
 A&E is promised for this spring, it will be interesting to look at the data again next 
 January and see what improvements have been made.
 
