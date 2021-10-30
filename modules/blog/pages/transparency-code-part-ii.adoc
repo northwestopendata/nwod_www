@@ -258,3 +258,5 @@ Details of existing waste collection contracts as per Procurement Information sp
 === Method of publication
 
 In a format and under a licence that allows open reuse to maximise value to the public. Most recent OGL as published by the National Archive should be used. Data *must* be published in open and machine readable formats.
+
+include::partial$tcrefs.adoc
