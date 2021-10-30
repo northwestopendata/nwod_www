@@ -18,16 +18,16 @@ All A&Es are under pressure in the winter but I wanted to put that into some kin
 for the region. I produced the following charts after a few hours work
 
 .Attendance vs Hospital A & E
-image::2020-01-18-14_48_52-NW-NHS-Dec-2019-attendances-Google-Sheets.png
+image:2020-01-18-14_48_52-NW-NHS-Dec-2019-attendances-Google-Sheets.png
 
 .Percent of Attendees waiting more than 4 hours
-image::2020-01-18-14_49_43-NW-NHS-Dec-2019-attendances-Google-Sheets.png
+image:2020-01-18-14_49_43-NW-NHS-Dec-2019-attendances-Google-Sheets.png
 
 .Admissions vs A & E
-image::2020-01-18-14_50_24-NW-NHS-Dec-2019-attendances-Google-Sheets.png
+image:2020-01-18-14_50_24-NW-NHS-Dec-2019-attendances-Google-Sheets.png
 
 .Percent of Admissions waiting more than 4 hours
-image::2020-01-18-14_50_51-NW-NHS-Dec-2019-attendances-Google-Sheets.png
+image:2020-01-18-14_50_51-NW-NHS-Dec-2019-attendances-Google-Sheets.png
 
 
 
