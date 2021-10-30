@@ -173,7 +173,7 @@ This may be done via tagging expenditure on the ‘expenditure over £500’ dat
 
 ==== Organisation Chart
 
-An organogram^1^ covering top 3 tiers and exclude staff whose salary < £50,000, the following should be included
+An organogram.footnote:[The Local Government Guidance actually specifies a list(.csv) rather than a chart] covering top 3 tiers and exclude staff whose salary < £50,000, the following should be included
 
 * grade
 * job title
@@ -183,7 +183,7 @@ An organogram^1^ covering top 3 tiers and exclude staff whose salary < £50,000,
 * salary in £5000 brackets, consistent with Senior Salaries dataset
 * max salary for grade
 
-(1). The Local Government Guidance actually specifies a list(.csv) rather than a chart
+// (1). The Local Government Guidance actually specifies a list(.csv) rather than a chart
 
 ==== Trade union facility time
 
