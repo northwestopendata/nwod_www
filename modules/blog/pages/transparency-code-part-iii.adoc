@@ -23,6 +23,7 @@ ____
 The Government believes that in principle all data held and managed by local authorities should be made available to local people unless there are specific sensitivities to doing so. Therefore, it encourages local authorities to go much further in publishing the data they hold, recognising the benefits of sharing that data for local people, more effective service delivery and better policy making. Part 3 of this Code sets out details of data that the Government recommends local authorities publish. 
 ____
 
+.Transparency Code Aspirations
 [%header,cols="1,1,3",stripes=even]
 |===
 | Report | Frequency | Aspiration
