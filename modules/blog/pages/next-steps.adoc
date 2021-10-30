@@ -1,0 +1,46 @@
+= Next Steps...
+
+:author: NorthwestOpenData
+:revdate: 28.01.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+So far I’ve reviewed the Local Government Transparency Code 2015 in three parts,
+I think I have a basic understanding of what the code mandates with respect to
+what open data sets need to be provided by local authorities, however skimming
+around some of the council websites in the Northwest I see a large variance in
+data presentation, format and data that is included.
+
+I find it useful in situations like this to step back from the overall
+complexity and amount of variability and just zoom in on one aspect to try and
+understand that portion of the whole. Concentrating on the detail helps me
+subconsciously build up a mental framework which eventually lies at the heart of
+my eventual understanding of a system.
+
+[quote, Definition of RABBIT HOLE. (2020). Retrieved 28 January 2020, from https://www.merriam-webster.com/dictionary/rabbit%20hole]
+____
+Definition of rabbit hole
+
+: a complexly bizarre or difficult state or situation conceived of as a hole into which one falls or descends
+
+especially : one in which the pursuit of something (such as an answer or solution) leads to other questions, problems, or pursuits
+____
+
+Where to start can sometimes be difficult to determine, in this case it seems
+to me that the ‘Expenditure exceeding £500’ data set is the most interesting
+and illuminating in a cross authority context. So here’s some thoughts of where
+I would like to go on my trip down the ‘*rabbit hole*‘ of detail.
+
+* Concentrate on the data set in .csv format, this seems the most fundamental
+basic level, it can be imported into spreadsheets and yet be machine read
+* Use the 2018-2019 time range, latest file availability for a full year
+* Automate the process as much as possible
+* Review the variance between local authorities and try to understand some of the difficulties they face
+* Read and understand the Local Government Associations open data guides and get some measure of compliance across authorities
+* My eventually aim would be to build a schema in a relational database and load all the Northwest England data sets
+* Spend some time developing cross authority queries to compare and contrast expenditure and costs
+
+I don’t expect this to be trivial and certainly expect to go off at tangents at
+times but thought I would set out my initial aims so that I can return to them
+in times of confusion to reset my focus.

@@ -43,4 +43,4 @@ January and see what improvements have been made.
 
 You can view the data row for The Countess, with column descriptions and data definitions here
 
-You can download the spreadsheet https://docs.google.com/spreadsheets/d/1_tWllupucm1e3KNlI2g7lPGrncSVTbtw2uL8lKsENS0/edit?usp=sharing[here].
+You can view the spreadsheet https://docs.google.com/spreadsheets/d/1_tWllupucm1e3KNlI2g7lPGrncSVTbtw2uL8lKsENS0/edit?usp=sharing[here].
