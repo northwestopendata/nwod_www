@@ -1,0 +1,48 @@
+= A quick look at Dec 2019 A&E data
+
+:author: NorthwestOpenData
+:revdate: 19.01.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+My father in law spent some time at the Countess of Chester Hospital in Chester this month, 
+he was admitted via A&E. Visiting him there made it clear that the A&E was at or beyond 
+it’s capacity. A tweet from last year by ihttps://twitter.com/owenboswarva[@owenboswarva] 
+caught my attention in a thread in mid January.
+
+I downloaded the data and imported it into Google Sheets, the fact that it was under 
+pressure didn’t surprise me, I’d seen a couple of articles on Cheshire Live, 
+eg https://www.cheshire-live.co.uk/news/chester-cheshire-news/portable-wards-chester-hospital-improve-17449512[the introduction of portable wards]. 
+All A&Es are under pressure in the winter but I wanted to put that into some kind of context 
+for the region. I produced the following charts after a few hours work
+
+.Attendance vs Hospital A & E
+image::2020-01-18-14_48_52-NW-NHS-Dec-2019-attendances-Google-Sheets.png
+
+.Percent of Attendees waiting more than 4 hours
+image::2020-01-18-14_49_43-NW-NHS-Dec-2019-attendances-Google-Sheets.png
+
+.Admissions vs A & E
+image::2020-01-18-14_50_24-NW-NHS-Dec-2019-attendances-Google-Sheets.png
+
+.Percent of Admissions waiting more than 4 hours
+image::2020-01-18-14_50_51-NW-NHS-Dec-2019-attendances-Google-Sheets.png
+
+
+
+Whilst the Attendance and Admission charts show relative low levels of attendance compared 
+to similar sized hospitals, the Countess appears 6th and 5th respectively in the in failure 
+to meet 2 of the key 4hr targets.
+
+In brief in December they had 6556 attendances, resulting in 3669 admissions(not all of these will 
+be through A&E). That’s an average of 211 per day, 9 every hour or 1 person through their doors 
+every 6 or 7 minutes.
+
+A ‘https://www.cheshire-live.co.uk/news/chester-cheshire-news/chester-hospitals-new-look-ae-16977543[new look]‘ 
+A&E is promised for this spring, it will be interesting to look at the data again next 
+January and see what improvements have been made.
+
+You can view the data row for The Countess, with column descriptions and data definitions here
+
+You can download the spreadsheet https://docs.google.com/spreadsheets/d/1_tWllupucm1e3KNlI2g7lPGrncSVTbtw2uL8lKsENS0/edit?usp=sharing[here].
