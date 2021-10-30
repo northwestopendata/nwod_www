@@ -2,8 +2,8 @@
 * 2020 June
 * 2020 January
 ** xref:next-steps.adoc[]
-** xref:transparency-code-iii.adoc[]
-** xref:transparency-code-ii.adoc[]
-** xref:a-quick-look-at-dec-2019-ae-data.adoc[E Data]
+** xref:transparencycodepart_iii.adoc[]
+** xref:transparencycodepart_iii.adoc[]
+** xref:aquicklookatdec2019ae-data.adoc[]
 ** xref:transparencycodepart_i.adoc[]
 ** xref:beginnings.adoc[]
