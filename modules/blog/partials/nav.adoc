@@ -1,5 +1,6 @@
 .Blog Posts
 * 2020 January
-** xref:transparency-code-ii.adoc[]
-** xref:transparency-code-i.adoc[]
-** xref:beginnings.adoc[]
+** xref:transparency-code-iii.adoc[Transparency Code Part 3]
+** xref:transparency-code-ii.adoc[Transparency Code Part 2]
+** xref:transparency-code-i.adoc[Transparency Code Part 1]
+** xref:beginnings.adoc[Beginnings]

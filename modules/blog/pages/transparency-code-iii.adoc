@@ -1,0 +1,98 @@
+= Transparency Code Part 3
+
+:author: NorthwestOpenData
+:revdate: 27.01.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+
+This post summarises the second section of the Department for Communities and
+https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Local
+Government Local Government Transparency Code 2015]. The document is split into
+3 parts with 3 related Annexes
+
+include::partial$blog1.adoc[]
+
+== Part 3 : Aspirations
+
+Part II sets out the minimum standards, Part III sets out aspirations
+
+[quote, Part 3, Section 56]
+____
+The Government believes that in principle all data held and managed by local authorities should be made available to local people unless there are specific sensitivities to doing so. Therefore, it encourages local authorities to go much further in publishing the data they hold, recognising the benefits of sharing that data for local people, more effective service delivery and better policy making. Part 3 of this Code sets out details of data that the Government recommends local authorities publish. 
+____
+
+[%header,cols="1,1,3",stripes=even]
+|===
+| Report | Frequency | Aspiration
+| Expenditure exceeding £500	
+| Quarterly	
+| monthly over £250, all corporate credit & charge cards, total amount spent on remunerations, classify expenditure using Chartered Institute of Public Accountancy Service Reporting Code of Practice to enable comparability between authorities.
+
+| Government Procurement Card Transactions
+| Quarterly
+| a/a
+
+| Procurement information
+| Quarterly
+| Information to be published on Contracts Finder as well as any local portal. Report to be published monthly or even real time, threshold value to be reduced to £500, invitations to quote where no formal tender, company numbers, upcoming tenders/quotes next 12 months, geographical detail, by ward, detail performance by KPI, more detail on voluntary/community category
+
+| Local authority land
+| Yearly
+| monthly or real time and should publish on https://www.gov.uk/guidance/government-property-unit-electronic-property-information-mapping-service[e-PIMS]. 8 further enhancements are suggested, eg size, services, reason for holding etc
+
+| Social housing asset value
+| Yearly
+| -
+
+| Grants to voluntary, community and social enterprise organisations
+| Yearly
+| monthly, real time, more detail on voluntary/community category
+
+| Organisation chart
+| Yearly
+| all employees whose salary > £50000, salary band, information about current, future vacant posts,
+
+| Trade union facility time
+| Yearly
+| -
+
+| Parking account
+| Yearly
+| -
+
+| Parking spaces
+| Yearly
+| free spaces in authority area, charged parking spaces provided by authority
+
+| Senior salaries
+| Yearly
+| -
+
+| Constitution
+| Yearly
+| -
+
+| Pay multiple
+| Yearly
+| -
+
+| Fraud
+| Yearly
+| total investigated, total fraud identified, total monetary value detected and recovered
+
+| Waste contracts
+| Only Once
+| -
+|===
+
+A five step journey to fully open format
+
+* One star – Available on the web (whatever format) but with an open license
+* Two star – As for one star plus available as machine-readable structured data (eg.Excel instead of an image scan of a table)
+* Three star – As for two star plus use a non-proprietary format (eg.CSV and XML)
+* Four star – All of the above plus use open standards from the World Wide Web Consortium (such as RDF and SPARLQL21)
+* Five star – All the above plus links an organisation’s data to others’ data to provide context 
+
+The Code was written by Shehla Husain and dated 27th February 2015
