@@ -66,7 +66,7 @@ I decided to arbitrarily score each of the authorities for ease of use and acces
 
 [format="csv", options="header"]
 |===
-include::lancashire-council-scores.csv[]
+include:lancashirecouncil-scores.csv[]
 |===
 
 
