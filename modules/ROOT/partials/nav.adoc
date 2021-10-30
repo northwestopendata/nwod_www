@@ -1,3 +1,2 @@
-.What's HERE
-* xref:beginnings.adoc[]
-* xref:TransparencyCodePt1.adoc[]
+.Home
+* xref:index.adoc[Home]

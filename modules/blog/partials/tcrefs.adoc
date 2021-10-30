@@ -7,10 +7,10 @@
 * https://www.local.gov.uk/our-support/guidance-and-resources/data-and-transparency/local-transparency-guidance[Local Transparency Guidance], Local Government Association
 * https://www.local.gov.uk/our-support/guidance-and-resources/data-and-transparency/better-use-data/data-and-standards[Data and Standards Training Modules], Local Government Association
 * https://www.local.gov.uk/our-support/guidance-and-resources/data-and-transparency[Data and Transparency], Local Government Association
-* https://www.local.gov.uk/sites/default/files/documents/publishing-data-general-g-2b0.pdf[Local Government Association – General Guidelines]
-* https://www.local.gov.uk/sites/default/files/documents/publishing-spending-and-p-485.pdf[Local Government Association – Spending and Procurement Guidelines]
-* https://www.local.gov.uk/sites/default/files/documents/publishing-organisation-i-faa.pdf[Local Government Association – Organisation Guidelines]
-* https://www.local.gov.uk/sites/default/files/documents/publishing-land-and-socia-6d5.pdf[Local Government Association – Land, Assets, Social Housing and Parking Guidelines]
+* https://www.local.gov.uk/sites/default/files/documents/publishing-data-general-g-2b0.pdf[General Guidelines],Local Government Association
+* https://www.local.gov.uk/sites/default/files/documents/publishing-spending-and-p-485.pdf[Spending and Procurement Guidelines],Local Government Association
+* https://www.local.gov.uk/sites/default/files/documents/publishing-organisation-i-faa.pdf[Organisation Guidelines],Local Government Association
+* https://www.local.gov.uk/sites/default/files/documents/publishing-land-and-socia-6d5.pdf[Land, Assets, Social Housing and Parking Guidelines],Local Government Association
 * https://ico.org.uk/media/for-organisations/documents/1061/anonymisation-code.pdf[Anonymisation Code], Information Commissioner’s Office
 
 
