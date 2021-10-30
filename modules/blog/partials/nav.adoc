@@ -1,3 +1,5 @@
-.What's HERE
-* xref:beginnings.adoc[]
-* xref:TransparencyCodePt1.adoc[]
+.Blog Posts
+* 2020 January
+** xref:transparency-code-ii.adoc[]
+** xref:transparency-code-i.adoc[]
+** xref:beginnings.adoc[]

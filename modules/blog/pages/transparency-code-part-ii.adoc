@@ -1,0 +1,260 @@
+= Transparency Code Part 2
+
+:author: NorthwestOpenData
+:revdate: 22.01.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+
+This post summarises the second section of the Department for Communities and
+https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Local
+Government Local Government Transparency Code 2015]. The document is split into
+3 parts with 3 related Annexes
+
+include::partial$blog1.adoc[]
+
+== Part 2 : Information which must be published
+
+=== Information to be published quarterly
+
+==== Expenditure exceeding £500
+
+This includes
+
+* invoices
+* grant payments
+* expense payments
+* payments for goods and services
+* grants
+* grants in aid
+* rent
+* credit notes
+* transactions with other public bodies
+
+Staff salary should not be included but the following should be included either here or under contract information
+
+* individual contractors/consultants
+* employment agencies
+* direct personal contracts
+* personal service companies etc
+
+The following data must be published
+
+* date the expenditure was incurred
+* relevant local authority department
+* beneficiary
+* summary of purpose
+* amount
+* VAT that cannot be reclaimed
+* merchant category (eg. computers, software etc)
+
+==== Government Procurement Card Transactions
+
+Government Procurement Cards(GPC) issued under a procurement framework owned by the Crown Commercial Service. The GPCs are used by Government as a payment card, not a credit card, and is a secure and controlled method of purchasing and paying for low value goods or services where it is used alongside other purchasing tools and processes. The following data is required
+
+* date of transaction
+* relevant local authority department
+* beneficiary
+* amount
+* VAT that cannot be reclaimed
+* summary of purpose
+* merchant category
+
+==== Procurement Information
+
+Details of invitation to tender for contracts for goods, staff and services that exceed £5000. The following must be published
+
+* reference number
+* title
+* description of goods/services
+* start date
+* end date
+* review date
+* local authority department
+
+Local authorities must also publish details of any contract(including consultancy), commissioned activity, purchase order,framework agreement or any legally enforcible agreement that exceeds £5000. The following must be published
+
+* reference number
+* title
+* local authority departmment
+* description of goods or services
+* supplier name and details
+* sum to paid over length of contract or estimated anual spending
+* VAT not recoverable
+* start date
+* end date
+* review date
+* was contract ‘invitation to quote’ or a ‘published invitation’
+* size of supplier, eg small or medium enterprise, voluntary or community organisation, provide company number or charity registration number
+
+=== Information to be published annually
+
+* Except for social housing the data must be published within a period of one year from the last publishing date and not later than one month after the due publishing date.
+* Social housing should be published every year in April
+
+==== Local Authority Land
+
+Land and building assets, must include
+
+* service and office properties, freehold and leasehold
+* properties occupied or run under PFI contracts
+* properties they own or use, hostels, laboratories, investment properties and depots
+* garages unless rented as part of a housing tenancy agreement
+* surplus, sublet or vacant properties
+* undeveloped land
+* serviced or temporary offices where contractual or actual occupation exceeds 3 months
+* all future commitments eg lease agreements
+
+Information to be excluded
+
+* rent free properties provided by trader
+* operational railways and canals
+* operational public highways
+* assets of national security
+* information deemed inappropriate for public access due to data protection issues(eg refuge houses)
+
+Social housing should not be published in this dataset, however value of social housing should appear in the social housing asset value dataset.
+
+The following information should be published for each asset
+
+* https://www.ordnancesurvey.co.uk/business-government/tools-support/uprn[Unique Property Refernce Number](UPRN), a unique 12 digit number assigned to every asset recorded by local government, this is a statutary requirement.
+* Unique asset identity, aka ‘local name’ or ‘building block’
+* name of building/land
+* street number(s), if more than one number separate with ‘-‘ (eg 10-15 London Rd)
+* street name
+* post town
+* postcode
+* map reference – https://en.wikipedia.org/wiki/Ordnance_Survey_National_Grid[OS grid reference] or https://en.wikipedia.org/wiki/ISO_6709[ISO 6709] system
+* for freehold properties
+** occupied by local authority
+** ground leasehold
+** leasehold
+** licence
+** vacant ( if so not to publish address or map refernce, only first part of postcode)
+* for leasehold properties
+** occupied by local authority
+** ground leaseshold
+** sub leasehold
+** licence
+* for other assets
+** free text description
+
+==== Social Housing Asset Value
+
+All housing stock held are required to account for expenditure and income in a seperate account called the Housing Revenue Account, this is the data that must be published. The following data must be published
+
+* valuation listed at a postal code level without indicating individual dwelling values
+* valuation using ‘Existing Use Value for Social Housing’ and market value as at 1st April
+* an explanation of the difference and an assurance that this information is not to suggest tenancies should be terminated to realise market value
+
+The following format should be adhered to
+
+* at the postal sector level a defined set of bands defined in a table
+* ensure that any band falls within band parameters(ie not top value)
+* care required in top and bottom bands as properties will be few and risk of disclosure is an issue
+* each postal sector the data should indicate
+** number of dwellings
+** aggregate vale of dwellings, mean value using both ‘Existing Use Value for Social Housing’ and market value
+** Percent occupied and vacant
+* valuations for both tenanted and vacant properties
+* An example of how the data should be presented is provided in annex C
+
+==== Grants to voluntary, community and social enterprise organisations
+
+This may be done via tagging expenditure on the ‘expenditure over £500’ dataset or published ‘procurement’ information or publishing a separate dataset. Fo each grant giventhe following minimum information must be published
+
+* date of award
+* time period for grant
+* awarding department
+* beneficiary
+* beneficiary id number (eg charity or company number)
+* amount
+
+==== Organisation Chart
+
+An organogram^1^ covering top 3 tiers and exclude staff whose salary < £50,000, the following should be included
+
+* grade
+* job title
+* department and team
+* permanent/temporary
+* contact details
+* salary in £5000 brackets, consistent with Senior Salaries dataset
+* max salary for grade
+
+(1). The Local Government Guidance actually specifies a list(.csv) rather than a chart
+
+==== Trade union facility time
+
+The following trade union facility time should be reported
+
+* number of union representatives
+* number of union representatives who devote at least 50% of their time to union dutiess
+* name of all union representatives
+* basic estimate of spending on unions
+** FTE days x average salary
+* basic estimate of spending on unions as a percentage of total pay bill
+** (FTE days x average salary) / total pay bill
+
+==== Parking Account
+
+Local authorities must publish on their website, or a link to the data if published elsewhere
+
+* breakdown of income/expenditure on authority’s parking account, the breakdown must include revenue form on/off street parking and Penaly Charge Notices
+* a breakdown of how the authority spent the surplus
+
+==== Parking Spaces
+
+Local authorities must publish
+
+* number of marked out controlled on/off street spaces
+* if they are not maked out an estimate should be provided
+
+==== Senior Salaries
+
+Local authorites are already required by http://www.legislation.gov.uk/uksi/2015/234/contents/made[Accounts and Audit Regulations 2015] to publish the following
+
+* number of employees whose remuneration was at least £50,000 in that year in brackets of £5000
+* details of remuneration and job title of senior employees whise salary is at least £50,000
+* employees whose slaries exceed £150,000 must be identified by name
+
+In addition to the above the local authority must provide the following for all employees whose salary exceeds £50,000
+
+* responsibilities
+** services and functions
+** budget held
+** number of staff
+* bonuses and ‘benefits in kind’
+
+==== Constitution
+
+Required under http://www.legislation.gov.uk/ukpga/2000/22/contents[Local Govenment Act 2000] and this Code
+
+==== Pay Multiple
+
+The http://www.legislation.gov.uk/ukpga/2011/20/contents/enacted[Localism Act 2011] requires local authorities to produce Pay Policy Statements. This Code defines the calculation that they should publish, it will be the ratio between the highest paid taxable earnings and the median earnings of the entire authority’s workforce
+
+* cover all elements of remuneration that can be valued, includes all taxable earnings, including base salary, variable pay, bonuses, allowances and cash value of any ‘benefit in kind’
+* the median earnings figure will be the denominator, this will of all authority employees an a fixed date each year coinciding with reporting at the end of the financial year
+* exclude pension benefits
+
+==== Fraud
+
+Loacal authorities must publish information about counter fraud work
+
+* number of occasions they use ters
+* number (absolute and FTE) of employees undertaking investigations and prosecution
+* number (absolute and FTE) of professionally accredited counter fraud specialists
+* total amount spent on investigation and prosecution
+* number of fraud cases investigated
+
+=== Information to be published only once
+
+==== Waste Contracts
+
+Details of existing waste collection contracts as per Procurement Information specification
+
+=== Method of publication
+
+In a format and under a licence that allows open reuse to maximise value to the public. Most recent OGL as published by the National Archive should be used. Data *must* be published in open and machine readable formats.
