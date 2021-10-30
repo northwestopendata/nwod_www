@@ -1,0 +1,69 @@
+= Url Hunting in Lancashire
+
+:author: NorthwestOpenData
+:revdate: 12.06.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::Rock-Art.png[]
+
+== Introduction
+
+As a first step in building a multi authority ‘Expenditure’ data set I decided
+to conduct a pilot(full project aim xref:next-steps[here]). I selected all the local authorities
+in Lancashire, this gave me 14 separate websites to trawl and download .csv
+files covering January 2019 to 2020.
+
+[stripes=even]
+|===
+| West Lancashire Borough Council   | 	Chorley Council
+| South Ribble Borough Council      | 	Fylde Council
+| Preston City Council              | 	Wyre Council
+| Lancaster City Council            | 	Ribble Valley Borough Council
+| Pendle Borough Council            | 	Burnley Borough Council
+| Rossendale Borough Council        | 	Hyndburn Borough Council
+| Blackpool Council	                |   Blackburn with Darwin Council
+|===
+
+I think I naively assumed there would be some standards in place to help
+facilitate the downloading of multiple files from different sites such as
+
+* A standard location for open data downloads
+* A naming standard for data set files
+
+Ideally I was hoping to use something like this piece of pseudo code
+
+[source, bash]
+----
+#!/bin/bash
+local_authorities='https://www.westlancs.gov.uk \
+    https://chorley.gov.uk https://www.southribble.gov.uk \
+    https://new.fylde.gov.uk https://www.preston.gov.uk \
+    https://www.wyre.gov.uk https://www.lancaster.gov.uk \
+    https://www.ribblevalley.gov.uk https://www.pendle.gov.uk \
+    https://www.burnley.gov.uk https://www.rossendale.gov.uk \
+    https://www.hyndburnbc.gov.uk https://www.blackpool.gov.uk \
+    https://www.blackburn.gov.uk'
+months='january february march april may june july august september \
+    october november december'
+
+for la in ${local_authorities}
+do
+    directory=$(echo ${la} | awk -F'//' '{print $2}' \
+        | sed 's/www.//' | sed 's/.gov.uk//' | sed 's/new.//')
+    mkdir ${directory}
+    for m in ${months}
+    do
+        curl -o ${directory}/${m}_2019.csv \
+        ${la}://open-data/expenditure-over-250/${m}_2019.csv
+    done
+done
+----
+
+== Expectation Meets Reality
+I decided to arbitrarily score each of the authorities for ease of use and access to the data primarily with a view to automating download of the relevant CSV files. Here’s the results
+
+
+chart::lancashire-council-scores.csv[bar,800,500]
+

@@ -1,4 +1,4 @@
-= image:nwod.png[70,70] North West Open Data
+= image:nwod.png[80,80] North West Open Data
 
 :author: NorthwestOpenData
 :revdate: 29.10.2021
