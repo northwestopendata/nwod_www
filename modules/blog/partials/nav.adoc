@@ -1,9 +1,9 @@
 .Blog Posts
 * 2020 June
 * 2020 January
-** xref:next-steps.adoc[Next Steps]
-** xref:transparency-code-iii.adoc[Transparency Code Part 3]
-** xref:transparency-code-ii.adoc[Transparency Code Part 2]
-** xref:a-quick-look-at-dec-2019-ae-data.adoc[December 2019 A&E Data]
-** xref:transparency-code-i.adoc[Transparency Code Part 1]
-** xref:beginnings.adoc[Beginnings]
+** xref:blog:next-steps.adoc[Next Steps]
+** xref:blog:transparency-code-iii.adoc[Transparency Code Part 3]
+** xref:blog:transparency-code-ii.adoc[Transparency Code Part 2]
+** xref:blog:a-quick-look-at-dec-2019-ae-data.adoc[December 2019 A&E Data]
+** xref:blog:transparency-code-i.adoc[Transparency Code Part 1]
+** xref:blog:beginnings.adoc[Beginnings]
