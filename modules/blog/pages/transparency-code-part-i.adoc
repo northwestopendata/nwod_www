@@ -12,7 +12,7 @@ https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attac
 Government Local Government Transparency Code 2015]. The document is split into
 3 parts with 3 related Annexes
 
-include::partial$blog1.adoc[]
+include::partials$blog1.adoc[]
 
 == Part 1 : Introduction
 
@@ -169,4 +169,4 @@ latest list can be found on the
 https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/979251/Single_Data_List_2021-22.pdf[The
 Single Data List].
 
-include::partial$tcrefs.adoc[]
+include::partials$tcrefs.adoc[]
