@@ -3,7 +3,7 @@
 * 2020 January
 ** xref:next-steps.adoc[]
 ** xref:transparencycodepart_iii.adoc[]
-** xref:transparencycodepart_iii.adoc[]
-** xref:aquicklookatdec2019ae-data.adoc[]
+** xref:transparencycodepart_ii.adoc[]
+** xref:aquicklookatdec2019ae-data.adoc[December 2019 A&E Data]
 ** xref:transparencycodepart_i.adoc[]
 ** xref:beginnings.adoc[]

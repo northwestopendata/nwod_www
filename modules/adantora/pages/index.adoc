@@ -1,0 +1,8 @@
+= Some notes on coverting a WordPress site to asciidoctor and Antora
+
+== Quick Checklist
+
+
+== Issues
+
+. File names with multiple '-' or '_'
