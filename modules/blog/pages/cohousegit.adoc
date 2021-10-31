@@ -6,7 +6,7 @@
 
 _Posted : {revremark} : {revdate} - {author}_
 
-image::CoHouse.png[]
+image::CoHouseLite.png[]
 
 The last two weeks in summary…
 
@@ -52,4 +52,4 @@ shouldn’t be that difficult.
 
 CoHouseLite and ProClass datasets can be found on GitHub.
 
-https://github.com/northwestopendata/lgtc_refdata
+* https://github.com/northwestopendata/lgtc_refdata
