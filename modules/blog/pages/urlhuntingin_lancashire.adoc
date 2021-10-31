@@ -69,6 +69,8 @@ I decided to arbitrarily score each of the authorities for ease of use and acces
 
 image::NWOD_Usability_Score.png[]
 
+You can find a spreadsheet I used to score the councils https://docs.google.com/spreadsheets/d/1RRfOYQ87EL4sOIKPaz3rvOcGt1sqf-wN5TyJh5xJbfM/edit?usp=sharing[here]
+
 Councils were scored on the following features
 
 * *Landing Page*  – Is there a Spending landing page, generally there was,
