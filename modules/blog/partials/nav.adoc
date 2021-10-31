@@ -1,5 +1,6 @@
 .Blog Posts
 * 2020 June
+** xref:urlhuntingin-lancashire.adoc[]
 * 2020 January
 ** xref:next-steps.adoc[]
 ** xref:transparencycodepart_iii.adoc[]
