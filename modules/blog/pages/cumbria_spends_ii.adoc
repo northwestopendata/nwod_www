@@ -10,7 +10,7 @@ image::sean-thoman-unsplash.jpg[]
 
 == Update
 
-I made a couple of changes form the xref:cumbria_spends_ii.adoc[last post] 
+I made a couple of changes form the xref:cumbria_spends_i.adoc[last post] 
 regarding the Cumbrian spend data. I recreated the council specific staging 
 tables and added two leading columns.
 
@@ -65,17 +65,17 @@ The table columns are defined below
 .organisation_expenditure_v1
 [%header,cols="1,1,1,3"]
 |===
-| Column Number | 	Column Name	 | Data Type | 	Description
-| 1	nwod_id_uri_code | 	varchar	 | ONS district code. eg E07000026 for Allerdale
-| 2	nwod_id | 	int | 	The auto generated row number from the council staging table, used for quick look ups of the original non aggregated data rows
-| 3	org_short_name | 	varchar	 | single word name for a council
-| 4	org_directorate | 	varchar	 | Directorate, service or department where an expense ocurred
-| 5	service_category | 	varchar	 | A high level category for the spend. CIPFA SerCOP objective category label
-| 6	beneficiary_name | 	varchar	 | Recipient of the spend
-| 7	payment_date | 	date | 	The payment date as recorded in the department's purchase or general ledger (yyyy-mm-dd)
-| 8	amount | 	numeric | 	The actual value of the payment net of recoverable VAT
-| 9	purpose_of_spend | 	varchar | 	Description of the purpose of the expenditure
-| 10	merchant_category | 	varchar | 	General headings that describe the nature of expenditure, for example, computers, software etc.)/Common Procurement Vocabulary(CPV) category of spend or Proclass label
+| Column Number | Column Name | Data Type | Description
+| 1	| nwod_id_uri_code    | varchar | ONS district code. eg E07000026 for Allerdale
+| 2	| nwod_id             | int     | The auto generated row number from the council staging table, used for quick look ups of the original non aggregated data rows
+| 3	| org_short_name      | varchar | single word name for a council
+| 4	| org_directorate     | varchar | Directorate, service or department where an expense ocurred
+| 5	| service_category    | varchar | A high level category for the spend. CIPFA SerCOP objective category label
+| 6	| beneficiary_name    | varchar | Recipient of the spend
+| 7	| payment_date        | date    | The payment date as recorded in the department's purchase or general ledger (yyyy-mm-dd)
+| 8	| amount              | numeric | The actual value of the payment net of recoverable VAT
+| 9	| purpose_of_spend    | varchar | Description of the purpose of the expenditure
+| 10| merchant_category   | varchar | General headings that describe the nature of expenditure, for example, computers, software etc.)/Common Procurement Vocabulary(CPV) category of spend or Proclass label
 |===
 
 To get the data into the main aggregated table I created a population SQL file
@@ -393,16 +393,16 @@ from organisation_expenditure_v1 group by org_short_name;
 == Conclusions
 Clearly this aggregated data set has some issues with respect to cross council comparisons. To review the columns
 
-* * nwod_id_uri_code*  – Created as part of the load
-* * nwod_id*  – Created as part of the load, provides a quick look up to the original staging table
-* * org_short_name*  – Created as part of the load
-* * org_directorate*  – No consistent cross council data
-* * service_category*  – There may be a possibility of creating a look up table to create a dozen or so broad divisions
-* * beneficiary_name*  – A lot of the problems described here could be fixed, eg make all the values upper case, change all ‘LIMITED’ to LTD, normalise all names etc
-* * payment_date*  – Quite good data
-* * amount*  – Quite good data, may have to consider limiting all data sets to +/- £500
-* * purpose_of_spend*  – This is largely free text, useful for looking at specific items rather than cross council analysis
-* * merchant_category*  – No data provided
+* *nwod_id_uri_code*  – Created as part of the load
+* *nwod_id*  – Created as part of the load, provides a quick look up to the original staging table
+* *org_short_name*  – Created as part of the load
+* *org_directorate*  – No consistent cross council data
+* *service_category*  – There may be a possibility of creating a look up table to create a dozen or so broad divisions
+* *beneficiary_name*  – A lot of the problems described here could be fixed, eg make all the values upper case, change all ‘LIMITED’ to LTD, normalise all names etc
+* *payment_date*  – Quite good data
+* *amount*  – Quite good data, may have to consider limiting all data sets to +/- £500
+* *purpose_of_spend*  – This is largely free text, useful for looking at specific items rather than cross council analysis
+* *merchant_category*  – No data provided
 
 I think the next step will be to try and make some of the ‘improvements’
 outlined above and start thinking about some of the information that can be
