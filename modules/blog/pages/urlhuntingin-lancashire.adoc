@@ -11,7 +11,7 @@ image::Rock-Art.png[]
 == Introduction
 
 As a first step in building a multi authority ‘Expenditure’ data set I decided
-to conduct a pilot(full project aim xref:blog:next-steps[here]). I selected all the local authorities
+to conduct a pilot(full project aim xref:next-steps[here]). I selected all the local authorities
 in Lancashire, this gave me 14 separate websites to trawl and download .csv
 files covering January 2019 to 2020.
 
@@ -25,6 +25,8 @@ files covering January 2019 to 2020.
 | Rossendale Borough Council        | 	Hyndburn Borough Council
 | Blackpool Council	                |   Blackburn with Darwin Council
 |===
+
+== How Hard Can This Be...
 
 I think I naively assumed there would be some standards in place to help
 facilitate the downloading of multiple files from different sites such as
@@ -62,11 +64,196 @@ done
 ----
 
 == Expectation Meets Reality
+
 I decided to arbitrarily score each of the authorities for ease of use and access to the data primarily with a view to automating download of the relevant CSV files. Here’s the results
 
-[format="csv", options="header"]
-|===
-include::lancashirecouncil-scores.csv[]
-|===
+image::NWOD_Usability_Score.png[]
 
+Councils were scored on the following features
 
+* *Landing Page*  – Is there a Spending landing page, generally there was,
+ some authorities had this in their ‘Finance’ section of the website rather
+ than the Open Data area. Blackburn and Darwin Council had a “DataShare” page,
+ more of this later
+* *License* * – Is there notification of the terms of the release of the data 
+ ie http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/[OGL3.0]. 
+ Only half the authorities complied with this requirement.
+* *Metadata Description*  – Is there a technical description of the data
+ enclosed in the download files. 10 councils had no metadata description, 3
+ had some information and Pendle Borough Council was the only council to
+ provide a full description of their data.
+* *E-mail Contact* – Is there a contact for further queries regarding the data.
+ Six councils had no contact details.
+* *Archiving* – Is there a full archive of old files available, is this in the
+ same area or are there links to and archive area, is there a retention policy
+ in place.
+* *File Name* – How consistent is the CSV file name, across councils this
+ varied from terrible to good, Blackpool, Pendle Borough and Ribble Valley
+ Borough Councils were good, Hyndburn Borough Council was terrible.
+* *File Formats Available* – Four formats where available across all councils,
+ CSV, PDF, XLS, XML or JSON, most councils offering two types. The most common
+ pairing was CSV and PDF. Three sites didn’t offer CSV files, (Fylde, Preston
+ City and Rossendale). I considered this the most important requirement and
+ consequently these councils appear in the bottom 3 of my scorecard.
+* *Data Frequency* – Either Quarterly or Weekly, see below
+* *Spend Threshold* – Either £500 or £250
+* *Latest File* – How up to date the latest file is, this varied from 6
+ months(West Lancashire) to 5 authorities who reported monthly doing so
+ correctly ie one month behind inspection month
+* CSV File Directly Downloadable* – Is the download url for the file(s)
+ available in the landing page or do you have to construct a path to a
+ download area. 2 councils(Chorley and Blackpool) had ‘aspx’ pages that were
+ unreadable when downloaded via curl. I had to manually us https://data-miner.io/[DataMiner] 
+ to extract the urls. Hyndburn Borough Council files had no extension to indicate
+ whether they were CSV or PDF and an unhelpful naming standard.
+
+== Issues
+
+There is a large variation in how, where and what format is presented by the 14
+councils, it’s important to note that no file has yet been opened to verify the
+data for completeness or accuracy. In the https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Local Government Transparency Code
+2015] key document no real mention as to the ‘how’ and ‘where’ this data should
+be made available however the Local Government Association does provide some
+guidance in the following document
+
+* https://www.local.gov.uk/sites/default/files/documents/publishing-data-general-g-2b0.pdf[Local transparency guidance – publishing data]
+
+While the data may be presented in a consistent way for local human customers
+the lack of any cross authority standards impedes the download and analysis of
+data comparing councils or attempting to aggregate data in any programmatic
+manner. I’m going to review 4 key areas where the spend (or any other
+transparency) data could be presented in a more standardised way.
+
+=== Landing page
+
+[quote, (2020). Retrieved 11 June 2020, from https://www.local.gov.uk/sites/default/files/documents/publishing-data-general-g-2b0.pdf]
+____
+_You may wish to create a dedicated open data page or section on the
+authority’s website, for example www.yourauthority.gov.uk/opendata to publish
+your information._
+____
+
+Only Blackpool Council appeared to have adopted this approach, their files were
+located in the following location
+
+`Your-Council/Transparency-and-open-data/Documents/Spending/20192020/`
+
+Even here there are too many directories, if files are named correctly
+‘Documents/Spending/FinancialYear’ are superfluous. Most authorities seem to
+use some Content Management System that gives rise to these sort of directory
+structures
+
+`download/downloads/id/12413/`
+
+Spend data is frequently located in the ‘Finance’ section of the website away
+from other open data offerings.
+
+Spend files located at different levels in the directory hierarchy.
+
+=== File Names
+
+[quote, (2020). Retrieved 11 June 2020, from https://www.local.gov.uk/sites/default/files/documents/publishing-data-general-g-2b0.pdf]
+____
+_Files should be named in a consistent manner with the date included in the file
+name. Each file name should be unique. The name should avoid spaces and
+characters other than A to Z, 0 to 9, underline (_) and hyphen (-)._
+____
+
+Problems in this area include
+
+* Inconsistent name standards
+* Ascii encoded illegal URL characters eg `%20`
+* No file extension eg `-csv` not `.csv`
+* Spaces in filenames
+* Using link pointers in pages eg `wpdmdl=7366&ind=22yFlnI0e1D5_FTDazU4DHjmd130OHTyxWKhdnRDZ3A`
+* Filenames that don’t support subsequent versions
+
+=== File Formats
+
+[quote, (2020). Retrieved 11 June 2020, from https://www.local.gov.uk/sites/default/files/documents/publishing-data-general-g-2b0.pdf]
+____
+_This means that data should be published in machine readable, non-proprietary
+formats such as CSV or XML files. Excel (XLS or XLSX) is a software proprietary
+format and cannot be uniformly read by any software, whereas CSV and XML are
+widely accessible._
+____
+
+CSV is the absolute minimum basic format required for spending data, there is
+no excuse for not offering files in this format. Fylde, Preston City and
+Rossendale Borough Councils offer Excel files instead.
+
+=== Data Frequency and Thresholds
+In the
+https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Local
+Government Transparency Code 2015] document it sets out aspirations for
+spending data publication. I covered these aims in
+xref:transparencycodepart_iii[this post]. It is now 5 years since that document
+was published and 5 councils are still only producing quarterly data and 7 are
+producing spend data over £500. I would have expected all councils would now be
+producing monthly over £250 data sets.
+
+A further problem arises with respect to quarterly data in that it may be occur
+in files with a quarter number in the file name eg
+`spending-over-500-q3-2018-19-csv.csv`, clearly from this file the quarter
+numbers refer to a ‘financial year’ not a calendar year. This adds further
+difficulties and externally a financial year span may not be known and a search
+for a specific time period is further complicated. Where quarters are reported
+‘calendar year’ quarters should be used and ideally all councils should move to
+a monthly reporting interval.
+
+== Web based access
+Blackburn with Darwin Council have taken a different approach to presenting
+data on their website.
+
+[quote, Data Transparency: data sets . (2020). Retrieved 11 June 2020, from http://mybins.blackburn.gov.uk/Pages/Data-Transparency-data-sets.aspx?CurrentTermId=4a212867-2267-4b7e-ba61-3728d239e549]
+___
+_Data Transparency: data sets . (2020). Retrieved 11 June 2020, from
+http://mybins.blackburn.gov.uk/Pages/Data-Transparency-data-sets.aspx?CurrentTermId=4a212867-2267-4b7e-ba61-3728d239e549_
+
+The interface looks like this
+
+image::Datashare.png[]
+
+Potentially this is an interesting approach, I think there is at least one
+other council in the North West that has taken this route. Pressing the
+‘Download’ button will produce a CSV file and separate ‘Download’ page is
+available but will only allow you to download a consolidated file.
+Unfortunately the API will only allow XML and JSON format. What appears to be a
+promising approach to deal with customer needs fails to help scripted downloads
+of CSV files. I did spend a short period of time looking at the API
+documentation but seemed to run into alot of errors. It’s interesting to
+speculate on the reasoning for this approach when the Government and Local
+Government Guidance documents/requirements take an entirely different
+methodology.
+
+== Wishlist
+
+I’ve compiled a http://northwestopendata.org.uk/my_html/UiL_full_url_list.html[list of available CSV files] from 13 Lancashire councils to give
+a flavour of the variance. Here’s a short list of items I would like to see
+addressed to ease the rather chaotic situation I’ve described above. Obviously
+this would need some cross council coordination to define standards but the
+benefits for open data users and indeed the councils themselves would be worth
+the initial work.
+
+* If your council is reporting quarterly, change to monthly now.
+* Create a high level open data directory `DOC_ROOT/opendata`
+* Relocate all your open data files here and rename them to a universal naming standard eg.
+
+[source]
+----
+lgtc_expenditure_2020_jun-1.csv
+--+- ------+---- -+-- -+- - -+-
+  |        |      |    |  |   |
+  |        |      |    |  |   +---- file extension to identify contents
+  |        |      |    |  +-------- version number
+  |        |      |    +----------- abbreviated month name (%b from 'date')
+  |        |      +---------------- year (YYYY)
+  |        +----------------------- report data type
+  +-------------------------------- legislation or document under which 
+                                    data is released
+----
+
+* Create a simple index.html page listing all files in report type listings<li>
+for human use, this can be automated.
+* Review the archiving processes and consider keeping aged out files available for future use.
+* Review council procedures against Local transparency guidance – publishing data
