@@ -207,9 +207,9 @@ Allerdale Council produced files with alot of empty fields per line, each line
 had 20 odd commas at the end, representing empty cells in the spreadsheet
 presumably. These were removed with search and replace in ‘vi‘
 
-[source,bash]
+[source]
 ----
-Name,Sub Group,Service Area\'s,Expense Type,Narrative,Date,Transaction Number,Amount,Supplier Name,Supplier Ref,Period,Year,,,,,,,,,,,,,,,,,,,,,,
+Name,Sub Group,Service Areas,Expense Type,Narrative,Date,Transaction Number,Amount,Supplier Name,Supplier Ref,Period,Year,,,,,,,,,,,,,,,,,,,,,,
 ----
 
 Carlyle Council’s March file had 522 empty rows, I removed these in the database.
@@ -227,7 +227,7 @@ $ ../scripts/check_csv.sh *payments*.csv | grep Min
 Min cols : 15
 Min cols : 15
 Min cols : 15
-Min cols : 17
+Min cols : 17           <1>
 Min cols : 15
 Min cols : 15
 Min cols : 15
@@ -237,6 +237,7 @@ Min cols : 15
 Min cols : 15
 Min cols : 15
 ----
+<1> One file has 17 columns
 
 The payments-to-suppliers-over-250-february-2019.csv file had an extra 2 columns. I compared Row 1 between the February and the March CSV files.
 
@@ -302,7 +303,10 @@ database that shows number of records per day of month.
 
 [source,bash]
 ----
-spends=# select date_part('day',payment_date),count(*) from eden_spend_2019 group by date_part('day',payment_date) order by date_part('day',payment_date);
+spends=# select date_part('day',payment_date),count(*) 
+from eden_spend_2019 
+group by date_part('day',payment_date) 
+order by date_part('day',payment_date);
  date_part | count
 -----------+-------
          1 |    50
@@ -332,12 +336,13 @@ spends=# select date_part('day',payment_date),count(*) from eden_spend_2019 grou
         25 |    32
         26 |    38
         27 |    35
-        28 |   224
+        28 |   224 <1>
         29 |    64
         30 |    52
         31 |    28
 (31 rows)
 ----
+<1> Distorted distribution of 28th count
 
 == Conclusions & Next Steps
 Actually this proved to be a little easier than I expected, there were no real
