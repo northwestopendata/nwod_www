@@ -6,7 +6,7 @@
 
 _Posted : {revremark} : {revdate} - {author}_
 
-include::examples$cumbria_infographic.pdf[]
+include::examples:cumbria_infographic.pdf[]
 
 * PDF also available on https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Google Drive]
 * Data available on https://github.com/northwestopendata/lgtc_nwod_data/tree/master/cumbria[GitHub]
