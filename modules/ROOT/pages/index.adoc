@@ -12,7 +12,7 @@ Nort West of England. The data is released under the https://www.gov.uk/governme
 * The Code is reviewed in the following blog posts xref:blog:transparencycodepart_i.adoc[Transparency Code Part 1], 
 xref:blog:transparencycodepart_ii.adoc[Part 2] and xref:blog:transparencycodepart_iii.adoc[Part 3]
 * The ease of downloading and and handling the files was looked at among Lancashire councils in xref:blog:urlhuntingin_lancashire.adoc[Url Hunting in Lancashire]
-* A detailed look at the Cumbrian spending data is covered in xref:cumbria_spends_i.adoc[Cumbria Spends : Database Import], xref:cumbria_spends_i.adoc[Cumbria Spends : Aggregation & Review]
+* A detailed look at the Cumbrian spending data is covered in xref:blog:cumbria_spends_i.adoc[Cumbria Spends : Database Import], xref:blog:cumbria_spends_i.adoc[Cumbria Spends : Aggregation & Review]
 
 
 
