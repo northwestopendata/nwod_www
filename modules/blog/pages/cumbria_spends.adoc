@@ -1,4 +1,4 @@
-= Cumbria Spends : Dattabase Import
+= Cumbria Spends : Database Import
 
 :author: NorthwestOpenData
 :revdate: 29.06.2020
@@ -52,14 +52,14 @@ Filetype : ASCII text
 
 This gave me an immediate ‘feel’ for the data in the file.
 
-* Filename – I could see how consistent the file naming standard was across the 12 files.
-* Row 1 – is usually the column descriptions of the data
-* Row 2 – is normally the first line of data
-* Max cols – the maximum number of columns found in all rows, awk would see a comma in a commented field as an extra column
-* Min cols – the minimum number of columns found in all rows
-* Tot recs – Total number of records, including header row
-* Sus recs – Number of records whose column count does not match the column count of the first row(the column description row)
-* Filetype – The output from the unix ‘file’ command
+* *Filename* – I could see how consistent the file naming standard was across the 12 files.
+* *Row 1* – is usually the column descriptions of the data
+* *Row 2* – is normally the first line of data
+* *Max cols* – the maximum number of columns found in all rows, awk would see a comma in a commented field as an extra column
+* *Min cols* – the minimum number of columns found in all rows
+* *Tot recs* – Total number of records, including header row
+* *Sus recs* – Number of records whose column count does not match the column count of the first row(the column description row)
+* *Filetype* – The output from the unix ‘file’ command
 
 I then wrote a https://www.postgresql.org/docs/9.6/sql.html[SQL] file to create a table and ran it into the PostgreSQL server
 in a newly created ‘spends’ database.

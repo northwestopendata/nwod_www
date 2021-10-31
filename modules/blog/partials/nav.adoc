@@ -1,4 +1,6 @@
 .Blog Posts
+* 2020 July
+** xref:cohousegit.adoc[CoHouse, GitHub...]
 * 2020 June
 ** xref:cumbria_spends.adoc[Cumbria Spends]
 ** xref:urlhuntingin_lancashire.adoc[]

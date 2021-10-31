@@ -1,0 +1,55 @@
+= CoHouseLite, GitHub, APIs and getting organised
+
+:author: NorthwestOpenData
+:revdate: 20.07.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::CoHouse.png[]
+
+The last two weeks in summary…
+
+== Pros
+
+* I’ve manually reviewed all company name data and resolved cross council
+mismatches and spelling mistakes for the six Cumbrian councils, reducing
+distinct companies from circa 3900 to circa 3100. Learning a lot of the common problems
+along the way
+* Got a handle on some of the council category information, parking that for the future.
+* Attended an https://www.opendatamanchester.org.uk/[Open Data Manchester] Pick ‘n’ Mix 
+session on APIs by https://twitter.com/r_solymosi[Reka Solymosi]. Which got me thinking 
+about data enrichment and reference data for working with expenditure data.
+* Started reorganising my scripts and data that I’ve collected and decided to put
+it on https://github.com/northwestopendata/lgtc_refdata[Github]. This includes 
+ihttps://github.com/northwestopendata/lgtc_refdata/tree/master/proclass_17[ProClass] 
+category data with an API over the CSV file via GitRows ( a great idea from 
+https://twitter.com/NicolasZimmer[Nicholas Zimmer]) at https://twitter.com/gitrows[GitRows].
+* Also included in the repo is https://github.com/northwestopendata/lgtc_refdata/tree/master/CoHouseLite[CoHouseLite]. 
+This is a subset of the full CH
+data set(`Company name, Number, Address, Category, Status and SICC code`). I’ve
+made this available as a single file for database import and a zip archive
+with 5 files split in 1,000,000 chunks which will probably be more useful for
+a spreadsheet/desktop application user.
+* Started writing a Company Name matching algorithm in SQL.
+* Thinking about other ways to enrich the spending dataset, the company name and
+number can link out to Companies House with Director names and Persons with
+Significant Control, but also company addresses which add a geographic element
+to maybe look at payment flows in and out of a council
+
+== Cons
+
+* Realised that of the expenditure data that I’ve collected for the six Cumbrian
+councils the only data I really trust is the date and amount of payment.
+* Started writing a Company Name matching algorithm in SQL.(It’s not easy and
+probably will never be 100% accurate)
+* Concluded that there’s a real problem with Category data in these data sets –
+this is released under the https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Local Government Transparency Code], it’s open data
+*but* some of the systems used are propriety, in fact there’s an eco system of
+companies working in this area that depend on it remaining so.
+* Coming to the conclusion that I’m spending a lot of time on this and it
+shouldn’t be that difficult.
+
+CoHouseLite and ProClass datasets can be found on GitHub.
+
+https://github.com/northwestopendata/lgtc_refdata
