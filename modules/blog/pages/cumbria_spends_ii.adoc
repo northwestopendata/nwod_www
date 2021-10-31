@@ -63,7 +63,7 @@ create table organisation_expenditure_v1
 The table columns are defined below
 
 .organisation_expenditure_v1
-[%header,cols="1,1,1,3"]
+[%header,cols="1,1,1,3",stripes=even]
 |===
 | Column Number | Column Name | Data Type | Description
 | 1	| nwod_id_uri_code    | varchar | ONS district code. eg E07000026 for Allerdale
