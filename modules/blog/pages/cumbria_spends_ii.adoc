@@ -1,0 +1,412 @@
+= Cumbria Spends : Aggregation & Review
+
+:author: NorthwestOpenData
+:revdate: 07.07.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::sean-thoman-unsplash.jpg[]
+
+== Update
+
+I made a couple of changes form the xref:cumbria_spends_ii.adoc[last post] 
+regarding the Cumbrian spend data. I recreated the council specific staging 
+tables and added two leading columns.
+
+[source]
+----
+nwod_id_uri_code - the council ONS code, eg E07000028
+nwod_id          - an auto incrementing identity value for the row
+----
+
+I also scripted the loads and did a full re-run of the tasks outlined
+previously. I’d emailed Copeland Borough Council and they got back to me very
+promptly with the two missing months CSV files. Eden District Council also got
+back to me with the corrected date data and provided me with 9 new files,
+unfortunately the November2019 file still had the date problem. I’ve decided to
+set aside Government Procurement card, credit card data for the time being.
+
+== Next Steps
+
+The six councils reported a different number of columns of data in their CSV
+files, this varied from 7(Barrow) to 15(South Lakes). I created a spreadsheet
+of all the file headers. Some were easy to map, for instance ‘payment_amount’,
+‘payment_date’, ‘supplier_name’. Others, for instance category required a bit
+more effort, checking out the number of unique types available in the data set.
+The spreadsheet can be found here. It’s not perfect as some files didn’t
+contain the data fields to map or I used a high level category value where no
+directorate information was available.
+
+Using the https://validator.opendata.esd.org.uk/spend[LGA data validator] 
+page I came up with a table definition for an aggregated table. The items I 
+chose where mainly mandated items and one recommended item. I then created this 
+in PostgreSQL
+
+[source,sql]
+----
+create table organisation_expenditure_v1
+(
+        nwod_id_uri_code char(20) NOT NULL,
+        nwod_id int NOT NULL,
+        org_short_name character varying NOT NULL,
+        org_directorate character varying,
+        service_category character varying,
+        beneficiary_name character varying,
+        payment_date date,
+        amount numeric(20,2),
+        purpose_of_spend character varying,
+        merchant_category character varying
+);
+----
+
+The table columns are defined below
+
+.organisation_expenditure_v1
+[%header,cols="1,1,1,3"]
+|===
+| Column Number | 	Column Name	 | Data Type | 	Description
+| 1	nwod_id_uri_code | 	varchar	 | ONS district code. eg E07000026 for Allerdale
+| 2	nwod_id | 	int | 	The auto generated row number from the council staging table, used for quick look ups of the original non aggregated data rows
+| 3	org_short_name | 	varchar	 | single word name for a council
+| 4	org_directorate | 	varchar	 | Directorate, service or department where an expense ocurred
+| 5	service_category | 	varchar	 | A high level category for the spend. CIPFA SerCOP objective category label
+| 6	beneficiary_name | 	varchar	 | Recipient of the spend
+| 7	payment_date | 	date | 	The payment date as recorded in the department's purchase or general ledger (yyyy-mm-dd)
+| 8	amount | 	numeric | 	The actual value of the payment net of recoverable VAT
+| 9	purpose_of_spend | 	varchar | 	Description of the purpose of the expenditure
+| 10	merchant_category | 	varchar | 	General headings that describe the nature of expenditure, for example, computers, software etc.)/Common Procurement Vocabulary(CPV) category of spend or Proclass label
+|===
+
+To get the data into the main aggregated table I created a population SQL file
+for each council that selected all the data out of the staging table and into
+the final table, this is where I mapped the staging columns to the target table
+and converted the ‘payment_amount’ into a numeric data type.
+
+[source,sql]
+----
+insert into organisation_expenditure_v1
+(
+        nwod_id_uri_code,
+        nwod_id,
+        org_short_name,
+        org_directorate,
+        service_category,
+        beneficiary_name,
+        payment_date,
+        amount,
+        purpose_of_spend,
+        merchant_category
+)
+select
+        nwod_id_uri_code,
+        nwod_id,
+        'allerdale',
+        Service_Area,
+        Expense_Type,
+        Supplier_Name,
+        Date,
+        CAST(Amount as numeric(20,2)),
+        Narrative,
+        NULL
+from allerdale_spend_2019;
+----
+
+I only had one error on the numeric conversion where a South Lakes value had a
+series of spaces instead of a valid amount. I updated this to ‘NULL’ value – ie
+‘not know’ rather than zero.
+
+== Sanity Checking the Table
+
+=== Data Coverage
+
+The first thing I wanted to look at is how much data is available in the table
+so looked at the number of columns with NULL values in them
+
+[source,bash]
+----
+  council   | tot_rows | od_nulls | sc_nulls | bn_nulls | pd_nulls | a_nulls | pos_nulls | mc_nulls
+------------+----------+----------+----------+----------+----------+---------+-----------+----------
+ allerdale  |     5859 |       57 |        3 |        0 |      305 |       0 |         0 |     5859
+ barrow     |     3269 |     3269 |        0 |        0 |        0 |       0 |         0 |     3269
+ carlisle   |     8364 |        0 |        0 |        0 |        0 |       0 |         0 |     8364
+ copeland   |     1850 |     1850 |        0 |        0 |        8 |       0 |         0 |     1850
+ eden       |     1612 |        3 |        0 |        0 |        0 |       0 |         0 |     1612
+ southlakes |     6895 |        2 |        2 |        2 |        2 |       3 |       167 |     6895
+(6 rows)
+----
+
+I’ve split the data out by councils the columns are defined below
+
+* *tot_rows* – total number of rows of data per council
+* *od_nulls* – number of NULL values in org_directorate column
+* *sc_nulls* – number of NULL values in service_category column
+* *bn_nulls* – number of NULL values in beneficiary_name column
+* *pd_nulls* – number of NULL values in payment_date column
+* *a_nulls* – number of NULLS in amount column
+* *pos_nulls* – number of NULLS in purpose_of_spend column
+* *mc_nulls* – number of NULLS in merchant_category column
+
+From this we can see that there is no merchant_category data also the
+org_directorate data is missing for two councils. We do have quite good
+coverage for service_category, beneficiary_name, payment_date, amount and
+purpose_of_spend.
+
+=== Amount Column
+
+.Absolute min/max values per council
+[source,sql]
+----
+spends=# select org_short_name,min(amount),max(amount)
+spends-# from organisation_expenditure_v1
+spends-# group by org_short_name order by org_short_name;
+ org_short_name |    min    |    max
+----------------+-----------+-----------
+ allerdale      | -37500.00 | 378102.25
+ barrow         | -21948.61 | 481805.53
+ carlisle       | -22513.04 | 250651.12
+ copeland       |  -4230.00 | 442558.02
+ eden           |  -9870.66 | 240000.00
+ southlakes     | -13460.00 | 295329.00
+(6 rows)
+----
+
+So we can see from the above that there are some quite large negative values in
+the table, this isn’t surprising as these values are from a ledger system so
+repayments or refunds will have line entries. It also means that the general
+title of ‘Spends over £500’ isn’t as simple as it sounds! Now let’s look at the
+minimum/maximum values above and below zero
+
+.Max/mins above zero
+[source,sql]
+----
+spends=#  select org_short_name,min(amount),max(amount)
+spends-# from organisation_expenditure_v1
+spends-#  where amount > 0 group by org_short_name;
+ org_short_name |  min   |    max
+----------------+--------+-----------
+ carlisle       |   0.07 | 250651.12
+ barrow         | 400.93 | 481805.53
+ southlakes     |   0.60 | 295329.00
+ eden           | 500.00 | 240000.00
+ copeland       | 500.00 | 442558.02
+ allerdale      |   0.01 | 378102.25
+(6 rows)
+----
+
+.Max/mins below zero
+[source,sql]
+----
+spends=# select org_short_name,min(amount),max(amount)
+spends-# from organisation_expenditure_v1
+spends-# where amount < 0 group by org_short_name;
+ org_short_name |    min    |   max
+----------------+-----------+---------
+ carlisle       | -22513.04 |   -0.02
+ barrow         | -21948.61 | -503.20
+ southlakes     | -13460.00 |   -2.15
+ eden           |  -9870.66 | -528.00
+ copeland       |  -4230.00 | -522.82
+ allerdale      | -37500.00 |   -0.01
+(6 rows)
+----
+
+So from this we can infer that Carlisle, South Lakes and Allerdale Councils
+report all data down to the penny and Barrow, Eden and Copeland apply a lower
+limit, £500 for Eden and Copeland and £400 for Barrow.
+
+=== Beneficiary_name Column
+
+Let’s look at a selection of distinct types from this column
+
+* Same Company Different Case
+----
+A W Blake Ltd | carlisle | 5
+A W BLAKE LTD | allerdale | 1
+----
+* Case difference - Ltd vs Limited, Names incorrect
+----
+ADECCO RECRUITMENT | allerdale | 354
+ADECCO UK LIMITED | southlakes | 257
+Adecco UK Ltd | carlisle | 195
+ADECCO UK LTD | copeland | 2
+----
+* Name Variations
+----
+AQUILA TRAINING | barrow | 1
+AQUILA TRAINING SERVICES | southlakes | 1
+AQUILA TRAINING SERVICES LTD | allerdale | 1
+----
+* Are These the Same Companies
+----
+BINGHAM YATES & PARTNERS | eden | 1
+BINGHAM YATES LIMITED | allerdale | 2
+Bingham Yates Ltd | carlisle | 4
+----
+* Name Variations & Building account Segregations
+----
+BRITISH GAS | allerdale | 13
+BRITISH GAS | copeland | 2
+BRITISH GAS | allerdale | 16
+BRITISH GAS - PAYMENT AREA 60 | allerdale | 1
+BRITISH GAS (CLEATOR MOOR OFFICES) | copeland | 4
+BRITISH GAS (HAIG ENTERPRISE PARK) | copeland | 1
+BRITISH GAS BUSINESS | barrow | 3
+British Gas Trading Ltd | carlisle | 1
+BRITISH GAS TRADING LTD | barrow | 1
+WATER PLUS | copeland | 14
+WATER PLUS | eden | 9
+WATER PLUS CIVIC HALL – 4221709037 | copeland | 1
+WATER PLUS CIVIC HALL \u0096 4221709037 | copeland | 1
+WATER PLUS CLEATOR MOOR COUNCIL CENTRE 4097096061 & 4081844084 | copeland | 1
+WATER PLUS COPELAND CENTRE CBC 4043252188 | copeland | 8
+Water Plus Limited | carlisle | 83
+WATER PLUS LTD | barrow | 100
+WATERPLUS | allerdale | 6
+WATERPLUS | allerdale | 6
+WATERPLUS PAYMENTS | copeland | 1
+----
+* Name Variations/Mis spellings
+----
+Gates Travel | carlisle | 43
+GATES TRAVEL | allerdale | 12
+GATES TRAVEL | copeland | 1
+GATES TRAVEL SERVICE | southlakes | 43
+GATESTRAVEL | eden | 7
+----
+* Spaces at the end of strings
+----
+N POWER | allerdale | 184
+N POWER | allerdale | 169
+----
+* More N Power Variations
+Technically all of these should be NPOWER LIMITED as per The Companies House website. 
+https://beta.companieshouse.gov.uk/company/03653277
+----
+NPOWER | allerdale | 33
+NPOWER | barrow | 153
+NPOWER | copeland | 4
+NPOWER | copeland | 2
+NPOWER (BEACON K0520016) | copeland | 11
+NPOWER (COPELAND CENTRE) | copeland | 12
+NPOWER (CREMATORUIM) | copeland | 13
+NPOWER (MORESBY PARKS) | copeland | 12
+NPOWER LIMITED | allerdale | 1
+Npower Ltd | carlisle | 163
+NPOWER LTD | eden | 49
+NPOWER LTD (TIC MARKET HALL) | copeland | 10
+NPower Yorkshire Ltd | carlisle | 1
+----
+* Large Companies and their Subsidiaries
+see https://beta.companieshouse.gov.uk/search?q=ZURICH+INSURANCE+MANAGEMENT
+----
+ZURICH INSURANCE COMPANY | copeland | 11
+ZURICH INSURANCE GROUP LTD | barrow | 17
+ZURICH INSURANCE PLC | eden | 4
+ZURICH MUNICIPAL | allerdale | 7
+ZURICH MUNICIPAL | southlakes | 1
+ZURICH MUNICIPAL (BACS) | southlakes | 6
+Zurich Municipal Insurance PLC | carlisle | 25
+Zurich Municipal Management Servs | carlisle | 1
+----
+
+=== Service_category Column
+
+Similar problems can be seen combining high level category definitions
+
+----
+Homeless | barrow | 1
+Homeless support funding | barrow | 11
+Homelessness | allerdale | 262
+Homelessness | carlisle | 423
+Homelessness | eden | 22
+Homelessness Prevention & Priority Need | copeland | 8
+----
+
+If we look at the number of distinct service categories for each district you
+can see there are between 65 and 197 different categories in each council
+
+[source,sql]
+----
+spends=# select count(distinct(service_category)),org_short_name
+spends-# from organisation_expenditure_v1 group by org_short_name;
+ count | org_short_name
+-------+----------------
+   197 | allerdale
+   198 | barrow
+    65 | carlisle
+   111 | copeland
+    83 | eden
+   189 | southlakes
+(6 rows)
+----
+
+=== Payment_date Column
+
+The dates vary from December 2008 to January 2020
+
+[source,sql]
+----
+spends=# select org_short_name,min(payment_date),max(payment_date) 
+ from organisation_expenditure_v1 group by org_short_name;
+ org_short_name |    min     |    max              <1>
+ ----------------+------------+------------
+ carlisle       | 2019-01-03 | 2019-12-31
+ barrow         | 2019-01-02 | 2019-12-27
+ southlakes     | 2018-12-05 | 2019-12-19
+ copeland       | 2019-01-04 | 2019-12-18
+ eden           | 2008-12-13 | 2019-12-30          <2>
+ allerdale      | 2018-12-20 | 2020-01-15
+(6 rows)
+
+spends=# select count(*) 
+ from organisation_expenditure_v1 
+ where payment_date < '2019-01-01';
+ count
+ -------
+    89                                             <3>
+(1 row)
+----
+<1> Range of payment dates by council
+<2> The ‘2008-12-13’ date seems to be an error, all the other earlier dates relate to 2018 most of them from November onwards
+<3> Number of dates less that 2019-01-01
+
+=== Org_directorate Column
+
+Again there are various classifications used by each council, some councils don’t report any so this column probably won’t be that useful for future queries
+
+[source,sql]
+----
+spends=# select count(distinct(org_directorate)),org_short_name
+from organisation_expenditure_v1 group by org_short_name;
+ count | org_short_name
+-------+----------------
+    13 | allerdale
+     0 | barrow
+   206 | carlisle
+     0 | copeland
+    23 | eden
+    27 | southlakes
+(6 rows)
+----
+
+== Conclusions
+Clearly this aggregated data set has some issues with respect to cross council comparisons. To review the columns
+
+* * nwod_id_uri_code*  – Created as part of the load
+* * nwod_id*  – Created as part of the load, provides a quick look up to the original staging table
+* * org_short_name*  – Created as part of the load
+* * org_directorate*  – No consistent cross council data
+* * service_category*  – There may be a possibility of creating a look up table to create a dozen or so broad divisions
+* * beneficiary_name*  – A lot of the problems described here could be fixed, eg make all the values upper case, change all ‘LIMITED’ to LTD, normalise all names etc
+* * payment_date*  – Quite good data
+* * amount*  – Quite good data, may have to consider limiting all data sets to +/- £500
+* * purpose_of_spend*  – This is largely free text, useful for looking at specific items rather than cross council analysis
+* * merchant_category*  – No data provided
+
+I think the next step will be to try and make some of the ‘improvements’
+outlined above and start thinking about some of the information that can be
+extracted from the data. I’m reasonably happy with the amalgamated table, but I
+need to ‘improve’ the quality beneficiary and category columns without losing
+accuracy.
+
