@@ -77,7 +77,7 @@ Councils were scored on the following features
  some authorities had this in their ‘Finance’ section of the website rather
  than the Open Data area. Blackburn and Darwin Council had a “DataShare” page,
  more of this later
-* *License* * – Is there notification of the terms of the release of the data 
+* *License*  – Is there notification of the terms of the release of the data 
  ie http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/[OGL3.0]. 
  Only half the authorities complied with this requirement.
 * *Metadata Description*  – Is there a technical description of the data
