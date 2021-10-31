@@ -67,17 +67,17 @@ in a newly created ‘spends’ database.
 [source,sql]
 ----
 create table carlisle_spend_2019(
-Body character varying,
-Body_Name character varying,
-Voucher_No character varying,
-Pay_Date date ,
-Line_Goods_Amount character varying,
-Name character varying,
-Supplier_ID character varying,
-Expense_Area character varying,
-Expense_Type character varying,
-Expense_Code character varying,
-SeRCOP character varying
+	Body character varying,
+	Body_Name character varying,
+	Voucher_No character varying,
+	Pay_Date date ,
+	Line_Goods_Amount character varying,
+	Name character varying,
+	Supplier_ID character varying,
+	Expense_Area character varying,
+	Expense_Type character varying,
+	Expense_Code character varying,
+	SeRCOP character varying
 );
 ----
 
@@ -90,17 +90,18 @@ command.
 
 [source,sql]
 ----
-COPY carlisle_spend_2019(Body ,
-Body_Name ,
-Voucher_No ,
-Pay_Date ,
-Line_Goods_Amount ,
-Name ,
-Supplier_ID ,
-Expense_Area ,
-Expense_Type ,
-Expense_Code ,
-SeRCOP )
+COPY carlisle_spend_2019(
+	Body ,
+	Body_Name ,
+	Voucher_No ,
+	Pay_Date ,
+	Line_Goods_Amount ,
+	Name ,
+	Supplier_ID ,
+	Expense_Area ,
+	Expense_Type ,
+	Expense_Code ,
+	SeRCOP )
 FROM '/home/path/to/file/Carlisle_City_Council_expenditure_exceeding_£250_April_2019.csv' DELIMITER ',' CSV HEADER;
 ----
 
@@ -122,13 +123,18 @@ unix format.
 
 [source,bash]
 ----
-$ file local-transparency-report_september_2019.csv
+$ file local-transparency-report_september_2019.csv              <1>
 local-transparency-report_september_2019.csv: ASCII text, with CRLF line terminators
-$ dos2unix local-transparency-report_september_2019.csv
+
+$ dos2unix local-transparency-report_september_2019.csv          <2>
 dos2unix: converting file local-transparency-report_september_2019.csv to Unix format...
-$ file local-transparency-report_september_2019.csv
+
+$ file local-transparency-report_september_2019.csv              <3>
 local-transparency-report_september_2019.csv: ASCII text
 ----
+<1> Use 'file' to determine line terminators
+<2> Use dos2unix to convert to unix format
+<3> Checking the terminator after conversion
 
 === Character Set Issues
 
@@ -147,13 +153,18 @@ unix ‘https://linux.die.net/man/1/iconv[iconv]‘ utility on the file to conve
 
 [source,bash]
 ----
-$ file *.csv
+$ file *.csva                                                      <1>
 payments-to-suppliers-over-250-february-2019.csv: Non-ISO extended-ASCII text, with very long lines
+
 iconv -f CP1252 -t UTF8 payments-to-suppliers-over-250-february-2019.csv > lgtc_expenditure_2019_feb.csv
-$ file *.csv
+                                                                   <2>
+
+$ file *.csv                                                       <3>
 lgtc_expenditure_2019_feb.csv:                    UTF-8 Unicode text, with very long lines
-payments-to-suppliers-over-250-february-2019.csv: Non-ISO extended-ASCII text, with very long lines
 ----
+<1> Using file to display character set
+<2> Using iconv to convert a file and redirect to new `lgtc_expenditure_2019_feb.csv` file
+<3> Displaying the new file's encoding
 
 Character set issues arise when you consider how these files are generated,
 typically they may be extracted from a council database which has it’s own
@@ -166,6 +177,7 @@ indication of some of the character sets encountered.
 [source,bash]
 ----
 $ file */*.csv | awk -F: '{print $2}' | sed -e 's/^[ \t]*//' | sort -u
+
 Algol 68 source, Non-ISO extended-ASCII text
 Algol 68 source, UTF-8 Unicode text
 ASCII text
@@ -183,7 +195,7 @@ For instance Carlisle Council reported money like this  “#£3,066.40#”  and 
 used this style  “#1,234.00#” . I removed the pound symbol with ‘vi‘ the unix
 text editor and got rid of the commas after loading into PostgeSQL as follows
 
-[source,bash]
+[source,sql]
 ----
 update carlisle_spend_2019 
 set line_goods_amount=REPLACE(line_goods_amount,',','');
@@ -197,7 +209,7 @@ presumably. These were removed with search and replace in ‘vi‘
 
 [source,bash]
 ----
-Name,Sub Group,Service Area's,Expense Type,Narrative,Date,Transaction Number,Amount,Supplier Name,Supplier Ref,Period,Year,,,,,,,,,,,,,,,,,,,,,,
+Name,Sub Group,Service Area\'s,Expense Type,Narrative,Date,Transaction Number,Amount,Supplier Name,Supplier Ref,Period,Year,,,,,,,,,,,,,,,,,,,,,,
 ----
 
 Carlyle Council’s March file had 522 empty rows, I removed these in the database.
