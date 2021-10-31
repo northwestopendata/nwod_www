@@ -157,9 +157,9 @@ purpose_of_spend.
 .Absolute min/max values per council
 [source,sql]
 ----
-spends=# select org_short_name,min(amount),max(amount)
-spends-# from organisation_expenditure_v1
-spends-# group by org_short_name order by org_short_name;
+select org_short_name,min(amount),max(amount)
+from organisation_expenditure_v1
+group by org_short_name order by org_short_name;
  org_short_name |    min    |    max
 ----------------+-----------+-----------
  allerdale      | -37500.00 | 378102.25
@@ -180,9 +180,9 @@ minimum/maximum values above and below zero
 .Max/mins above zero
 [source,sql]
 ----
-spends=#  select org_short_name,min(amount),max(amount)
-spends-# from organisation_expenditure_v1
-spends-#  where amount > 0 group by org_short_name;
+select org_short_name,min(amount),max(amount)
+from organisation_expenditure_v1
+where amount > 0 group by org_short_name;
  org_short_name |  min   |    max
 ----------------+--------+-----------
  carlisle       |   0.07 | 250651.12
@@ -197,9 +197,9 @@ spends-#  where amount > 0 group by org_short_name;
 .Max/mins below zero
 [source,sql]
 ----
-spends=# select org_short_name,min(amount),max(amount)
-spends-# from organisation_expenditure_v1
-spends-# where amount < 0 group by org_short_name;
+select org_short_name,min(amount),max(amount)
+from organisation_expenditure_v1
+where amount < 0 group by org_short_name;
  org_short_name |    min    |   max
 ----------------+-----------+---------
  carlisle       | -22513.04 |   -0.02
@@ -328,8 +328,8 @@ can see there are between 65 and 197 different categories in each council
 
 [source,sql]
 ----
-spends=# select count(distinct(service_category)),org_short_name
-spends-# from organisation_expenditure_v1 group by org_short_name;
+select count(distinct(service_category)),org_short_name
+from organisation_expenditure_v1 group by org_short_name;
  count | org_short_name
 -------+----------------
    197 | allerdale
@@ -347,9 +347,9 @@ The dates vary from December 2008 to January 2020
 
 [source,sql]
 ----
-spends=# select org_short_name,min(payment_date),max(payment_date) 
- from organisation_expenditure_v1 group by org_short_name;
- org_short_name |    min     |    max              <1>
+select org_short_name,min(payment_date),max(payment_date) 
+from organisation_expenditure_v1 group by org_short_name;
+org_short_name |    min     |    max              <1>
  ----------------+------------+------------
  carlisle       | 2019-01-03 | 2019-12-31
  barrow         | 2019-01-02 | 2019-12-27
@@ -359,9 +359,9 @@ spends=# select org_short_name,min(payment_date),max(payment_date)
  allerdale      | 2018-12-20 | 2020-01-15
 (6 rows)
 
-spends=# select count(*) 
- from organisation_expenditure_v1 
- where payment_date < '2019-01-01';
+select count(*) 
+from organisation_expenditure_v1 
+where payment_date < '2019-01-01';
  count
  -------
     89                                             <3>
@@ -377,7 +377,7 @@ Again there are various classifications used by each council, some councils donâ
 
 [source,sql]
 ----
-spends=# select count(distinct(org_directorate)),org_short_name
+select count(distinct(org_directorate)),org_short_name
 from organisation_expenditure_v1 group by org_short_name;
  count | org_short_name
 -------+----------------
