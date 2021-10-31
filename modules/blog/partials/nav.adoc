@@ -1,10 +1,10 @@
 .Blog Posts
 * 2020 June
-** xref:urlhuntingin-lancashire.adoc[]
+** xref:urlhuntingin_lancashire.adoc[]
 * 2020 January
 ** xref:nextsteps.adoc[]
 ** xref:transparencycodepart_iii.adoc[]
 ** xref:transparencycodepart_ii.adoc[]
-** xref:aquicklookatdec2019ae-data.adoc[December 2019 A&E Data]
+** xref:aquicklookatdec2019ae_data.adoc[December 2019 A&E Data]
 ** xref:transparencycodepart_i.adoc[]
 ** xref:beginnings.adoc[]
