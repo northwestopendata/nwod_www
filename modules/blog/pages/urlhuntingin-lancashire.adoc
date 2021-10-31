@@ -100,7 +100,7 @@ Councils were scored on the following features
 * *Latest File* – How up to date the latest file is, this varied from 6
  months(West Lancashire) to 5 authorities who reported monthly doing so
  correctly ie one month behind inspection month
-* CSV File Directly Downloadable* – Is the download url for the file(s)
+* *CSV File Directly Downloadable* – Is the download url for the file(s)
  available in the landing page or do you have to construct a path to a
  download area. 2 councils(Chorley and Blackpool) had ‘aspx’ pages that were
  unreadable when downloaded via curl. I had to manually us https://data-miner.io/[DataMiner] 
@@ -206,9 +206,9 @@ Blackburn with Darwin Council have taken a different approach to presenting
 data on their website.
 
 [quote, Data Transparency: data sets . (2020). Retrieved 11 June 2020, from http://mybins.blackburn.gov.uk/Pages/Data-Transparency-data-sets.aspx?CurrentTermId=4a212867-2267-4b7e-ba61-3728d239e549]
-___
-_Data Transparency: data sets . (2020). Retrieved 11 June 2020, from
-http://mybins.blackburn.gov.uk/Pages/Data-Transparency-data-sets.aspx?CurrentTermId=4a212867-2267-4b7e-ba61-3728d239e549_
+____
+_Blackburn with Darwen Council has developed a publically accessible data share platform in order for citizens to access the data sets as set out in the code._
+____
 
 The interface looks like this
 
