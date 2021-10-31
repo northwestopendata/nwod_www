@@ -6,8 +6,8 @@
 
 _Posted : {revremark} : {revdate} - {author}_
 
-images::cumbria_infographic.pdf[]
 
-* PDF also available on https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Google Drive]
+https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Cumbria Spends : Infographic]
+
 * Data available on https://github.com/northwestopendata/lgtc_nwod_data/tree/master/cumbria[GitHub]
 * Graphs produced with https://veusz.github.io[Veusz]
