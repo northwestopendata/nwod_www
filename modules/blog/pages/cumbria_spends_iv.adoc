@@ -1,0 +1,13 @@
+= Cumbria Spends : Infographic
+
+:author: NorthwestOpenData
+:revdate: 13.08.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+
+https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Cumbria Spends : Infographic]
+
+* Data available on https://github.com/northwestopendata/lgtc_nwod_data/tree/master/cumbria[GitHub]
+* Graphs produced with https://veusz.github.io[Veusz]

@@ -1,13 +1,122 @@
-= Cumbria Spends : Infographic
+= Cumbria Spends : Redacted
 
 :author: NorthwestOpenData
-:revdate: 13.08.2020
+:revdate: 03.08.2020
 :revremark: Blog Post
 
 _Posted : {revremark} : {revdate} - {author}_
 
+image::redacted.png[]
 
-https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Cumbria Spends : Infographic]
+== Identifying Redactions
+As part of my attempt to process the expenditure files of the six Cumbrian
+Councils, one of the first thing to do is identify any redactions. This was
+easily done with a SQL ‘like’ statement and the columns were updates to `*** COMPANY NAME REDACTED ***`. 
+Here are the original values from the raw
+files(beneficiary_name) and the updated column I’ve created to hold matched
+company names(company_name).
 
-* Data available on https://github.com/northwestopendata/lgtc_nwod_data/tree/master/cumbria[GitHub]
-* Graphs produced with https://veusz.github.io[Veusz]
+[source,sql]
+----
+select distinct(beneficiary_name),company_name,org_short_name 
+from organisation_expenditure_v2 
+where company_name like '%REDACTED%' 
+group by beneficiary_name,company_name,org_short_name 
+order by org_short_name; 
+
+                   beneficiary_name                    |         company_name          | org_short_name
+-------------------------------------------------------+-------------------------------+----------------
+ Redacted information - included personal information  | *** COMPANY NAME REDACTED *** | allerdale
+ Redacted Information                                  | *** COMPANY NAME REDACTED *** | barrow
+ REDACTED                                              | *** COMPANY NAME REDACTED *** | carlisle
+ REDACTED                                              | *** COMPANY NAME REDACTED *** | carlisle
+ Redacted information - including personal information | *** COMPANY NAME REDACTED *** | copeland
+ redacted information                                  | *** COMPANY NAME REDACTED *** | eden
+ Redacted information                                  | *** COMPANY NAME REDACTED *** | eden
+ Redacted Information                                  | *** COMPANY NAME REDACTED *** | eden
+ REDACTED INFORMATION                                  | *** COMPANY NAME REDACTED *** | eden
+ Name redacted                                         | *** COMPANY NAME REDACTED *** | southlakes
+ Name Redacted                                         | *** COMPANY NAME REDACTED *** | southlakes
+(11 rows)
+----
+
+There are 507 rows of beneficiary names redacted out of 27849 rows for the
+calendar year 2019. That represents approximately 1.8%, there’s something
+interesting about redacted information that informs beyond what is actually
+concealed.
+
+image::Cumbria_Number_Redactions.png[]
+
+The Number of Redactions by Council shows that Allerdale are the most likely
+council to redact information, 6% of their total data is redacted. Carlisle has
+the next most redactions but by consequence of their higher number of payments
+their redaction rate is less than 1%. Barrow only redacted one item in the
+entire year, hence their slice of the pie charts is virtually invisible.
+
+image::Cumbria_Amount_Redacted.png[]
+
+The Amount Redacted by Council shows the cost of the redacted transactions per
+council. Eden has redacted £437,364 worth of payments to suppliers. If we look
+at the chart below we see the average payment per redacted payment and again
+Eden looks very different to the other councils.
+
+image:Cumbria_Average_Redaction.png[]
+
+We can look at the 15 largest redacted payments, the top three are outliers.
+Two payments of about £175,000 from Eden and a £97,000 payment from Carlisle
+
+image::Cumbria_15_Redacted_Payments.png[]
+
+There’s more information in the raw data regarding the 2 Eden transactions
+
+[source,sql]
+----
+select service_category_label,procurement_category,payment_date,amount 
+from eden_spend_2019 
+where nwod_id in (2973,2924);
+
+        service_category_label        | procurement_category  | payment_date | amount
+--------------------------------------+-----------------------+--------------+--------
+ 1996 Discretionary Renovation Grants | Empty Property Grants | 2019-10-16   | 175530
+ Economic Development and Promotion   | Professional fees     | 2019-11-01   | 175649
+----
+
+and the Carlisle payment
+
+[source,sql]
+----
+select expense_area,expense_type,pay_date,line_goods_amount 
+from carlisle_spend_2019 
+where nwod_id=631;
+
+         expense_area          |         expense_type          |  pay_date  | line_goods_amount
+-------------------------------+-------------------------------+------------+-------------------
+ Insurance claims below excess | Insurance Claims below Excess | 2019-01-16 | 97704.00
+----
+
+There’s more information available in the raw files and you can examine the
+context of similar payments to gain a view on these and all other redacted
+payments.
+
+What the Spending Guidelines says about redaction –
+
+[quote, (2020). Retrieved 3 August 2020, from https://www.local.gov.uk/sites/default/files/documents/publishing-spending-and-p-485.pdf]
+____
+_Certain payments should be excluded or be redacted under the Freedom of Information Act (FOIA) and Data Protection Act (DPA). These could be payments to certain private individuals or those that jeopardise security or an investigation into criminal matters. Please see the Freedom of Information and data protection section in the general publishing data guidance for more information._
+____
+
+[quote, (2020). Retrieved 3 August 2020, from https://www.local.gov.uk/sites/default/files/documents/publishing-spending-and-p-485.pdf]
+____
+_Any personal information that identifies an individual, or data that could lead
+to harm to an individual, is excluded from publication. For example, the
+publication of spending data would exclude payments related to children or
+vulnerable adults – such as foster carers, home carers, any benefits payments
+and personal refunds etc. However, supplier names, in general, do not fall
+under any of the exemptions in the FOIA because they refer to a company rather
+than an individual._
+____
+
+The document then provides two tables of examples of items that should be published and those that should be excluded or published with redaction.
+
+
+
