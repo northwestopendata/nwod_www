@@ -11,7 +11,7 @@ image::redacted.png[]
 == Identifying Redactions
 As part of my attempt to process the expenditure files of the six Cumbrian
 Councils, one of the first thing to do is identify any redactions. This was
-easily done with a SQL ‘like’ statement and the columns were updated to `\*** COMPANY NAME REDACTED ***`. 
+easily done with a SQL ‘like’ statement and the columns were updated to `\\*** COMPANY NAME REDACTED ***`. 
 Here are the original values from the raw
 files(beneficiary_name) and the updated column I’ve created to hold matched
 company names(company_name).

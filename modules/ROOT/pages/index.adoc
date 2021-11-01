@@ -9,10 +9,10 @@ _A random walk through Open data in the Northwest of England_
 This website describes the experience of looking at local council data in the
 Nort West of England. The data is released under the https://www.gov.uk/government/publications/local-government-transparency-code-2015[Local Government Transparency Code, 2015]
 
-* The Code is reviewed in the following blog posts xref:blog:transparencycodepart_i.adoc[Transparency Code Part 1], 
+* The Code is reviewed in 3 parts - xref:blog:transparencycodepart_i.adoc[Transparency Code Part 1], 
 xref:blog:transparencycodepart_ii.adoc[Part 2] and xref:blog:transparencycodepart_iii.adoc[Part 3]
-* The ease of downloading and and handling the files was looked at among Lancashire councils in xref:blog:urlhuntingin_lancashire.adoc[Url Hunting in Lancashire]
-* A detailed look at the Cumbrian spending data is covered in xref:blog:cumbria_spends_i.adoc[Cumbria Spends : Database Import], xref:blog:cumbria_spends_i.adoc[Cumbria Spends : Aggregation & Review], https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Cumbria Spends : Infographic]
+* A look at file and url quality among Lancashire councils - xref:blog:urlhuntingin_lancashire.adoc[Url Hunting in Lancashire]
+* A look at the Cumbrian spending data in 4 posts - xref:blog:cumbria_spends_i.adoc[Cumbria Spends : Database Import], xref:blog:cumbria_spends_i.adoc[Cumbria Spends : Aggregation & Review], https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Cumbria Spends : Infographic] and xref:blog:cumbria_spends_i.adoc[Cumbria Spends : Redacted]
 
 
 
