@@ -1,6 +1,7 @@
 .Blog Posts
 * 2020 August
-** xref:cumbria_spends_iii.adoc[Cumbria Spends Part 3]
+** xref:cumbria_spends_iii.adoc[Cumbria Spends Part 4]
+** xref:cumbria_spends_iv.adoc[Cumbria Spends Part 3]
 * 2020 July
 ** xref:cumbria_spends_ii.adoc[Cumbria Spends Part 2]
 ** xref:cohousegit.adoc[CoHouse, GitHub...]
