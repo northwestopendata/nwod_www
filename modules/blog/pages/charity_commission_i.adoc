@@ -59,7 +59,7 @@ So what does this mean, lets consider a simple .CSV file
 We have a four field file with two rows, with the CC delimiters this would look
 like this, a single row
 
-1234@**@F@**@X@**@SOME CHARITY TRUST#*@@*#54321@**@@**@Y@**@SOME OTHER CHARITY*@@*
+1234@\**@F@**@X@**@SOME CHARITY TRUST#*@@*#54321@**@@**@Y@**@SOME OTHER CHARITY*@@*
 
 The `*@@*` indicate the end of this line, and the `@**@` are the equivalent of
 commas in CSV files marking the end of one field and the start of the next.
