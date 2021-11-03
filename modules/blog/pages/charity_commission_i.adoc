@@ -45,8 +45,8 @@ _The files are BCP files (extension ‘.bcp’) which, due to
 embedded characters in the data, have the following delimiters:_
 
 
-@**@ for columns and
-*@@* for rows.
+@\**@ for columns and
+*@@\* for rows.
 ____
 
 So what does this mean, lets consider a simple .CSV file
@@ -111,6 +111,7 @@ are.
 
 Here’s some extracts from my shell history with some of the key commands
 
+=== Shell History
 [source,bash]
 ----
 # the 'from' file was a guess - MSSQL typically used to be ISO_1
