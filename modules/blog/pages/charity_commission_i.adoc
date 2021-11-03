@@ -1,4 +1,4 @@
-= Charity Commission Data Set
+= Charity Commission Data Set 1
 
 :author: NorthwestOpenData
 :revdate: 05.09.2020
@@ -60,7 +60,7 @@ We have a four field file with two rows, with the CC delimiters this would look
 like this, a single row
 
 ----
-1234@**@F@**@X@**@SOME CHARITY TRUST*@@*54321@**@@**@Y@**@SOME OTHER CHARITY*@@*
+1234@**@F@**@X@**@SOME CHARITY TRUST[red]#*@@*#54321@**@@**@Y@**@SOME OTHER CHARITY*@@*
 ----
 
 The `*@@*` indicate the end of this line, and the `@**@` are the equivalent of
