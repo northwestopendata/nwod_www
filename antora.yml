@@ -4,5 +4,5 @@ version: master
 nav:
 - modules/ROOT/partials/nav.adoc
 - modules/blog/partials/nav.adoc
-
+- modules/docs/partials/nav.adoc
 
