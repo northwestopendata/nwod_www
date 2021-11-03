@@ -61,7 +61,7 @@ like this, a single row
 
 image::cc2.png[]
 
-The `*@@*` indicate the end of this line, and the `@**@` are the equivalent of
+The image::cc4.png[] indicate the end of this line, and the `@**@` are the equivalent of
 commas in CSV files marking the end of one field and the start of the next.
 There is a slight problem in the CC choice of delimiters. Take a close look at
 the above string again comparing it with the original CSV file
