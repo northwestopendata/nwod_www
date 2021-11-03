@@ -69,7 +69,7 @@ the above string again comparing it with the original CSV file
 image::cc3.png[]
 
 The field delimiter, when used with an empty field produces a line terminator
-in line two field two(@**@@**@). This is a very unfortunate choice for anyone
+in line two field two(@\\**@@**@). This is a very unfortunate choice for anyone
 wanting to convert any of these files to .CSV.
 
 The only data I wanted from this set was a list of charity names and charity
