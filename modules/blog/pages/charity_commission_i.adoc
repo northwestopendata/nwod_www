@@ -76,9 +76,10 @@ The only data I wanted from this set was a list of charity names and charity
 numbers, I decided to see if I could just pull out the first 4 columns from the
 ‘charity’ table by extracting the data from `extract_charity.bcp`.
 
-[options="header",stripes="even"]
+[options="header"]
 |===
 | Column Number	| Column Name | Data Type | Description
+
 |1 |	regno	| integer	| Registered Number of Charity
 |2 |	subno	| integer	| Subsidiary Number
 |3 |	name	| varchar(150)	| Main Name of Charity
