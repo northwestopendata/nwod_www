@@ -61,7 +61,7 @@ like this, a single row
 
 image::cc2.png[]
 
-The image:cc4.png[] indicate the end of this line, and the `@**@` are the equivalent of
+The image:cc4.png[] indicate the end of this line, and the image:cc5.png[] are the equivalent of
 commas in CSV files marking the end of one field and the start of the next.
 There is a slight problem in the CC choice of delimiters. Take a close look at
 the above string again comparing it with the original CSV file
@@ -69,7 +69,7 @@ the above string again comparing it with the original CSV file
 image::cc3.png[]
 
 The field delimiter, when used with an empty field produces a line terminator
-in line two field two(@\\**@@**@). This is a very unfortunate choice for anyone
+in line two field two image:cc6.png[]. This is a very unfortunate choice for anyone
 wanting to convert any of these files to .CSV.
 
 The only data I wanted from this set was a list of charity names and charity
@@ -111,6 +111,7 @@ are.
 
 Here’s some extracts from my shell history with some of the key commands
 
+[source,bash]
 ----
 # the 'from' file was a guess - MSSQL typically used to be ISO_1
 iconv -f CP28591 -t UTF8 file1 > file2 ; cp file1 extract_charity.bcp
