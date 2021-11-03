@@ -46,7 +46,7 @@ embedded characters in the data, have the following delimiters:_
 
 
 @\**@ for columns and
-*@@\* for rows.
+*@@* for rows.
 ____
 
 So what does this mean, lets consider a simple .CSV file
