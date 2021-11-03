@@ -1,0 +1,26 @@
+= Trafford Spends : A Quick Look at the Data
+
+:author: NorthwestOpenData
+:revdate: 12.10.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+== Introduction
+
+I’ve just released a consolidated and curated set of the Trafford Council
+spending data over £500 for 2019. The following are some notes about
+accessibility and observations about the data itself. Details of the data set
+and the CSV file are available on https://github.com/northwestopendata/lgtc_nwod_data/tree/master/gmca[Github].
+
+== Presentation and Accessibility
+
+The Spending Data page is seen below, it’s clean and has files back to January
+2016 with a link to an archive area. The ‘https://ckan.publishing.service.gov.uk/blog/local-spending-data-guidance[Local Open Data Panel]‘ link is
+broken.
+
+https://www.trafford.gov.uk/about-your-council/data-protection/open-data/supplier-spend.aspx[image::trafford_spend_homepage.png[]]
+
+Unfortunately it’s not possible to use curl to download the page to extract the
+CSV links nor can the CSV files be downloaded automatically, an attempt is
+classified as an attack, complete with an ‘Attack ID‘ and the following
