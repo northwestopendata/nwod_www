@@ -8,7 +8,7 @@ _Posted : {revremark} : {revdate} - {author}_
 
 image::cc1.png[]
 
-=== The File Format
+== The File Format
 
 Last night I saw a tweet from https://twitter.com/owenboswarva[@owenboswarvai]
 about the Charities Commission Data set being available for download. To me
@@ -59,16 +59,14 @@ So what does this mean, lets consider a simple .CSV file
 We have a four field file with two rows, with the CC delimiters this would look
 like this, a single row
 
-1234@\**@F@**@X@**@SOME CHARITY TRUST#*@@*#54321@**@@**@Y@**@SOME OTHER CHARITY*@@*
+image::cc2.png[]
 
 The `*@@*` indicate the end of this line, and the `@**@` are the equivalent of
 commas in CSV files marking the end of one field and the start of the next.
 There is a slight problem in the CC choice of delimiters. Take a close look at
 the above string again comparing it with the original CSV file
 
-----
-1234@**@F@**@X@**@SOME CHARITY TRUST*@@*54321@**@@**@Y@**@SOME OTHER CHARITY*@@*
-----
+image::cc3.png[]
 
 The field delimiter, when used with an empty field produces a line terminator
 in line two field two(@**@@**@). This is a very unfortunate choice for anyone
@@ -78,7 +76,7 @@ The only data I wanted from this set was a list of charity names and charity
 numbers, I decided to see if I could just pull out the first 4 columns from the
 ‘charity’ table by extracting the data from `extract_charity.bcp`.
 
-[%header]
+[%header,stripes=even]
 |===
 | Column Number	| Column Name | Data Type | Description
 |1 |	regno	| integer	| Registered Number of Charity
