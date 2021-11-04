@@ -22,7 +22,7 @@ session on APIs by https://twitter.com/r_solymosi[Reka Solymosi]. Which got me t
 about data enrichment and reference data for working with expenditure data.
 * Started reorganising my scripts and data that I’ve collected and decided to put
 it on https://github.com/northwestopendata/lgtc_refdata[Github]. This includes 
-ihttps://github.com/northwestopendata/lgtc_refdata/tree/master/proclass_17[ProClass] 
+https://github.com/northwestopendata/lgtc_refdata/tree/master/proclass_17[ProClass] 
 category data with an API over the CSV file via GitRows ( a great idea from 
 https://twitter.com/NicolasZimmer[Nicholas Zimmer]) at https://twitter.com/gitrows[GitRows].
 * Also included in the repo is https://github.com/northwestopendata/lgtc_refdata/tree/master/CoHouseLite[CoHouseLite]. 
