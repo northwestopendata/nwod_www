@@ -55,16 +55,16 @@ name, either use full month name or a standard 3 letter abbreviation.
 == The Data
 
 I couldn’t find any description of the data on the website, but here’s a list
-with the 3 items I’m interested in highlighted in red.
+with the 3 items I’m interested in highlighted.
 
 ----
 body
 body_name
-*payment_date*
+payment_date                   <1>
 transaction_number
 invoice_number
-*amount*
-*supplier_name*
+amount                         <2>
+supplier_name                  <3>
 supplier_id
 vat_registration_number
 expense_area
