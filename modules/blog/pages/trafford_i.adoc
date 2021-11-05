@@ -56,3 +56,171 @@ name, either use full month name or a standard 3 letter abbreviation.
 
 I couldn’t find any description of the data on the website, but here’s a list
 with the 3 items I’m interested in highlighted in red.
+
+----
+body
+body_name
+*payment_date*
+transaction_number
+invoice_number
+*amount*
+*supplier_name*
+supplier_id
+vat_registration_number
+expense_area
+expense_type
+expense_code
+bvacop
+proclass
+proclass_description
+extended_description
+profit_centre
+----
+
+There is proclass data, expense description information and unusually VAT
+registration numbers but no department information. The profit_centre is just a
+number and the ‘bvacop’ is an empty column.
+
+=== Dates
+
+* Date values imported with no problems – all with a standard DD-MM-YYYY format.
+* The range was from 2019-01-02 to 2019-12-23
+
+=== Amount
+
+Some of the amount values had commas in the string values(about 17%), but these
+are easily removed before casting the amount into a numeric format for use.
+
+[source,sql]
+----
+payment_date  | amount     | supplier_name
+--------------+------------+-------------------------------------
+2019-01-11    | 1,727.00   | Altrincham Grammar School for Boys
+2019-01-17    | 366,983.25 | Sale High School
+2019-01-11    | 7,547.00   | BROADOAK SCHOOL
+2019-01-11    | 5,358.00   | Flixton Girls School Academy Trust
+2019-01-11    | 46,638.00  | Lostock College
+----
+
+* The total expenditure accounted for the year was £659,649,761.03
+* There is no lower threshold of payments although the web page states that the lower limit of spends is £500
+* There is £36,986,985.33 of expenditure between £0 and £500 and a total of
+* reimbursements of £-4,236,441.00 between £0 and £-500. Making a total of
+ £41,223,426.33 excess reporting(6%).
+
+=== Supplier Name
+
+All supplier names have been truncated to 35 characters, see below
+
+[source,sql]
+----
+supplier_id  | supplier_name                       | char_length
+-------------+-------------------------------------+-------------
+148795       | Coastal Child & Adult Therapeutic S | 35
+156692       | Leaving Care Services Ltd T/A Pathw | 35
+154624       | British Pest Control Association (B | 35
+157488       | Information Advice & Support Servic | 35
+151453       | Nottingham University Hospitals NHS | 35
+100320       | Greater Manchester Combined Authori | 35
+101857       | Askews and Holts Library Services L | 35
+153631       | Homerton University Hospital NHS Fo | 35
+159675       | Quality Dining Ltd t/a Masalla Loun | 35
+154433       | SmartStyle Technology Training Ltd  | 35
+127648       | Capita Property & Infrastructure Lt | 35
+159337       | Compassionate Care Ltd (Supported A | 35
+102873       | LLG Enterprises Ltd T/A LLG Legal T | 35
+155380       | Yellow Door Ltd T/A Lawrence Educat | 35
+152141       | JCM Nurseries Ltd T/A Bloom Day Nur | 35
+160035       | Dow Schofield Watts Business Planni | 35
+160831       | Assoc of Liberal Democrat Councillo | 35
+----
+
+* This issue affects less than 2% of the data but provides real issues when trying to match beneficiary names to reference data sets
+* Some of the supplier names are really line items from an accountancy package rather than an actual beneficiary. This is best seen with retirement or nursing homes, see below
+
+[source,sql]
+----
+clean_name                     | naked_name | company_name 
+-------------------------------+------------+-------------------
+HC ONE LTD (AVANDALE LODGE)    | HC-ONE     | HC-ONE LIMITED 
+HC-ONE LIMITED (FOUR SEASONS)  | HC-ONE     | HC-ONE LIMITED 
+HC-ONE LTD (AVERILL HOUSE)     | HC-ONE     | HC-ONE LIMITED 
+HC-ONE LTD (CALLANDS)          | HC-ONE     | HC-ONE LIMITED 
+HC-ONE LTD (DANESIDE MEWS)     | HC-ONE     | HC-ONE LIMITED 
+HC-ONE LTD (KINGS PARK)        | HC-ONE     | HC-ONE LIMITED 
+----
+
+* Each home is represented by a separate line in the data. During processing where possible they have been consolidated into the actual beneficiary name.
+* About 3% of the supplier names have ‘T/A’ which is used to identify companies and trading names of individuals and companies, this also aggravates the truncation problem see below.
+
+----
+ACUCARE LTD T/A SURECARE TRAFFORD
+ADAM TURTON T/A A T FLOORING
+ANDREW LAING T/A A&E LEGAL TRAINING
+ANGEL SPRINGS LTD T/A WATERLOGIC
+ANTHONY WATT T/A MCR SCHOOL OF SAMB
+ASHAEVE LTD T/A RIDDINGS PHARMACY
+BANKFIELD PARTNERSHIP T/A BLACKLEY
+BERRYMANS LACE MAWER LLP T/A BLM
+BLUE DIAMOND UK LTD T/A FRYERS GC
+BRYSDALES LIMITED T/A RAILEX
+CAIREACH LTD T/A CYGNET HEALTH
+CYGNET HEALTH CARE LTD T/A TABLEY H
+DHP CARE LTD T/A PRESTIGE NURSING &
+----
+
+* Trafford redact a very large proportion of their data, lets compare them to the other Manchester Councils
+
+image::McrRedactedCouncil.png[]
+
+* Trafford have the top 11 redactions by amount across the Greater Manchester area – a single redacted payment of over £24 million, and eight payments between £3-4 million.
+
+== Results
+* There are 2,289 distinct recipients receiving 179,839 payments in 2019
+* I’ve managed to match beneficiary name to Companies House, Ofsted, Charities, Care Quality Commission and NHS Datasets.
+* 76 % of beneficiaries have matched
+* Over 80% of total spend has been matched to an organisation
+* The Companies matching is the best quality and most comprehensive
+* Company number & SIC codes have been added to the dataset
+* More work needs to be done with Education/Charities and CQC
+* You can see my version of the top 50 beneficiaries here
+
+== Conclusions
+
+* Trafford have actually produced a fairly good dataset
+* 723 companies matched the exact name in the Companies House dataset, that’s over 30%
+* It’s a shame the suppliers are truncated, as are some category information not used here
+* The consistency of the files makes me think that they have an automated or semi automated process
+* Their redaction policy on high value items does make me wonder, although that is probably a Finance Department issue not an IT policy
+* There’s more information on the redactions in the raw data tables, most are
+ ‘Capital Grants’ but two are for the purchase of buildings including the £24
+ million line item, it’s interesting that both redacted purchases happened on
+ 7th March
+
+[source,sql]
+----
+select payment_date,amount,expense_area,expense_type 
+from trafford_spend_2019 
+where nwod_id in (46481,46482,77651,90918,109917,123587,179315,166629,166630,166631) 
+order by amount;
+ payment_date |   amount   |  expense_area   |     expense_type
+--------------+------------+-----------------+----------------------
+ 2019-03-07   | 1199500    | Capital Schemes | PURCHASE OF BUILDING
+ 2019-03-07   | 24200000   | Capital Schemes | PURCHASE OF BUILDING
+ 2019-11-28   | 3341696.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-05-28   | 3363437.00 | Capital Schemes | CAP GRANTS TO IND
+ 2019-06-20   | 3519317.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-07-30   | 3533529.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-12-19   | 3586475.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-11-08   | 3679681.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-11-13   | 3766867.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-08-30   | 3852679.45 | Capital Schemes | CAP GRANT OTH BODIES
+----
+
+* There was one company in the top 50 beneficiaries I couldn’t match, it looked a
+well formed company name ‘*DEVONSHIRE (CIS TOWER) LTD*‘, I checked on Open
+Corporates. It’s registered in Jersey, details https://opencorporates.com/companies?jurisdiction_code=&q=DEVONSHIRE+%28CIS+TOWER%29+LTD&utf8=%E2%9C%93[here]. That’s £13,750,000.00 into
+the ‘trickle away’ economy. The directors/officers are listed as ‘https://opencorporates.com/officers/274600887[SANNE FIDUCIARY SERVICES LIMITED]‘ 
+and seem to be administrators for several companies
+based in Jersey. They were fined £381,000 last year for ‘https://www.itv.com/news/channel/2019-07-17/sanne-fined-381-000-by-jersey-financial-services-commission[organise and control]
+its affairs effectively‘
