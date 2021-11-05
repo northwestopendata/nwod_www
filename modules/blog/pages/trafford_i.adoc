@@ -220,7 +220,6 @@ order by amount;
 * There was one company in the top 50 beneficiaries I couldn’t match, it looked a
 well formed company name ‘*DEVONSHIRE (CIS TOWER) LTD*‘, I checked on Open
 Corporates. It’s registered in Jersey, details https://opencorporates.com/companies?jurisdiction_code=&q=DEVONSHIRE+%28CIS+TOWER%29+LTD&utf8=%E2%9C%93[here]. That’s £13,750,000.00 into
-the ‘trickle away’ economy. The directors/officers are listed as ‘https://opencorporates.com/officers/274600887[SANNE FIDUCIARY SERVICES LIMITED]‘ 
+the ‘trickle away’ economy. The directors/officers are listed as https://opencorporates.com/officers/274600887[SANNE FIDUCIARY SERVICES LIMITED] 
 and seem to be administrators for several companies
-based in Jersey. They were fined £381,000 last year for ‘https://www.itv.com/news/channel/2019-07-17/sanne-fined-381-000-by-jersey-financial-services-commission[organise and control]
-its affairs effectively‘
+based in Jersey. They were fined £381,000 last year for https://www.itv.com/news/channel/2019-07-17/sanne-fined-381-000-by-jersey-financial-services-commission['organise and control its affairs effectively‘]
