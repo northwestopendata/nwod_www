@@ -1,6 +1,6 @@
 .Blog Posts
 * 2020 September
-** xref:trafford_i.adoc[Trafford Spend]
+** xref:trafford_i.adoc[Trafford Spends]
 * 2020 August
 ** xref:cumbria_spends_iii.adoc[Cumbria Spends Part 4]
 ** xref:cumbria_spends_iv.adoc[Cumbria Spends Part 3]
