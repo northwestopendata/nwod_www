@@ -1,0 +1,98 @@
+= Wigan Spends : A Quick Look at the Data
+
+:author: NorthwestOpenData
+:revdate: 13.10.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+== Introduction
+
+I’ve just released a consolidated and curated set of the Wigan Council spending
+data over £500 for 2019. The following are some notes about accessibility and
+observations about the data itself. Details of the data set and the CSV file
+are available on https://github.com/northwestopendata/lgtc_nwod_data/tree/master/gmca[Github].
+
+== Presentation and Accessibility
+
+Wigan Council have their own opendata server at https://opendata.wigan.gov.uk/.
+Unfortunately their LGTC Expenditure data isn’t located there. It’s actually
+back on the main Council website
+
+image::wigan_spends_homepage.png[]
+
+Data goes back to 2013 PDF and CSV are the two preferred formats but Q1 for
+2019 is in Excel format. There is a description of the data published in PDF
+https://www.wigan.gov.uk/Docs/PDF/Council/Data-Protection-FOI/Open-Data/FinancialSpendsMetadata.pdf[here].
+As the data is presented in Financial years I needed two file, the CSV file was
+UTF8 the other MS Excel 2007+
+
+One file had 9 data items, the other had 4
+
+----
+File 1 : Row 1 9 : Beneficiary,
+                    Date,
+                    Period,
+                    Cost Centre,
+                    Department,
+                    account,
+                    Summary of Purpose,
+                    Merchant Category,
+                    Amount (Net of VAT)
+
+ File 2 : Row 1 4 : Beneficiary,
+                    Date,
+                    Merchant Category, 
+                    Amount (Net of VAT)
+----
+
+As I was only interested in 3 items I created a table for the data file with 9 items and loaded both files leaving may cells with null data.
+
+I did note that many fields have only ‘*#REF!*‘ as values, the `summary_of_purpose` column was 25% ‘*#REF!*‘
+
+=== Dates
+
+* Dates failed to import first time they were mixed formats, initially MDY then DMY
+* As the files covered 2 financial years I deleted out of range transactions
+
+=== Amount
+
+* The money format included commas and these were removed after load and before casting to a numeric
+* There are no reimbursement data (ie payments made back to the council) in the
+dataset, the smallest amount is exactly £500. Have all amounts less than £500
+been deleted?
+
+=== Supplier Name
+
+* Again we have the use of ‘T/A’ in the beneficiary name about 7% (note to self :
+if name like ‘T/A’ and unmatched add a step to check if the second part of the
+split can be matched)
+* Care homes are also one of the primary causes of beneficiary names turning into accountancy line items
+
+== Results
+
+* There are 2587 recipients receiving 67306 payments in 2019
+* I’ve managed to match beneficiary name to Companies House, Ofsted, Charities, Care Quality Commission and NHS Datasets.
+* 83% of beneficiaries have matched
+* Over 85% of total spend has been matched to an organisation
+* The Companies matching is the best quality and most comprehensive
+* Company number & SIC codes have been added to the dataset
+* More work needs to be done with Education/Charities and CQC
+* The top 50 beneficiaries below or on https://datawrapper.dwcdn.net/0d89R/2/[Datawrapper here]
+
+image::wigan_bens.png[]
+
+== Conclusions
+* The limited set of data I extract here is actually quite good
+* 590 companies matched the exact name in the Companies House dataset, that’s over 20%
+* Producing the data in a proprietary Excel format goes against LGTC guidelines
+* Large amounts of the data in the Excel file when converted to CSV via Google Sheets produced ”*#REF!*‘ values
+* Although the presentation of the data was adequate – I wonder why this is on the main Wigan website and not their open data webserver
+* Just considering the data present here when compared to Trafford’s dataset it
+ has occurred tor me that there is a difference in scope of spending data, for
+ instance Trafford report £38 million paid to HMRC but Wigan only report
+ nearly £83,000
+* The lack of negative payments(reimbursements) also suggests that these two datasets may be less comparable than initially thought.
+
+
+

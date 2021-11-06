@@ -1,0 +1,52 @@
+= Tools
+
+== Introduction
+
+An overview of some of the tools used to work with the datasets covered on this website
+
+== Core Tools
+
+=== Operating System
+
+Most of the work was done using https://www.cygwin.com/[Cygwin] which provides a Linux
+like environment on a Windows host. With Cygwin installed you can work in a shell 
+command line environment writing scripts and taking full advantage of Unix utilities.
+Extensive use was made of the best text editor around https://man7.org/linux/man-pages/man1/vi.1p.html['vi']
+An excellent http://www.ungerhu.com/jxh/vi.html[vi Reference] is available. This website
+is largely written in vi using https://asciidoc-py.github.io/[AsciiDoc] mark up language
+having been converted from Wordpress. Other tools include https://www.gnu.org/software/gawk/manual/gawk.html[awk]
+which is a programming language in itself, ideal for processing text files and scripting.
+For processing CSV files into a UTF-8 character set https://linux.die.net/man/1/dos2unix[iconv]
+proved invaluable as did https://linux.die.net/man/1/dos2unix[dos2unix] for file preparation.
+Unix is ideal for one off manipulation of files, pattern matching and prototyping methods with
+utilities such as grep and sed. These can the be formalised and written into shell scripts
+that can chaned together to create data handling piplines that help automate processing.
+
+=== Databases
+
+When handling large amounts of data spreadsheets have their limits, for the heavy lifting 
+https://www.postgresql.org/[PostgreSQL] was used. I had some contact with PostgreSQL commercially 
+in the past, I found installing and running the database to be very straight forward
+I ran it under Cygwin and it performed perfectly and fully endorse PostgreSQL's own 
+opening description
+
+[quote From https://www.postgresql.org/ Website Viewed on 06/11/2021]
+____
+_PostgreSQL is a powerful, open source object-relational database system with
+over 30 years of active development that has earned it a strong reputation for
+reliability, feature robustness, and performance._
+____
+
+Interaction with the data was largely through https://www.postgresql.org/docs/9.4/plpgsql.html[PLpgSQL SQL Procedural Language]
+having used https://en.wikipedia.org/wiki/Transact-SQL[Transact-SQL] extensively in the past I 
+found  PLpgSQL SQL easy to 'pick-up'.
+
+For handling smaller datasets I found Google's free offering https://www.google.co.uk/sheets/about/[Google Sheets] useful,
+setting up a Google account gives you full access with 15GB cloud storage. Sheets handle Excel's spreadsheet format well
+providing a means to ingest and export them to CSV . I found 
+https://docs.google.com/document/d/1qdr8NYcMNDBaUmUsgygTWZWDv4HMpjfIpjsKzD_QHyw/edit#heading=h.8556luurwlj7[Liza Bolton’s Data Journalism Workshop Notes]
+a useful primer to using Sheets for handling datasets.
+
+
+
+

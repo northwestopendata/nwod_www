@@ -1,0 +1,13 @@
+= Greater Manchester Spends : Infographic
+
+:author: NorthwestOpenData
+:revdate: 29.10.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+
+https://drive.google.com/file/d/1tCXywdVh8HHY6NGSoLjo4BdqnT-CO8zj/view?usp=sharing[Greater Manchester Spends : Infographic]
+
+* Data available on https://github.com/northwestopendata/lgtc_nwod_data/tree/master/gmca[GitHub]
+* Graphs produced with https://veusz.github.io[Veusz]

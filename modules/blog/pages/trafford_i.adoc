@@ -183,7 +183,7 @@ image::McrRedactedCouncil.png[]
 * The Companies matching is the best quality and most comprehensive
 * Company number & SIC codes have been added to the dataset
 * More work needs to be done with Education/Charities and CQC
-* You can see my version of the top 50 beneficiaries https://datawrapper.dwcdn.net/C8ivb/1/[here]
+* The top 50 beneficiaries below or on https://datawrapper.dwcdn.net/C8ivb/1/[Datawrapper here]
 
 image::traff_bens.png[]
 

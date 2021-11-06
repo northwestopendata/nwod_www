@@ -1,0 +1,103 @@
+= Manchester Redacted
+
+:author: NorthwestOpenData
+:revdate: 30.10.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::man_redacted1.png[]
+
+== Introduction
+I’ve just finished the expenditure data for the 10 councils in the Greater
+Manchester Combined Authority for 2019, one of the first things that has become
+apparent is the amount of beneficiary names that are redacted.
+
+== Analysis
+
+There are 120,475 rows of data with recipient names redacted of a total of
+775,180 rows of data. That represents a massive 15.5%, the Cumbrian dataset has
+only 1.8% redacted – an order of magnitude larger.
+
+image::man_red_by_c.png[]
+
+Rochdale, Stockport and Trafford account for the bulk of the redactions across
+the ten councils of Greater Manchester. Rochdale redact 13% of all their
+spending data by item. Bury by contrast redact less than 1%. In fact Bury
+redacts so little data that it’s values don’t show on the pie charts below.
+
+image::man_am_by_c.png[]
+
+One council, Trafford account for nearly half the amount of total redactions
+
+If we look at the chart below we see the average payment per redacted payment
+Tameside makes fewer but higher value redactions.
+
+image::man_av_by_c.png[]
+
+We can look at the 15 largest redacted payments, we can see Trafford has a
+single redacted payment of over £24 million, and eight payments between £3-4
+million.
+
+image::man_top.png[]
+
+There’s more information on the redactions in the raw data tables, most are
+‘Capital Grants’ but two are for the purchase of buildings including the £24
+million line item. Most payments for properties that you see in the council
+datasets are payments to Solicitors who are acting on the councils behalf in
+the purchase, this accounts for the preponderance of legal firms in the top
+quartile.
+
+[source,sql]
+----
+select payment_date,amount,expense_area,expense_type 
+from trafford_spend_2019 
+where nwod_id in (46481,46482,77651,90918,109917,123587,179315,166629,166630,166631) 
+order by amount;
+ payment_date |   amount   |  expense_area   |     expense_type
+--------------+------------+-----------------+----------------------
+ 2019-03-07   | 1199500    | Capital Schemes | PURCHASE OF BUILDING
+ 2019-03-07   | 24200000   | Capital Schemes | PURCHASE OF BUILDING
+ 2019-11-28   | 3341696.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-05-28   | 3363437.00 | Capital Schemes | CAP GRANTS TO IND
+ 2019-06-20   | 3519317.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-07-30   | 3533529.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-12-19   | 3586475.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-11-08   | 3679681.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-11-13   | 3766867.00 | Capital Schemes | CAP GRANT OTH BODIES
+ 2019-08-30   | 3852679.45 | Capital Schemes | CAP GRANT OTH BODIES
+----
+
+Here’s the full record for the £24 million building purchase
+
+[source,sql]
+----
+select * from trafford_spend_2019 
+where nwod_id =46481;
+-[ RECORD 1 ]-------+------------------------------------------------------
+nwod_id             | 46481
+nwod_id_uri_code    |
+body                | http://statistics.data.gov.uk/id/local-authority/00BU
+body_name           | Trafford Borough Council
+payment_date        | 2019-03-07
+transaction_number  | 1901300011
+invoice_number      | 4038641
+amount              | 24200000
+supplier_name       | REDACTED
+supplier_id         | REDACTED
+vat_registration_nos|
+expense_area        | Capital Schemes
+expense_type        | PURCHASE OF BUILDING
+expense_code        | 400100
+bvacop              |
+proclass            |
+proclass_description|
+extended_description|
+profit_centre       | 990000
+----
+
+I’ve already outlined the Local Government Guidelines regarding redactions in a
+previous post. The disparity in redaction levels highlighted here shows how
+differently councils interpret the guidelines and to a certain extent says
+something about the individual councils themselves.
+
