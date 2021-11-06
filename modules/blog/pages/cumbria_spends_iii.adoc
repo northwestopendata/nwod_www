@@ -18,11 +18,15 @@ company names(company_name).
 
 [source,sql]
 ----
-select distinct(beneficiary_name),company_name,org_short_name 
-from organisation_expenditure_v2 
-where company_name like '%REDACTED%' 
-group by beneficiary_name,company_name,org_short_name 
-order by org_short_name; 
+SELECT DISTINCT( beneficiary_name ),
+               company_name,
+               org_short_name
+FROM   organisation_expenditure_v2
+WHERE  company_name LIKE '%REDACTED%'
+GROUP  BY beneficiary_name,
+          company_name,
+          org_short_name
+ORDER  BY org_short_name; 
 
                    beneficiary_name                    |         company_name          | org_short_name
 -------------------------------------------------------+-------------------------------+----------------
