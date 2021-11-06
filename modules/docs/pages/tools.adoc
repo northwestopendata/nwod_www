@@ -47,6 +47,15 @@ providing a means to ingest and export them to CSV . I found
 https://docs.google.com/document/d/1qdr8NYcMNDBaUmUsgygTWZWDv4HMpjfIpjsKzD_QHyw/edit#heading=h.8556luurwlj7[Liza Bolton’s Data Journalism Workshop Notes]
 a useful primer to using Sheets for handling datasets.
 
+=== Other Tools
+
+* https://dataminer.io/[Data Miner] - A Google Chrome Extension and Edge
+ Browser Extension that helps you crawl and scrape data from web pages and
+ into a CSV file or Excel spreadsheet.
+* https://csvlint.io/[CSV Lint] - A CSV validator
+* https://data.page/json/csv[JSON to CSV Converter] - Convert .json to .csv
+* https://www.dpriver.com/pp/sqlformat.htm[SQL Formatter] - Format your SQL
+ code for presentation, PLSQL. T-SQL and more.
 
 
 
