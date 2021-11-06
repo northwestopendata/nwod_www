@@ -57,5 +57,3 @@ a useful primer to using Sheets for handling datasets.
 * https://www.dpriver.com/pp/sqlformat.htm[SQL Formatter] - Format your SQL
  code for presentation, PLSQL. T-SQL and more.
 
-
-
