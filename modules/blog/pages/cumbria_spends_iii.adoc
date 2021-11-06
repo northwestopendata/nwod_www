@@ -77,9 +77,12 @@ There’s more information in the raw data regarding the 2 Eden transactions
 
 [source,sql]
 ----
-select service_category_label,procurement_category,payment_date,amount 
-from eden_spend_2019 
-where nwod_id in (2973,2924);
+SELECT service_category_label,
+       procurement_category,
+       payment_date,
+       amount
+FROM   eden_spend_2019
+WHERE  nwod_id IN ( 2973, 2924 ); 
 
         service_category_label        | procurement_category  | payment_date | amount
 --------------------------------------+-----------------------+--------------+--------
@@ -91,9 +94,12 @@ and the Carlisle payment
 
 [source,sql]
 ----
-select expense_area,expense_type,pay_date,line_goods_amount 
-from carlisle_spend_2019 
-where nwod_id=631;
+SELECT expense_area,
+       expense_type,
+       pay_date,
+       line_goods_amount
+FROM   carlisle_spend_2019
+WHERE  nwod_id = 631; 
 
          expense_area          |         expense_type          |  pay_date  | line_goods_amount
 -------------------------------+-------------------------------+------------+-------------------
