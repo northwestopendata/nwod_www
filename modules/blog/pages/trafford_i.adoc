@@ -185,6 +185,8 @@ image::McrRedactedCouncil.png[]
 * More work needs to be done with Education/Charities and CQC
 * You can see my version of the top 50 beneficiaries https://datawrapper.dwcdn.net/C8ivb/1/[here]
 
+image::traff_bens.png[]
+
 == Conclusions
 
 * Trafford have actually produced a fairly good dataset
