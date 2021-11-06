@@ -30,7 +30,7 @@ in the past, I found installing and running the database to be very straight for
 I ran it under Cygwin and it performed perfectly and fully endorse PostgreSQL's own 
 opening description
 
-[quote From https://www.postgresql.org/ Website Viewed on 06/11/2021]
+[quote, From https://www.postgresql.org/ Website Viewed on 06/11/2021]
 ____
 _PostgreSQL is a powerful, open source object-relational database system with
 over 30 years of active development that has earned it a strong reputation for

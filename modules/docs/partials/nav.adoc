@@ -1,5 +1,5 @@
 .Tools
-* tools.adoc[]
+* xref:tools.adoc[]
 .Data Sets
 * xref:blog:aquicklookatdec2019ae_data.adoc[A&E Statistics - Jan 2020]
 * xref:blog:cohousegit.adoc[Companies House - Jul 2020]
