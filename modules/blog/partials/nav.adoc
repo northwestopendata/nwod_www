@@ -1,6 +1,6 @@
 .Blog Posts
 * 2020 October
-** xref:manchester_redacted.adoc[Manchester Spends]
+** xref:manchester_redacted.adoc[Manchester Redacted]
 ** xref:manchester_spends_i.adoc[Manchester Spends]
 ** xref:wigan_i.adoc[Wigan Spends]
 ** xref:trafford_i.adoc[Trafford Spends]

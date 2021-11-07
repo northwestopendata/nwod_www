@@ -1,0 +1,20 @@
+= Blog Posts
+
+* xref:manchester_redacted.adoc[]
+* xref:manchester_redacted.adoc.adoc[]
+* xref:wigan_i.adoc[]
+* xref:trafford_i.adoc[]
+* xref:charity_commission_i.adoc[]
+* xref:cumbria_spends_iv.adoc[]
+* xref:cumbria_spends_iii.adoc[]
+* xref:cumbria_spends_ii.adoc[]
+* xref:cohousegit.adoc[]
+* xref:cumbria_spends_i.adoc[]
+* xref:urlhuntingin_lancashire.adoc[]
+* xref:nextsteps.adoc[]
+* xref:transparencycodepart_iii.adoc[]
+* xref:transparencycodepart_ii.adoc[]
+* xref:aquicklookatdec2019ae_data.adoc[]
+* xref:transparencycodepart_i.adoc[]
+* xref:beginnings.adoc[]
+
