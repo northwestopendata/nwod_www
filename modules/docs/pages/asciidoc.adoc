@@ -112,7 +112,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 [%header,width=80%]             
 |===                                
 |Item | Description                 
-|----
+a|----
 *Bold*
 ---- 
 | *Bold*
