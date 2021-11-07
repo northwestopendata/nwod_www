@@ -248,7 +248,7 @@ Stuart wryly notes
 [quote, Council spending data. (2018). Retrieved 18 November 2020, from https://odileeds.org/blog/2018-02-15-council-spending-data]
 ____
 _The American format dates were the ones that caught me most by surprise (looking at you Sheffield City Council)._
-----
+____
 
 I use a database import as the first step in validating data and as such by
 creating a staging table with the date set as a ‘date datatype’ the failures
