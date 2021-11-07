@@ -1,4 +1,4 @@
-.Tools & datasets
+.Tools & Datasets
 * Tools
 ** xref:tools.adoc[]
 * Data Sets
