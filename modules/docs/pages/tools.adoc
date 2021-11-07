@@ -61,7 +61,7 @@ a useful primer to using Sheets for handling datasets.
 
 * https://www.datawrapper.de/[Datawrapper] - Upload data and create charts, maps and tables. Create image files or embed in a website.
 * https://flourish.studio/[Flourish] - Upload data and create charts, maps and tables. Create image files or embed in a website
-* https://www.google.co.uk/sheets/about/[Google Sheets Charts] - Create charts from Google spreadsheets
+* https://www.google.co.uk/sheets/about/[Google Sheet Charts] - Create charts from Google spreadsheets
 * https://datastudio.google.com/[Google Data Studio] - Build interactive reports and dashboards, similar to Microsoft's Power BI
 
 == Documentation
