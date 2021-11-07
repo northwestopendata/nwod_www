@@ -112,7 +112,10 @@ culpa qui officia deserunt mollit anim id est laborum.
 [%header,width=80%]             
 |===                                
 |Item | Description                 
-a|`*Bold*` | *Bold*
+a|----
+*Bold*
+---- 
+| *Bold*
 
 | `Par**bold** is a place in Lancashire` | Par**bold** is a place in Lancashire
 | `_Italic_` | _Italic_
