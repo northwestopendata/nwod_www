@@ -110,7 +110,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 ==== Text Formatting
 
-[%header,width=80%]             
+[%header,cols="1,.^2",width=80%]             
 |===                                
 |Item | Description                 
 
