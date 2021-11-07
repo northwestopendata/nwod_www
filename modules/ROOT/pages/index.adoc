@@ -7,12 +7,28 @@
 
 _A random walk through open data in the Northwest of England_
 
+
+== Latest
+
+* xref:blog:sww_i.adoc[So What’s Wrong With Council Spending Data? Part I],
+ xref:blog:sww_ii.adoc[Part II] and xref:blog:sww_iii.adoc[Part III]
+
 == Local Council Data in the North West of England.
 
-*  https://www.gov.uk/government/publications/local-government-transparency-code-2015[Local Government Transparency Code, 2015] is reviewed in 3 parts - xref:blog:transparencycodepart_i.adoc[Transparency Code Part 1], 
-xref:blog:transparencycodepart_ii.adoc[Part 2] and xref:blog:transparencycodepart_iii.adoc[Part 3]
-* A look at file and url quality among Lancashire councils - xref:blog:urlhuntingin_lancashire.adoc[Url Hunting in Lancashire]
-* A look at the Cumbrian spending data in 4 posts - xref:blog:cumbria_spends_i.adoc[Database Import], xref:blog:cumbria_spends_i.adoc[Aggregation & Review], https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Infographic] and xref:blog:cumbria_spends_i.adoc[Redacted]
-* Greater Manchester Councils spending is reviewed for xref:blog:trafford_i.adoc[Trafford], xref:blog:wigan_i.adoc[Wigan], xref:blog:manchester_spends_i.adoc[Manchester]. Together with a look at xref:blog:manchester_redacted.adoc[Redactions] across the authority
+* Greater Manchester Councils spending is reviewed for
+ xref:blog:trafford_i.adoc[Trafford], xref:blog:wigan_i.adoc[Wigan],
+ xref:blog:manchester_spends_i.adoc[Manchester]. Together with a look at
+ xref:blog:manchester_redacted.adoc[Redactions] across the authority
 
+* A look at the Cumbrian spending data in 4 posts -
+ xref:blog:cumbria_spends_i.adoc[Database Import],
+ xref:blog:cumbria_spends_i.adoc[Aggregation & Review],
+ https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Infographic]
+ and xref:blog:cumbria_spends_i.adoc[Redacted]
 
+* A look at file and url quality among Lancashire councils -
+ xref:blog:urlhuntingin_lancashire.adoc[Url Hunting in Lancashire]
+
+* https://www.gov.uk/government/publications/local-government-transparency-code-2015[Local Government Transparency Code, 2015] is reviewed in 3 parts - xref:blog:transparencycodepart_i.adoc[Transparency Code Part 1],
+ xref:blog:transparencycodepart_ii.adoc[Part 2] and
+ xref:blog:transparencycodepart_iii.adoc[Part 3]
