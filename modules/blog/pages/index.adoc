@@ -1,7 +1,8 @@
 = Blog Posts
 
+* xref:sww_i.adoc[]
 * xref:manchester_redacted.adoc[]
-* xref:manchester_redacted.adoc.adoc[]
+* xref:manchester_redacted.adoc[]
 * xref:wigan_i.adoc[]
 * xref:trafford_i.adoc[]
 * xref:charity_commission_i.adoc[]

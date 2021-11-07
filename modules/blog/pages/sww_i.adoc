@@ -1,0 +1,286 @@
+= So What’s Wrong With Council Spending Data? Part I
+
+:author: NorthwestOpenData
+:revdate: 19.11.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::mika-baumeister-unsplash.jpeg[]
+
+_Part 1 : A look at CSV and Date issues in local government spending data_
+
+== Introduction
+
+Having spent the last few months collecting Local Government spending data for
+most of the councils in the North West of England I thought I’d collect
+together in a series of posts some of the technical issues I’ve encountered
+compiling the data sets.
+
+The Local Government Transparency Code states that the following must be published
+
+* date the expenditure was incurred
+* relevant local authority department
+* beneficiary
+* summary of purpose
+* amount
+* VAT that cannot be reclaimed
+* merchant category (eg. computers, software etc)
+
+I’ve discarded the “authority department” and “category information”, the
+department data can change over time as councils are re-organised or more often
+than not is missing. Briefly reviewing the category information provided it
+became clear that different councils use different classifications, some openly
+available others proprietary, the important issue being that they may be useful
+for analysing a *single* council they are not helpful for comparing council
+spending profiles.
+
+The consequence of the above is that I am really only concerned with the
+following for the purposes of this post
+
+* Date expense was incurred
+* Amount paid
+* Beneficiary
+
+The VAT exemption value is rarely reported by councils and it is assumed that
+amounts reported exclude recoverable VAT. I’ve covered issues with with the
+general accessibility of the data files in xref:blog:urlhuntingin_lancashire.adoc[URL Hunting In Lancashire] which
+describes problems such as locating URLs, file names and formats. But I think
+it’s important to look at the quality of the CSV files that are made available
+before looking in more detail at the specific problems encountered with the
+date/amount/beneficiary data.
+
+== General CSV Format Issues
+
+CSV or Comma-Separated Values is one of the most basic formats for transferring
+data, it should be offered by every council for spending data, it is ideal for
+tabular(accounting) data. The common format for CSV is described in https://tools.ietf.org/html/rfc4180[RFC 4180].
+The https://www.gov.uk/government/publications/recommended-open-standards-for-government/tabular-data-standard[Government Digital Service] offers further advice on it’s use with
+clarification of it’s interaction with Excel. It seems that all the files I’ve
+so far processed they have been through a spreadsheet at some point, they may
+get pre-processed in a database but at some later stage they will be exported
+to usually Excel for checking and probably redactions. Some of the problems
+I’ve encountered
+
+* *Excess columns* – here’s a header line defining 7 columns, with over 30
+ commas at the end, implying blank column headers, all the data rows have a
+ similar ending, this may be OK when you are loading it into a spreadsheet but
+ is not helpful if you have to define database tables for import and requires
+ further cleaning of the files. Thanks Halton!
+
+----
+Transaction Date,Beneficiary,Merchant Catergory,Department,Purpose of Expenditure,Transaction Number,Net Amount £,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+----
+
+* *Extra Header Lines* – RFC 4180 specifies zero or one header lines. Sefton Council add another title line above the header line
+
+----
+SEFTON COUNCIL: Supplier Payments where charge to specific cost centre is >= £500 for period August 2019,,,,,,
+Supplier ,Amount,Trans.date,Cost Centre,Account,Department,Summary of Expenditure
+----
+
+* Random Sum Cells* – usually found at the end of the file
+
+----
+Reform,Public Health & HLA,"Heritage, Libraries and Arts","Heritage, Libraries and Arts",Agency Staff,PERSONAL DETAILS REDACTED,4/16/2019, 500.00 ,
+,,,,,,," 20,333,789.73 ",
+----
+
+* *#REF!  values*
+
+----
+0151 Entertainments Ltd,12/10/2018,201809,EY003,#REF!,3401,#REF!,Professional Fees,550.00
+----
+
+* *Different number of header columns vs data columns* – this is usually just an extra random comma at the end of some rows
+
+* *Number of data columns varying each month or quarter* – Bury for example
+ started 2019 reporting 8 columns of data, by March this had gone down to 7
+ items but by June 10 columns were included in the file. As a slight twist on
+ this the order of the columns have been seen to change in consecutive months.
+
+* *Duplicate Columns or extra columns* – compare South Lakeland March and February files
+
+----
+February file ( 17 columns )
+1 OrganisationNameLabel,
+2 OrganisationURI,
+3 EffectiveDate,
+4 Directorate/ServiceWhereExpenditureIncurred,
+5 ServiceCategoryLabel,
+6 ServiceCategoryURI,
+7 Supplier,
+8 SupplierRegisteredCompany Number,
+9 PaymentDate,
+10 TransactionNumber,
+11 NetAmount,
+12 IrrecoverableVAT,
+13 PurposeOfSpend,
+14 PurposeOfSpend,                                   <1>
+15 Procurement (Me,                                  <2>
+16 ProcurementClassification:ProclassLabel,
+17 ProcrementClassification:ProClassCode
+----
+<1> Duplicate column
+<2> Extra column
+
+----
+March file ( 15 columns )
+1 OrganisationNameLabel,
+2 OrganisationURI,
+3 EffectiveDate,
+4 Directorate/ServiceWhereExpenditureIncurred,
+5 ServiceCategoryLabel,
+6 ServiceCategoryURI,
+7 Supplier,
+8 SupplierRegisteredCompany Number,
+9 PaymentDate,
+10 TransactionNumber,
+11 NetAmount,
+12 IrrecoverableVAT,
+13 PurposeOfSpend,
+14 ProcurementClassification:ProclassLabel,
+15 ProcrementClassification:ProClassCode
+----
+
+* *Empty Rows* – usually found at the end of a file
+
+----
+,,,,CAPITA-BENEFIT PAYMENTS,,,"19,092,137.44",,
+,,,,CARE RELATED PAYMENTS,,,"1,786,272.41",,
+,,,,REED RECRUITMENT,,,"1,444,814.08",,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+----
+
+* *Character Set or Code Page Encoding Issues*
+
+Although not a part of RFC 4180, there is a mention of what encoding to use in
+the final file on the Government Digital Service page. The UK government
+specifies UTF-8. I have covered this before in previous posts – xref:blog:See cumbria_spends_i.adoc[Cumbria
+Spends – Database Import]. I think I’ve seen about a dozen encoding types from
+‘Algol 68 source, Non-ISO extended-ASCII text’ to very old Windows types. Very
+few councils offer files in clean UTF-8 format, xref:blog:trafford_i.adoc[Trafford Council] springs to
+mind as the last one I’ve encountered.
+
+[NOTE]
+====
+As a Windows desk top user you can see what character set a CSV file is by
+opening it in ‘Notepad’ and check the field in the bottom right of the window
+
+image::notepad-utf8.png[]
+
+====
+
+The vast majority of these issues can be solved by using a ‘CSV Validator’ I
+use https://csvlint.io/[CSV Lint]. The LG Inform Plus provide https://validator.opendata.esd.org.uk/spend[a validator] and schema check which
+seems to be rarely used judging by the general quality of CSV files produced by
+local councils.
+
+==  Date issues
+
+=== Unparsable Dates
+
+Generally the ‘date’ data is very good in general, a couple of issues have been
+noted, the first I encountered in an Eden Council dataset
+
+image::eden.png[]
+
+The payment date ‘43507’ is not a valid date in any way. I contacted Eden
+council and they got back to me with corrected files and stated ‘_it looks like
+the cell formatting isn’t correct on those cells and so the date is displayed
+as a 5 digit figure_‘
+
+I had a similar problem with 900 rows of data from Tameside Council, I emailed
+them 3 times and had no response, I set those dates to 01/01/2019 and moved on.
+
+=== Typo Dates
+
+Then there’s the ‘typo’ date, surprisingly few of these.
+
+----
+wirral | 64329 | 2018-12-20 | 20019-11-27
+----
+
+=== Out of Range Dates
+
+For each data set I look at the minimum and maximum date in the compiled year
+dataset. Some dates can be June 2018, in one case there is a date of 2008, is
+this a typo(should it have been 2018). It’s difficult to know what to make of
+these, it’s rarely clear if we are dealing with invoice, posting, payment or
+other dates as there is rarely meta data explaining what dates are being
+reported. In general I keep the dates as they are as there are usually so few
+of this type.
+
+I do truncate council data where they release quarterly datasets, as these are
+usually done on a Financial year basis – with September usually making the end
+of year.
+
+=== Date Formats
+
+In 2018 ODI Leeds did a report on Local Council Spends in which the author
+Stuart Lowe noted the following variations in dates
+
+----
+    14 June 2012
+    14th Jun 2012
+    2012/06/14
+    14.06.2016
+    14/06/2012
+    14/06/12
+    06/14/12
+    06/14/2012
+    14-06-2012
+    41072 (this is the number of days since 1900)
+----
+
+To this list I would add the following
+
+----
+    14-Jun-12
+----
+
+Stuart wryly notes 
+
+[quote, Council spending data. (2018). Retrieved 18 November 2020, from https://odileeds.org/blog/2018-02-15-council-spending-data]
+____
+_The American format dates were the ones that caught me most by surprise (looking at you Sheffield City Council)._
+----
+
+I use a database import as the first step in validating data and as such by
+creating a staging table with the date set as a ‘date datatype’ the failures
+are very visible. I’ve found Postgres to be very good at interpreting a wide
+variety of date formats – https://www.postgresql.org/docs/current/datatype-datetime.html[some documentation here]. I’ve encountered 3
+councils(Oldham, St Helens and Wigan) that have adopted American style dates
+for *some* of their files. It’s difficult to conceive that some months files can
+have DMY and the next month can report MDY for a month then change back. As
+Stuart notes in the his report
+
+[quote, Council spending data. (2018). Retrieved 18 November 2020, from https://odileeds.org/blog/2018-02-15-council-spending-data]
+____
+_When the format of files change from month to month you almost feel like
+someone is deliberately trying to make it hard for you to compare data_
+____
+
+Again the Government Code is not specific in this respect but the Government
+Digital Service comes out with https://www.gov.uk/government/publications/open-standards-for-government/date-times-and-time-stamps-standard[clear guidance]. https://www.iso.org/iso-8601-date-and-time-format.html[ISO 8601] is their preferred
+format which expresses dates as YYYY-MM-DD.
+
+== Conclusion
+
+* There aren’t many people using this data, of the few who are working in
+this area that I’ve had contact with in the last few months there is a feeling
+that as Stuart Lowe says ‘_almost feel like someone is deliberately trying to
+make it hard for you to compare data_‘
+* Council expenditure is a key dataset that ensures transparency and
+accountability but it’s not an easy dataset to work with, I attended an online
+session organised by https://www.thebureauinvestigates.com/[The Bureau of Investigative Journalism] this afternoon and
+it was clear that councils are under pressure and many don’t seem to be
+responding in a ‘good’ way.
+* It’s also apparent that transparency in spending data isn’t a priority even
+before Covid-19.
+* What is also obvious is that wouldn’t take much effort to improve or even fix
+ the two issues highlighted in this post.

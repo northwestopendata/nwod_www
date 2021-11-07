@@ -1,4 +1,6 @@
 .Blog Posts
+* 2020 November
+** xref:sww_i.adoc[So What's Wrong with Pt1]
 * 2020 October
 ** xref:manchester_redacted.adoc[Manchester Redacted]
 ** xref:manchester_spends_i.adoc[Manchester Spends]

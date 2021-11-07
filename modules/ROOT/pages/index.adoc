@@ -4,7 +4,7 @@
 :revdate: 29.10.2021
 :revremark: Home
 
-_A random walk through Open data in the Northwest of England_
+_A random walk through open data in the Northwest of England_
 
 == Local Council Data in the North West of England.
 
