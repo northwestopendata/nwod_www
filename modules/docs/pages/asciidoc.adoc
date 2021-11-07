@@ -1,4 +1,4 @@
-= AsiiDoc Guide
+= AsciiDoc Guide
 
 == Document Attributes
 Set in a document, usually just below header. https://docs.asciidoctor.org/asciidoc/latest/attributes/document-attributes-ref/[Details here]
@@ -112,7 +112,11 @@ culpa qui officia deserunt mollit anim id est laborum.
 [%header,width=80%]             
 |===                                
 |Item | Description                 
-| `*Bold*` | *Bold*
+|----
+*Bold*
+---- 
+| *Bold*
+
 | `Par**bold** is a place in Lancashire` | Par**bold** is a place in Lancashire
 | `_Italic_` | _Italic_
 |`The word __Italic__ized scores 22 points in scrabble` | The word __Italic__ized scores 22 points in scrabble
