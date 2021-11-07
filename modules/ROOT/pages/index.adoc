@@ -20,13 +20,13 @@ _A random walk through open data in the Northwest of England_
  xref:blog:manchester_spends_i.adoc[Manchester]. Together with a look at
  xref:blog:manchester_redacted.adoc[Redactions] across the authority
 
-* A look at the Cumbrian spending data in 4 posts -
+* Cumbrian spending data in 4 posts -
  xref:blog:cumbria_spends_i.adoc[Database Import],
  xref:blog:cumbria_spends_i.adoc[Aggregation & Review],
  https://drive.google.com/file/d/18dnQgnLOd23NmBEzRZPMAd8WCeoIjevP/view?usp=sharing[Infographic]
  and xref:blog:cumbria_spends_i.adoc[Redacted]
 
-* A look at file and url quality among Lancashire councils -
+* Url quality among Lancashire councils -
  xref:blog:urlhuntingin_lancashire.adoc[Url Hunting in Lancashire]
 
 * https://www.gov.uk/government/publications/local-government-transparency-code-2015[Local Government Transparency Code, 2015] is reviewed in 3 parts - xref:blog:transparencycodepart_i.adoc[Transparency Code Part 1],
