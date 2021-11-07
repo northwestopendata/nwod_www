@@ -369,5 +369,7 @@ some options for the next steps
 * Review the spending categories used by these 6 councils and see if they relate in anyway
 * Is there information I can extract for future use, eg Sercop codes and category definitions, etc.
 * Are there ways of enriching the data set, eg. external company information
-* Check out Cumbria Council, and understand the relationship of spends between the regional council and the local councils covered here.
+* Check out Cumbria Council, and understand the relationship of spends between
+ the regional council and the local councils covered here.
+
 
