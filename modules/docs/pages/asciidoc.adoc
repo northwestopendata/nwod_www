@@ -112,19 +112,51 @@ culpa qui officia deserunt mollit anim id est laborum.
 [%header,width=80%]             
 |===                                
 |Item | Description                 
+
 a|----
 *Bold*
 ---- 
 | *Bold*
 
-| `Par**bold** is a place in Lancashire` | Par**bold** is a place in Lancashire
-| `_Italic_` | _Italic_
-|`The word __Italic__ized scores 22 points in scrabble` | The word __Italic__ized scores 22 points in scrabble
-| ``Monospace`` | `Monospace`
-| `Moon Space is an anagram of ``Monospace``` | Moon Space is an anagram of ``Monospace``
-| `You can monospace attributes like this `+{author}+`` | You can monospace attributes like this `+{author}+`
-| `Compare with `{author}`` | Compare with `{author}`
-| `This text is #highlighted#` | This text is #highlighted#
+a|----
+Par**bold** is a place in Lancashire
+----
+| Par**bold** is a place in Lancashire
+
+|----
+_Italic_
+----
+| _Italic_
+
+a|----
+The word __Italic__ized scores 22 points in scrabble
+----
+| The word __Italic__ized scores 22 points in scrabble
+
+a|----
+`Monospace`
+----
+| `Monospace`
+
+a|----
+Moon Space is an anagram of ``Monospace``
+----
+| Moon Space is an anagram of ``Monospace``
+
+a|----
+You can monospace attributes like this `+{author}+`
+----
+| You can monospace attributes like this `+{author}+`
+
+a|----
+Compare with `{author}`
+----
+| Compare with `{author}`
+
+a|----
+This text is #highlighted#`
+----
+| This text is #highlighted#
 |===
 
 
