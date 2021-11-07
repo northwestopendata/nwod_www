@@ -6,7 +6,7 @@
 
 _Posted : {revremark} : {revdate} - {author}_
 
-image::mika-baumeister-unsplash.jpeg[]
+image::mika-baumeister-unsplash.jpg[]
 
 _Part 1 : A look at CSV and Date issues in local government spending data_
 
