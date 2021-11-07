@@ -147,7 +147,7 @@ Moon Space is an anagram of ``Monospace``
 a|----
 You can monospace attributes like this `+{author}+`
 ----
-| You can monospace attributes like this `+{author}+`
+a| You can monospace attributes like this `+{author}+`
 
 a|----
 Compare with `{author}`
