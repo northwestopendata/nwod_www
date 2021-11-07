@@ -201,10 +201,15 @@ image::traff_bens.png[]
 
 [source,sql]
 ----
-select payment_date,amount,expense_area,expense_type 
-from trafford_spend_2019 
-where nwod_id in (46481,46482,77651,90918,109917,123587,179315,166629,166630,166631) 
-order by amount;
+SELECT payment_date,
+       amount,
+       expense_area,
+       expense_type
+FROM   trafford_spend_2019
+WHERE  nwod_id IN ( 46481, 46482, 77651, 90918,
+                    109917, 123587, 179315, 166629,
+                    166630, 166631 )
+ORDER  BY amount;  
  payment_date |   amount   |  expense_area   |     expense_type
 --------------+------------+-----------------+----------------------
  2019-03-07   | 1199500    | Capital Schemes | PURCHASE OF BUILDING
