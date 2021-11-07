@@ -109,7 +109,7 @@ culpa qui officia deserunt mollit anim id est laborum.
 
 ==== Text Formatting
 
-[%header,cols="1,.^2",width=80%]             
+[%header,cols="1,.^3",width=100%]             
 |===                                
 |Item | Description                 
 
@@ -154,7 +154,7 @@ Compare with `{author}`
 | Compare with `{author}`
 
 a|----
-This text is #highlighted#`
+This text is #highlighted#
 ----
 | This text is #highlighted#
 |===
