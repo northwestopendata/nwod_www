@@ -1,4 +1,5 @@
 = AsciiDoc Guide
+:author: John Smith
 
 == Document Attributes
 Set in a document, usually just below header. https://docs.asciidoctor.org/asciidoc/latest/attributes/document-attributes-ref/[Details here]
@@ -123,7 +124,7 @@ Par**bold** is a place in Lancashire
 ----
 | Par**bold** is a place in Lancashire
 
-|----
+a|----
 _Italic_
 ----
 | _Italic_
