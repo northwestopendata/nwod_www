@@ -76,11 +76,6 @@ Rubies are red, +
 Topazes are blue.
 ----
 
-Rubies are red, +
-Topazes are blue.
-
-
-
 Or use the hardbreaks option
 
 ----
@@ -88,12 +83,6 @@ Or use the hardbreaks option
 Ruby is red.
 Java is beige.
 ----
-
-Renders as
-
-[%hardbreaks]
-Ruby is red.
-Java is beige.
 
 ==== Paragraph Justification
 Use `text-<alignment>` where alignment can be `left`, `center`, `right`, `justify`
@@ -117,6 +106,22 @@ culpa qui officia deserunt mollit anim id est laborum.
 ----
 
 === Text Formatting
+
+==== Text Formatting
+
+[%header,width=80%]             
+|===                                
+|Item | Description                 
+| `*Bold*` | *Bold*
+| `Par**bold** is a place in Lancashire` | Par**bold** is a place in Lancashire
+| `_Italic_` | _Italic_
+|`The word __Italic__ized scores 22 points in scrabble` | The word __Italic__ized scores 22 points in scrabble
+| ``Monospace`` | `Monospace`
+| `Moon Space is an anagram of ``Monospace``` | Moon Space is an anagram of ``Monospace``
+| `You can monospace attributes like this `+{author}+`` | You can monospace attributes like this `+{author}+`
+| `Compare with `{author}`` | Compare with `{author}`
+| `This text is #highlighted#` | This text is #highlighted#
+|===
 
 
 
