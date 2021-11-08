@@ -1,0 +1,383 @@
+= So What’s Wrong With Council Spending Data? Part II
+
+:author: NorthwestOpenData
+:revdate: 18.12.2020
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::1174.jpg[]
+
+_Part 2 : A look at Payment Amounts and Beneficiary Names issues in local government spending data_
+
+== Introduction
+
+Having spent the last few months collecting Local Government spending data for
+most of the councils in the North West of England I thought I’d collect
+together in a series of posts some of the technical issues I’ve encountered
+compiling the data sets. In Part I I looked at issues related to CSV file
+formats and date reporting, in this post I’m looking at payment amounts and
+beneficiary name.
+
+The Local Government Transparency Code states that the following must be published
+
+* date the expenditure was incurred
+* relevant local authority department
+* beneficiary
+* summary of purpose
+* amount
+* VAT that cannot be reclaimed
+* merchant category (eg. computers, software etc)
+
+== Payment Amounts
+
+=== Expenditure Format
+There are two key aspects of payment data, the first is obviously the actual format of the payment amount. Here’s four basic forms of ten thousand pounds.
+
+----
+1. £10,000.00
+2. 10,000.00
+3. 10000.00
+4. £10000.00
+----
+
+From a data ingestion viewpoint none of these provide any major issues, as I
+described in the http://www.northwestopendata.org.uk/so-whats-wrong-with-council-spending-data-part-i/[first part of this series] I validate dates by importing into a
+stage table with a date type defined, in the second stage of the process I
+clean up the amount column, removing ‘£’ symbols and ‘commas’ then cast them
+into a numeric(20,0) datatype, this facilitates all normal number operations on
+the column.
+
+=== Expenditure Range
+
+This is a slightly less obvious aspect of spending open data but it’s a subject
+I will come back to more broadly in a later post, but looking at it here
+provides a good introduction to an issue that can affect *comparability* of data
+sets across councils.
+
+Most of the spending data will come from Commercial Payments Systems. They will
+be used primarily by the Finance Departments and used by Invoice processors.
+Processing invoices will include paying the amount due but may also include
+reimbursements(un-payments if you like) to the Council. These will either be
+full or partial negative amount payments, here’s a selection of the top
+reimbursements noted.
+
+----
+council    | amount      | beneficiary
+manchester | -5229311.00 | LAING O'ROURKE CONSTRUCTION LIMITED
+trafford   | -3425016.78 | STRETFORD HIGH SCHOOL
+liverpool  | -2569589.60 | MERSEYSIDE RECYCLING AND WASTE AUTHORITY
+manchester | -2537412.00 | LAING O'ROURKE CONSTRUCTION LIMITED
+manchester | -1737217.09 | VESTA STREET DEVELOPMENT LTD
+----
+
+These can be quite significant amounts that if removed can distort the councils
+payments profile. There are some distinct variations in reporting across
+different councils.
+
+* Some councils delete all payments less than £500, including all reimbursements
+
+----
+council  | min    | max         | sum
+bolton   | 500.00 | 5632365.99  | 175317348.01
+bury     | 500.00 | 1665139.00  | 149820096.13
+oldham   | 500.00 | 1695925.36  | 224118911.65
+cheseast | 500.00 | 4595034.18  | 414341570.17
+sefton   | 500.00 | 1860500.00  | 260696084.15
+wigan    | 500.00 | 10700000.00 | 360843319.69
+----
+
+* Some councils include all payments greater than zero but delete all reimbursements
+
+----
+council  | min    | max         | sum
+halton   | 0.01   | 1190830.92  | 184841274.67
+sthelens | 0.03   | 1205418.41  | 177514379.95
+----
+
+* Some councils delete all payments/reimbursements between -£500 and £500.
+ Technically I consider this to be the correct approach, as major
+ reimbursements will be included
+
+image::GMCA-Payments-by-percentile.png[]
+
+Clearly this will affect comparisons between councils when the data sets are
+not equivalent, we can’t just use the best data sets we have to delete
+everything below £500 for *all datasets* to make them more comparable. A poor but
+forced solution.
+
+== Beneficiary Names
+Councils in the North West are quite variable in size, the Cumbrian Councils
+spend between £10 and £25 million, the councils in the GMCA vary between £150
+and £785 million for 2019, the larger ones could be compared to FTSE100
+companies. One characteristic of their payment beneficiaries is their
+diversity, they include
+
+* Companies private and public
+* PFI structures
+* Agencies and Public Bodies
+* Other councils, parish, town, district and combined authorities
+* Public corporations
+* Central government
+* Education/Training organisations
+* Employment organisations
+* Trade/Professional associations
+* Medical Trusts/Clinical Commissioning Groups
+* Law/order/emergency services
+* Charities, community groups and voluntary groups
+
+Typically a council will have between 2000 and 2500 suppliers reported in their
+spend data, over 75% will be a registered company, they may be companies that
+have charitable status but they will have an entry in the Companies House
+dataset. The remaining beneficiaries will more than likely appear in the
+Charities Commission Dataset, The Register of Schools, the Care Quality
+Commission dataset or government authority lists. By matching to these datasets
+it aligns all the possible variations that arise to single identifiable
+entities to a common standard and makes the datasets from different councils
+comparable. Additionally the data become linkable to other datasets and
+enriches it’s use. For instance the SIC code from Companies House can be used
+as a proxy for a spend category, see https://public.flourish.studio/visualisation/4239576/[here] for a first attempt on the GMCA
+councils.
+
+The following is a review of some of the technical challenges of implementing a
+matching process, it’s not exhaustive but I hope gives the reader a feel for
+the challenges and the quality of data on offer.
+
+=== Accuracy
+
+The table below shows what percentage of beneficiary names exactly match the
+Companies House dataset, most fall within the 20-30% range, typically they have
+three or more words in the company name. The total suppliers is also provided
+to provide some idea of total number of commercial suppliers(circa 75% of TS)
+
+[%header]
+|===
+| Council Short Name | %Match(Co House) | Total Suppliers
+| barrow| 	14.97| 	521
+| knowsley| 	16.47| 	2125
+| stockport| 	19.88| 	2445
+| carlisle| 	21.03| 	1027
+| salford| 	22.03| 	2011
+| wigan	| 23.00|  	2587
+| bury	| 23.19|  	2087
+| liverpool	| 23.38| 2438
+| manchester| 	23.99| 	3855
+| oldham| 	24.53| 	1847
+| bandd| 	24.59| 	2021
+| warrington| 	25.00| 	1936
+| sefton| 	25.10| 	2199
+| tameside| 	25.90| 	1853
+| rochdale| 	25.92| 	2639
+| southlakes| 	27.57| 	671
+| copeland| 	28.82| 	465
+| bolton| 	29.07| 	2246
+| halton| 	29.88| 	1797
+| sthelens| 	30.02| 	1749
+| trafford| 	31.85| 	2289
+| wirral| 	33.97| 	3241
+| eden| 	34.73| 	429
+| allerdale| 	35.04| 	899
+| cheseast| 	35.55| 	2107
+|===
+
+=== Abbreviations
+Abbreviation often appear in beneficiary name and cause problems when trying to
+identify the underlying organisation, there are over 400 Associations in the 25
+council 2019 dataset, different councils use different variations
+
+* ASSOC – eg ASSOC OF DEMOCRATIC SERVS OFFICERS
+* ASSOC. – eg ASSOC. OF DIR. OF PUBLIC HEALTH
+* ASS – eg ASS OF DIRECTORS OF CHILDREN`S SERVICES LTD
+* ASSOCI. – eg DISTRICT SURVEYORS ASSOCI. LTD
+
+All of the above may appear at the start, middle or end of the string, they
+also use other abbreviations such as SERVS and DIR. Then they may just appear
+as their initials
+
+* ADASS – meaning ASSOCIATION OF DIRECTORS OF ADULT SOCIAL SERVICES
+* APSE – meaning ASSOCIATION PUBLIC SERVICE EXCELLENCE
+* IRRV – meaning INSTITUTE OF REVENUES RATING AND VALUATION ASSOCIATIONS
+
+Over 1200 beneficiary names have the ‘T/A’ string in them meaning ‘Trading as’,
+such as
+
+----
+clean_name                                      | match_company_name
+BUILDING SOFTWARE LIMITED T/A MEASURE 2 IMPROVE | BUILDING SOFTWARE LIMITED
+BUILDING SOFTWARE LIMITED T/A MEASURE2IMPROVE   | BUILDING SOFTWARE LIMITED
+BUILDING SOFTWARE LTD T/A MEASURE 2 IMPROVE     | BUILDING SOFTWARE LIMITED
+BUILDING SOFTWARE LTD T/A MEASURE TO IMPROVE    | BUILDING SOFTWARE LIMITED
+BUILDING SOFTWARE LTD T/A MEASURE2IMPROVE       | BUILDING SOFTWARE LIMITED
+----
+
+But frequently the real name of the company may appear on the other side of the
+‘T/A’ string
+
+----
+clean_name 
+CAE BRYN T/A PENDINE PARK NURSING HOME  
+CHRIS HURST T/A HAWK ENVIRONMENTAL SERVICES 
+GARY LAYCOCK T/A NEW BRIGHTON HOTEL 
+HYDE NURSING CARE HOME T/A MERIDIAN HEALTHCARE LTD
+----
+
+=== Line Item vs Beneficiary
+
+This issue arises from the fact that most of the sources of spending data
+resides in flexible payments software. Presumably when these are installed they
+will be configured to the particular council departments needs. I first came
+across this issue with the Cumbria dataset initially with utility payments
+
+----
+org_short_name | clean_name
+copeland       | WATER PLUS COPELAND CENTRE CBC 4043252188
+copeland       | WATER PLUS CIVIC HALL – 4221709037
+copeland       | WATER PLUS CLEATOR MOOR COUNCIL CENTRE 4097096061
+copeland       | BRITISH GAS (HAIG ENTERPRISE PARK)
+copeland       | BRITISH GAS (CLEATOR MOOR OFFICES)
+----
+
+This became more of a problem as I looked at the Manchester and Liverpool
+Combined Authorities data sets and payments to Care Homes started to appear
+
+----
+org_short_name | clean_name
+halton         | BEECHCROFT CARE HOME (HC-ONE)
+halton         | FAZACKERLEY HOUSE (MERIDIAN HEALTHCARE)
+sefton         | HC-ONE LTD T/A SWALLOWNEST NURSING HOME
+sefton         | MERIDIAN HEALTHCARE-GREATWOOD HOUSE
+stockport      | BANKHOUSE NURSING HOME - HC-ONE
+stockport      | RINGWAY MEWS NURSING HOME - HC-ONE
+warrington     | HC-ONE OVAL SUMMERVILLE CARE HOME
+warrington     | HC-ONE OVAL LTD BIRCH COURT
+wigan          | WESTWOOD LODGE C/O MERIDIAN HEALTHCARE LTD
+----
+
+Initially I was focused on extracting or cleaning the data to get the company
+names but it has occurred to me that in the second example the actual home has
+significant public interest(similar issue arises with education
+establishments). With the introduction of the Care Quality Commission dataset
+this increased possibilities of a more detailed analysis of the Care Home
+payments.
+
+=== Initials
+
+Consider a fictional company ‘X Y JONES’ the following variations could appear
+in the council datasets
+
+----
+1. XY JONES - no space between initials
+2. X.Y. JONES - full stops no spaces
+3. X. Y. JONES - full stops and spaces
+4. X Y JONES - actual company name
+----
+
+=== Dormant Company Issue
+
+When I started to look at the SIC codes of matched companies another issue
+appeared, some quite large companies appeared as ‘99999 – Dormant Company’.
+Typical examples of this would be ‘BRITISH GAS LIMITED’ and ‘BRITISH TELECOM’.
+Technically the supply side of British Gas plc split away as Centrica in 1997.
+British Telecom changed it’s trading name in the early nineties and has now
+become BT Group. This can be explained again by considering where the data
+comes from, the company name was accurate at the time it was entered but hasn’t
+been updated as corporate structures change, indeed I could imagine old payment
+details being exported and imported through newer and newer council IT systems.
+This issue does not just apply to large companies, the question it does raise
+though if the company is dormant with respect to Corporation Tax, where is the
+money being paid to. See more information on https://en.wikipedia.org/wiki/Dormant_company[Dormant Companies here].
+
+=== Dissolved Company Issue
+
+On a similar issue to above, in 2019 Oldham Council paid £499,617.17 to Bardon
+Aggregates, however according to https://find-and-update.company-information.service.gov.uk/company/00836912[Companies House] Bardon Aggregates was
+dissolved in March 2017. There are over 400 companies in the combined dataset
+that are currently flagged as being in a status of not ‘Active’ that could be
+in ‘Liquidation’, ‘Administration’ etc. true many of them have changed status
+since 2019 and it’s an area that needs further investigation.
+
+=== Truncation
+
+Many beneficiary names are truncated, Trafford consistently truncate to 35 characters
+
+----
+supplier_id | supplier_name                       | char_length
+140299      | The Association of Electoral Admini | 35
+160469      | Rehabilitation Workers Prof Network | 35
+157142      | EE Limited (EEMP Messaging Charges) | 35
+160205      | Massive Technical Solutions Limited | 35
+158743      | Qualia Care Ltd T/A Millfield Nursi | 35
+156667      | Elizabeth Marland Childrens Respite | 35
+101973      | Chubb (Intruder & Fire Alarms Only) | 35
+100447      | Broughton Hs Home For Ex-Servicemen | 35
+159047      | Trading Standards Institute NW Bran | 35
+156659      | Care 4 Children Residential Service | 35
+----
+
+Others truncate to varying lengths presumably as items are exported from
+different IT systems before final release.
+
+=== The Bolton Hash
+A special mention to Bolton who release beneficiary names with the ‘#’ symbol
+randomly scattered through them
+
+----
+BOLTON CHILDRENS OPPORTUNITY GROUP#COG
+BOLTON COMMUNITY RADIO CIC#BOLTON FM CIC
+BOLTON HINDUS' AGE INSPIRATION LTD#BHAI
+BOLTON MISSION VICTORIA HALL#BOLTON METHODIST MISSION
+BOLTON MUSIC SERVICE#BOLTON COUNCIL
+BOLTON QUAKER MEETING#SOCIETY OF FRIENDS (QUAKERS)
+BOLTON SHOPMOBILITY#COMMUNITY CARE OPTIONS
+CEFNDY HEALTHCARE#CEFNDY ENTERPRISES
+----
+
+=== Apostrophes vs Grave
+
+This was one I wasn’t expecting but there seems to a random tendency to
+occasionally swap an apostrophe for the grave[ ` ] symbol. Indeed Blackburn
+with Darwin seem to have remapped all their keyboards to do this.
+
+== Conclusions
+
+* Dates and amounts are technically relatively simple to deal with in these datasets.
+
+* The real challenge is the hand entered beneficiary name, this is not unique
+ to this dataset. See https://spendnetwork.com/finding-beneficiaries-of-public-money/[Finding Beneficiaries of Public Money] from The Spending
+ Network. It’s a common complaint from people working in the field.
+
+* In these days when you can enter a postcode in web page and populate a form
+with your full address with one click it seems that the software providers are
+missing a trick.
+
+* It’s also apparent that, just as a name isn’t enough to identify a person, most
+bodies ask for full name /date of birth or first line of address, companies
+need to be identified more clearly if they are to be useful in the open data
+ecology. I would suggest using COMPANY NAME/COMPANY NUMBER pair. Of the
+datasets I’ve looked at only the South Lakes Council release Company Name and
+Number.
+
+* Trafford provides VAT Registration Number but I don’t think this is generally useful
+
+* As for the stale company names, in a way that’s a matter of house keeping and
+due diligence, but technologically it’s not impossible to fix.
+
+* Many beneficiaries don’t appear in any reference lists, professional bodies,
+scout/youth groups etc. I’ve started my own list to match some of these when
+they occur across councils.
+
+* Care Homes presents another issue, how do you uniquely identify them, should
+councils report Care Home name or the provider name, there are 26 ‘*The Willows*‘
+in the matching CQC dataset so that compounds the issue, reporting the provider
+doesn’t really provide the granularity required of the user. Again a Care
+Home/Company number pair would help in this area.
+
+* Is it unreasonable to ask councils to record and report a company number,
+possibly not, as part of the onboarding process these checks should be
+undertaken.
+
+* I don’t think it would be possible to fully match any council spending dataset
+but I don’t think it would be impossible to get most above an 80% matched
+figure. If that could be attained then this data might be considered fit for
+purpose it was originally mandated from the local authorities.
+
