@@ -157,6 +157,17 @@ a|----
 This text is #highlighted#
 ----
 | This text is #highlighted#
+
+a|----
+Subscript : H~2~O
+----
+| Subscript : H~2~O
+
+a|----
+Superscript : E=mc^2^
+----
+| Superscript : E=mc^2^
+
 |===
 
 ==== Text Decoration
@@ -196,7 +207,11 @@ a|----
 | [.pre-wrap]#All spaces are preserved       s#
 |===
 
+=== Apsotrophes and Quotes
 
+TODO
+
+=== 
 
 
 
