@@ -159,5 +159,44 @@ This text is #highlighted#
 | This text is #highlighted#
 |===
 
+==== Text Decoration
+
+[%header,cols="2,.^2",width=100%]
+|===
+|Item | Description
+
+a|----
+[.underline]#underline me#
+----
+| [.underline]#underline me#
+
+a|----
+[.overline]#overline me#
+----
+| [.overline]#overline me#
+
+a|----
+[.line-through]#strike through#
+----
+| [.line-through]#strike through#
+
+a|----
+[.nobreak]#An un broken string of text as a long line of text that will never be split#
+----
+| [.nobreak]#An un broken string of text as a long line of text that will never be split#
+
+a|----
+[.nowrap]#Do not wrap this text#
+----
+[.nowrap]#Do not wrap this text#
+
+a|----
+[.pre-wrap]#All spaces are preserved       s#
+----
+[.pre-wrap]#All spaces are preserved       s#
+|===
+
+
+
 
 
