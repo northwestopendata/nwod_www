@@ -188,12 +188,12 @@ a|----
 a|----
 [.nowrap]#Do not wrap this text#
 ----
-[.nowrap]#Do not wrap this text#
+| [.nowrap]#Do not wrap this text#
 
 a|----
 [.pre-wrap]#All spaces are preserved       s#
 ----
-[.pre-wrap]#All spaces are preserved       s#
+| [.pre-wrap]#All spaces are preserved       s#
 |===
 
 
