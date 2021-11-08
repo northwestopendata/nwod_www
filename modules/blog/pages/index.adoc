@@ -1,5 +1,7 @@
 = Blog Posts
 
+* xref:sww_iii.adoc[]
+* xref:sww_ii.adoc[]
 * xref:sww_i.adoc[]
 * xref:manchester_redacted.adoc[]
 * xref:manchester_redacted.adoc[]
