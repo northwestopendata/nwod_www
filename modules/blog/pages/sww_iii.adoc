@@ -124,7 +124,7 @@ Let’s take a closer look at Trafford, which has 151 payments totalling
 £38,152,822.24
 
 
-[source,sq;]
+[source,sql]
 ----
 SELECT DISTINCT( b.expense_type ),
                o.company_name,
@@ -225,7 +225,9 @@ which represents the money flow between different local authorities. Here’s an
 example of an attempted comparison of the Greater Manchester Councils
 expenditure
 
-https://public.flourish.studio/visualisation/4239576/[image::Greater-Manchester-All-Spending-2.png[]]
+[#img-flourish]
+[link=https://public.flourish.studio/visualisation/4239576/]
+image::Greater-Manchester-All-Spending-2.png[]
 
 == Conclusions
 
