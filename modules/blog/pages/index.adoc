@@ -4,7 +4,7 @@
 * xref:sww_ii.adoc[]
 * xref:sww_i.adoc[]
 * xref:manchester_redacted.adoc[]
-* xref:manchester_redacted.adoc[]
+* xref:manchester_spends_i.adoc[]
 * xref:wigan_i.adoc[]
 * xref:trafford_i.adoc[]
 * xref:charity_commission_i.adoc[]

@@ -1,0 +1,245 @@
+= So What’s Wrong With Council Spending Data? Part III
+
+:author: NorthwestOpenData
+:revdate: 26.03.2021
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::5242.jpg[]
+
+_Part 2 : A look at Data Scope and Categories in local government spending data_
+
+== Introduction
+
+Having spent the last few months collecting Local Government spending data for
+most of the councils in the North West of England I thought I’d collect
+together in a series of posts some of the technical issues I’ve encountered
+compiling the data sets. In xref:sww_i.adoc[Part I] I I looked at issues related to CSV file
+formats and date reporting, in  xref:sww_ii.adoc[Part II] I covered payment amounts and
+beneficiary names. In this part I will look at the scope of the data and touch
+on category information and why it doesn’t really help comparing individual
+councils.
+
+== Data Scope
+
+The Section 2, paragraph 28 ihttps://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Transparency Code] states that the following items
+must be published
+
+* individual invoices
+* grant payments
+* expense payments
+* payments for goods and services
+* grants
+* grant in aid
+* rent
+* credit notes over £500, and
+* transactions with other public bodies
+
+The Local Government Association includes the above but adds the following
+specific exclusions
+
+* transactions relating to income or the financing or underwriting of debt
+* financing and investment expenditure
+* payments made to Her Majesty’s Revenue and Customs (HMRC) for value added tax (VAT), pay as you earn (PAYE) and National Insurance Contributions (NIC) or pensions.
+* salary payments to staff (this is covered separately by the Code)
+* compensation payments to individuals.
+
+Having worked with several councils spending datasets from 2019 it occurred to
+me that equivalent councils have a different ‘feel’ to them. I think I first
+noticed this with ‘Teachers Pension’ payments, a few councils reported these
+most did not.
+
+I have a suspicion that councils do not report the same items and think the
+easiest way to demonstrate that hypothesis is by looking at payments to Her
+Majesty’s Revenue and Customs, what should be excluded is specified in the
+above LGA guidance.
+
+To demonstrate some of the problems working with these datasets, HMRC appears
+in many forms which need to be resolved to a single name for comparison across
+councils
+
+----
+original_name                                  | match_company_name
+-----------------------------------------------+------------------------
+H M REVENUE & CUSTOMS                          | HM REVENUE AND CUSTOMS
+H M REVENUES AND CUSTOMS                       | HM REVENUE AND CUSTOMS
+HM REVENUE & CUSTOMS                           | HM REVENUE AND CUSTOMS
+HM REVENUE & CUSTOMS LOCAL COMPLIANCE          | HM REVENUE AND CUSTOMS
+HM REVENUE & CUSTOMS ONLY                      | HM REVENUE AND CUSTOMS
+HM REVENUE & CUSTOMS ONLY#WAS INLAND REVENUE#2 | HM REVENUE AND CUSTOMS
+HM REVENUE AND CUSTOMS                         | HM REVENUE AND CUSTOMS
+HM REVENUES & CUSTOMS                          | HM REVENUE AND CUSTOMS
+HM REVENUES AND CUSTOMS SHIPLEY                | HM REVENUE AND CUSTOMS
+HMRC                                           | HM REVENUE AND CUSTOMS
+HMRC SHIPLEY                                   | HM REVENUE AND CUSTOMS
+HMRC#CIS                                       | HM REVENUE AND CUSTOMS
+INLAND REVENUE                                 | HM REVENUE AND CUSTOMS
+INLAND REVENUE - CHAPS                         | HM REVENUE AND CUSTOMS
+INLAND REVENUE ONLY                            | HM REVENUE AND CUSTOMS
+----
+
+Once that’s is done you can view payments
+
+[%header]
+|===
+| org_short_name | company_name | total | count
+| allerdale	| HM REVENUE AND CUSTOMS| 	126411.36|	11
+| bandd	| HM REVENUE AND CUSTOMS| 	23100786.42|	188
+| barrow| 	HM REVENUE AND CUSTOMS| 	23049.68|	12
+| bolton| 	HM REVENUE AND CUSTOMS| 	11626624.52|	13
+| bury| 	null| 	0|	0
+| carlisle| 	HM REVENUE AND CUSTOMS| 	1941.89|	2
+| cheseast| 	null| 	0|	0
+| cheswest| 	HM REVENUE AND CUSTOMS| 	2825.00|	1
+| copeland| 	null| 	0|	0
+| eden| 	null| 	0|	0
+| halton| 	null| 	0|	0
+| knowsley| 	HM REVENUE AND CUSTOMS| 	27718.88|	10
+| liverpool| 	HM REVENUE AND CUSTOMS| 	9194.68|  	1
+| manchester| 	HM REVENUE AND CUSTOMS| 	130644.44| 	17
+| oldham| 	null| 	0| 	0
+| rochdale| 	HM REVENUE AND CUSTOMS| 	1406958.00| 	10
+| salford| 	HM REVENUE AND CUSTOMS| 	748.41| 	1
+| sefton| 	null| 	0| 	0
+| southlakes| 	null| 	0| 	0
+| sthelens| 	HM REVENUE AND CUSTOMS| 	82200.00| 	1
+| stockport| 	HM REVENUE AND CUSTOMS| 	48933891.39| 	679
+| tameside| 	HM REVENUE AND CUSTOMS| 	5781.17| 	2
+| trafford| 	HM REVENUE AND CUSTOMS| 	38152822.24| 	151
+| warrington| 	HM REVENUE AND CUSTOMS| 	502395.49| 	17
+| wigan| 	HM REVENUE AND CUSTOMS| 	828500.91| 	31
+| wirral| 	HM REVENUE AND CUSTOMS| 	450090.00| 	4
+|===
+
+Eight councils out of 26 record no payments to HMRC, of the councils that do
+record payments they vary from £748 to nearly £49 million, is this variance in
+amounts credible, to me it seems unlikely, looking at the number of payments
+over 2019, there is a rough correlation between amount paid and number of
+payments. Let’s take a closer look at some council payments to see if there is
+some category information that might shed some light on what the payments are
+and if they are actually items that should be excluded.
+
+Let’s take a closer look at Trafford, which has 151 payments totalling
+£38,152,822.24
+
+
+[source,sq;]
+----
+select distinct(b.expense_type),o.company_name,sum(o.amount)  
+from organisation_expenditure_v2 o,trafford_spend_2019 b
+where o.company_name='HM REVENUE AND CUSTOMS' and o.org_short_name='trafford'
+and o.nwod_id=b.nwod_id 
+group by b.expense_type,o.company_name
+order by sum(o.amount);
+     expense_type     |      company_name      |     sum
+----------------------+------------------------+-------------
+ Statutory Pay        | HM REVENUE AND CUSTOMS |  -944091.77
+ RENT OF PREMISES     | HM REVENUE AND CUSTOMS |     7059.00
+ SITE PURCHASES       | HM REVENUE AND CUSTOMS |    29600.00
+ CI TAX NET CLEARING  | HM REVENUE AND CUSTOMS |   218621.07
+ Apprenticeship Levy  | HM REVENUE AND CUSTOMS |   501554.00
+ TLCIC BACS BUREAU DR | HM REVENUE AND CUSTOMS |   684820.72
+ Student Loans        | HM REVENUE AND CUSTOMS |   978839.00
+ PAYE Tax             | HM REVENUE AND CUSTOMS | 13834471.71
+ Nat Ins & Rebate     | HM REVENUE AND CUSTOMS | 22841948.51
+(9 rows)
+----
+
+From the above query we can see that National Insurance and PAYE payments are
+included totalling nearly £37 million. Stockport doesn’t provide any meaningful
+categorisation of the HMRC payments. Blackburn with Darwin include NI payments
+including deductions and employer contributions. Other items appear in these
+and many councils payments to HMRC
+
+* Student Loans payments
+* Apprenticeship Levy payments
+* State maternity payments – effectively as refunds
+* Construction Industry Scheme(CIS) payments
+
+It is unknown if the above items should be reported under the transparency code
+or the LGA guidance. When you also consider the Expenditure Range issue
+highlighted in xref:sww_ii.adoc[Part II] of these posts I think it would not be unfair to say the
+lack of consistency across councils makes the spending data less than useful
+for cross council comparisons.
+
+== Category Data
+Councils are required to provide a ‘merchant category(eg. computers, software
+etc)’ presumably to provide a high level of classifying the purpose of
+payments, sounds great doesn’t it? The LGTC does not expand on this. The LGA
+guidance mentions ‘Procurement classification / merchant category’ and suggests
+using either
+
+* https://proclass.org.uk/[Proclass] – is local government owned and is made freely available to any UK public sector organisation
+* https://ec.europa.eu/growth/single-market/public-procurement/digital/common-vocabulary_en[The Common Procurement Vocabulary](CPV) – A European Commission standard code system for public procurement.
+
+I’ve seen references in the raw data files to two other classification methods
+
+* https://www.cipfa.org/policy-and-guidance/publications/s/service-reporting-code-of-practice-for-local-authorities-202021[CIPFA/SeRCOP](was BVACOP) – Chartered Institute of Public Finance and
+Accountancy proprietary system, it is required when reporting to Central
+Government
+* https://en.wikipedia.org/wiki/The_Refinitiv_Business_Classification[Thomson Reuters Business Classification](TRBC)
+
+When researching around the subject I’ve seen the following systems mentioned
+
+* https://standards.esd.org.uk/?uri=list%2Fservices[Local Government Service List](LGSL) – maintained by LGA
+* https://www.ungm.org/Public/UNSPSC[United Nations Standard Products and Services Code}(UNSPSC)
+
+=== Observations
+
+* Some councils produce no category data eg. Rochdale, Sefton and Wirral
+* Some councils use a subjective system, either they create their own or tailor
+ an existing one for specific local requirements, for example Bolton, see
+ below for some of their categories
+
+----
+45615 - Agilisys - Transformation
+Contracted Services
+Contracted Services - Bolton Care and Support Ltd
+Corporate Training
+Fujitsu Data N/wk Line Rent
+Fujitsu Data N/wk Mngmnt
+Fujitsu Managed Service
+----
+
+* St Helens claims to report CIPFA data but the columns are empty
+* Cheshire East report 3 levels of Proclass code and a Thomson classification
+* Other councils report just one level of Proclass and lets the user figure out
+which it is, and it won’t be the same as the adjacent council.
+* There is usually no metadata explaining what system is being used and the
+column headings may not be helpful
+* There appears to be a blurring of definitions with this item, are they meant to be
+** A vendor classification
+** A financial or accounting classification
+** A business area classification
+
+The approach I took was to use the Companies House SIC Code for the companies I
+had identified, this obviously leaves some expenditure unclassified and
+unclassifiable. I did create one category here ‘Inter/Intra Council Spending’
+which represents the money flow between different local authorities. Here’s an
+example of an attempted comparison of the Greater Manchester Councils
+expenditure
+
+image::Greater-Manchester-All-Spending-2.png[]
+
+== Conclusions
+
+* Local authorities make payments to a huge range of suppliers, these may be
+commercial, charitable, governmental or even individuals via possibly multiple
+payment systems, when reporting it is not unsurprising that the scope of what
+is reported in the absence of precise definitions may result inconsistencies
+when comparing between councils.
+* Clearer guidance could be provided by the LGA or government in future editions
+of the transparency code.
+* The current situation where councils may or may not provide category data, or
+provide different category classifications or different levels of the same
+category systems makes cross council comparison virtually impossible.
+* SIC codes provide a slightly better solution but large areas of payments fall
+out of SIC classification.
+
+That’s the final post looking at some of the quality issues associated with
+this data, overall I think the spending dataset is important for transparency
+purposes. I don’t think it would be difficult to improve the overall quality
+and comparability but I doubt there is much will to make the required changes.
+
+
