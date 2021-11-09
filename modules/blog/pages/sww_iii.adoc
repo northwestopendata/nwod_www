@@ -23,7 +23,7 @@ councils.
 
 == Data Scope
 
-The Section 2, paragraph 28 ihttps://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Transparency Code] states that the following items
+The Section 2, paragraph 28 https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Transparency Code] states that the following items
 must be published
 
 * individual invoices
@@ -126,12 +126,17 @@ Let’s take a closer look at Trafford, which has 151 payments totalling
 
 [source,sq;]
 ----
-select distinct(b.expense_type),o.company_name,sum(o.amount)  
-from organisation_expenditure_v2 o,trafford_spend_2019 b
-where o.company_name='HM REVENUE AND CUSTOMS' and o.org_short_name='trafford'
-and o.nwod_id=b.nwod_id 
-group by b.expense_type,o.company_name
-order by sum(o.amount);
+SELECT DISTINCT( b.expense_type ),
+               o.company_name,
+               SUM(o.amount)
+FROM   organisation_expenditure_v2 o,
+       trafford_spend_2019 b
+WHERE  o.company_name = 'HM REVENUE AND CUSTOMS'
+       AND o.org_short_name = 'trafford'
+       AND o.nwod_id = b.nwod_id
+GROUP  BY b.expense_type,
+          o.company_name
+ORDER  BY SUM(o.amount);  
      expense_type     |      company_name      |     sum
 ----------------------+------------------------+-------------
  Statutory Pay        | HM REVENUE AND CUSTOMS |  -944091.77
@@ -220,7 +225,7 @@ which represents the money flow between different local authorities. Here’s an
 example of an attempted comparison of the Greater Manchester Councils
 expenditure
 
-image::Greater-Manchester-All-Spending-2.png[]
+https://public.flourish.studio/visualisation/4239576/[image::Greater-Manchester-All-Spending-2.png[]]
 
 == Conclusions
 
