@@ -160,7 +160,7 @@ March file ( 15 columns )
 
 Although not a part of RFC 4180, there is a mention of what encoding to use in
 the final file on the Government Digital Service page. The UK government
-specifies UTF-8. I have covered this before in previous posts – xref:blog:See cumbria_spends_i.adoc[Cumbria
+specifies UTF-8. I have covered this before in previous posts – xref:blog:cumbria_spends_i.adoc[Cumbria
 Spends – Database Import]. I think I’ve seen about a dozen encoding types from
 ‘Algol 68 source, Non-ISO extended-ASCII text’ to very old Windows types. Very
 few councils offer files in clean UTF-8 format, xref:blog:trafford_i.adoc[Trafford Council] springs to
