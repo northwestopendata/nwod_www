@@ -6,3 +6,81 @@
 == Issues
 
 . File names with multiple '-' or '_'
+
+<table>
+<tr>
+    <th>site.url</th>
+    <th>{{{site.url}}}</th>
+</tr>
+<tr>
+    <th>site.path</th>
+    <th>{{{site.path}}}</th>
+</tr>
+<tr>
+    <th>site.title</th>
+    <th>{{{site.title}}}</th>
+</tr>
+<tr>
+    <th>site.components</th>
+    <th>{{{site.components}}}</th>
+</tr>
+<tr>
+    <th>site.ui</th>
+    <th>{{{site.ui}}}</th>
+</tr>
+<tr>
+    <th>site.ui.defaultLayout</th>
+    <th>{{{site.ui.defaultLayout}}}</th>
+</tr>
+<tr>
+    <th>site.ui</th>
+    <th>{{{site.ui}}}</th>
+</tr>
+<tr>
+    <th>site.ui.url</th>
+    <th>{{{site.ui.url}}}</th>
+</tr>
+<tr>
+    <th>env</th>
+    <th>{{{env}}}</th>
+</tr>
+
+<tr>
+    <th>siteRootUrl</th>
+    <th>{{{siteRootUrl}}}</th>
+</tr>
+<tr>
+    <th>siteRootPath</th>
+    <th>{{{siteRootPath}}}</th>
+</tr>
+
+<tr>
+    <th>uiRootPath</th>
+    <th>{{{uiRootPath}}}</th>
+</tr>
+<tr>
+    <th>page.title</th>
+    <th>{{{page.title}}}</th>
+</tr>
+<tr>
+    <th>page.version</th>
+    <th>{{{page.version}}}</th>
+</tr>
+
+<tr>
+    <th>page.relativeSrcPath</th>
+    <th>{{{page.relativeSrcPath}}}</th>
+</tr>
+<tr>
+    <th>page.url</th>
+    <th>{{{page.url}}}</th>
+</tr>
+<tr>
+    <th>page.next</th>
+    <th>{{{page.next}}}</th>
+</tr>
+<tr>
+    <th>page.previous</th>
+    <th>{{{page.previous}}}</th>
+</tr>
+</table>
