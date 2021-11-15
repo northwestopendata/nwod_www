@@ -5,7 +5,7 @@ A list of 40 local authority councils in the Northwest of England
 
 [%header,format=csv]
 |===
-include:examples:Local-Authorities-Open-Data-Links.csv[]
+include::examples$Local-Authorities-Open-Data-Links.csv[]
 |===
 
 
