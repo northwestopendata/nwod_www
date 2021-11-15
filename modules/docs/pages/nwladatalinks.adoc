@@ -1,0 +1,22 @@
+= Local Authorities Open Data Links
+
+== Introduction
+A list of 40 local authority councils in the Northwest of England
+
+[%header,format=csv]
+|===
+include:examples:Local-Authorities-Open-Data-Links.csv[]
+|===
+
+
+Local Authorities in the Northwest of England
+
+LAD - Local Authority Districts
+UA - Unitary Authorities
+MC - Metropolitan County (abolished in 1986, recognized for statistical purposes)
+AB - Top Tier Administrative Body
+
+* https://en.wikipedia.org/wiki/North_West_England
+* https://en.wikipedia.org/wiki/Unitary_authorities_of_England
+
+
