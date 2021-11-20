@@ -51,23 +51,26 @@ promote any paragraph or you can disable it in the preamble by using [.normal]
 Separated by blank lines
 
 ----
-White youth, black youth.  Better find another solution.
-Why not phone up Robin Hood. And ask him for some wealth distribution.
+We were somewhere around Barstow on the edge of the desert when the drugs began
+to take hold. I remember saying something like "I feel a bit lightheaded; maybe
+you should drive...." 
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
-
+And suddenly there was a terrible roar all around us and
+the sky was full of what looked like huge bats, all swooping and screeching and
+diving around the car, which was going about a hundred miles an hour with the
+top down to Las Vegas.
 ----
 
 Renders as
 
-White youth, black youth.  Better find another solution.
-Why not phone up Robin Hood. And ask him for some wealth distribution.
+We were somewhere around Barstow on the edge of the desert when the drugs began
+to take hold. I remember saying something like "I feel a bit lightheaded; maybe
+you should drive...."
 
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+And suddenly there was a terrible roar all around us and
+the sky was full of what looked like huge bats, all swooping and screeching and
+diving around the car, which was going about a hundred miles an hour with the
+top down to Las Vegas.
 
 ==== Hard line breaks
 
@@ -89,9 +92,10 @@ Use `text-<alignment>` where alignment can be `left`, `center`, `right`, `justif
 
 ----
 [.text-justify]
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-culpa qui officia deserunt mollit anim id est laborum.
+We were somewhere around Barstow on the edge of the desert when the drugs began
+to take hold. I remember saying something like "I feel a bit lightheaded; maybe
+you should drive...."
+
 ----
 
 ==== Thematic Breaks
@@ -207,7 +211,106 @@ a|----
 | [.pre-wrap]#All spaces are preserved       s#
 |===
 
-=== Apsotrophes and Quotes
+=== Text Symbols
+
+[%header,cols="2,.^2",width=100%]
+|===
+|Item | Description
+
+a|----
+(C)  (R) (TM)
+----
+| (C) (R) (TM)
+
+a|----
+&#169; &#174; &#8482;
+----
+| &#169; &#174; &#8482;
+
+a|----
+-> => <- <= 
+----
+|-> => <- <=
+
+a|----
+&rarr &rArr &larr &lArr
+----
+|&rarr &rArr &larr &lArr
+
+a|----
+{pp} {plus} {deg} {cpp}
+----
+|{pp} {plus} {deg} {cpp}
+|===
+
+* See https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references[Character Reference Guide]
+* See https://docs.asciidoctor.org/asciidoc/latest/attributes/character-replacement-ref/[AsciiDoc Character Replacement Attributes]
+
+==== Menu, Button & Keyboard Macro
+
+NOTE: You need to enable the `experimental` attribute in AsciiDoc
+
+[%header,cols="2,.^2",width=100%]
+|===
+|Item | Description
+
+a|----
+Select menu:File[View > Zoom > 150%]
+----
+| Select menu:File[View > Zoom > 150%]
+
+a|----
+Press the btn:[OK] button when you are finished
+----
+| Press the btn:[OK] button when you are finished
+
+a|----
+Press kbd:[Ctrl+Alt+Delete] to log out
+----
+| Press kbd:[Ctrl+Alt+Delete] to log out
+|===
+
+
+==== Font size adjustment
+_Depreciated_
+
+[.big]#We will teach our twisted speech#
+
+[.small]#To the young believers#
+
+[.big]#We will train our blue-eyed men#
+
+[.small]#To be young believers#
+
+[%collapsible]
+.View the syntax
+====
+----
+[.big]#We will teach our twisted speech#
+
+[.small]#To the young believers#
+
+[.big]#We will train our blue-eyed men#
+
+[.small]#To be young believers#
+----
+====
+
+==== Comments
+----
+// A single-line comment.
+----
+
+----
+////
+A block comment.
+
+Comments, comments, comments
+////
+----
+
+
+=== Apostrophes and Quotes
 
 TODO
 
