@@ -1,47 +1,41 @@
-Region,Local Authority,Type,Open Data Page,
-Cumbria,Carlisle City Council,LAD,"<a href=""https://www.carlisle.gov.uk/open-data/"">https://www.carlisle.gov.uk/open-data/</a>",
-Cumbria,Allerdale Borough Council,LAD,"<a href=""https://www.allerdale.gov.uk/en/data-protection-and-freedom-information/open-data/"" rel=""noopener noreferrer"" target=""_blank"">https://www.allerdale.gov.uk/en/data-protection-and-freedom-information/open-data/</a>",
-Cumbria,Eden District Council,LAD,"<a href=""https://www.eden.gov.uk/your-council/council-business/requesting-information/open-data/"" rel=""noopener noreferrer"" target=""_blank"">https://www.eden.gov.uk/your-council/council-business/requesting-information/open-data/</a>",
-Cumbria,Copeland Borough Council,LAD,"<a href=""https://www.copeland.gov.uk/data-transparency"" rel=""noopener noreferrer"" target=""_blank"">https://www.copeland.gov.uk/data-transparency</a>",
-Cumbria,South Lakeland District Council,LAD,"<a href=""https://www.southlakeland.gov.uk/your-council/have-your-say/information-and-data/open-data/"" rel=""noopener noreferrer"" target=""_blank"">https://www.southlakeland.gov.uk/your-council/have-your-say/information-and-data/open-data/</a>",
-Cumbria,Barrow in Furness Borough Council,LAD,"<a href=""https://www.barrowbc.gov.uk/residents/planning/mapping/open-data/"" rel=""noopener noreferrer"" target=""_blank"">https://www.barrowbc.gov.uk/residents/planning/mapping/open-data/</a>",
-Lancashire,"West Lancashire Borough Council
-",LAD,"<a href=""https://www.westlancs.gov.uk/about-the-council/how-the-council-works/open-data.aspx"" rel=""noopener noreferrer"" target=""_blank"">https://www.westlancs.gov.uk/about-the-council/how-the-council-works/open-data.aspx</a>",
-Lancashire,Chorley Council,LAD,"<a href=""https://chorley.gov.uk/Pages/AtoZ/Council%20spending.aspx"" rel=""noopener noreferrer"" target=""_blank"">https://chorley.gov.uk/Pages/AtoZ/Council%20spending.aspx</a>
-No open data landing page",
-Lancashire,South Ribble Borough Council,LAD,"<a href=""https://www.southribble.gov.uk/search/node/transparency"" rel=""noopener noreferrer"" target=""_blank"">https://www.southribble.gov.uk/search/node/transparency</a>
-No open data landing page, search 'transparency'",
-Lancashire,Fylde Council,LAD,"<a href=""https://new.fylde.gov.uk/council/open-data/"" rel=""noopener noreferrer"" target=""_blank"">https://new.fylde.gov.uk/council/open-data/</a>
-and
-<a href=""https://new.fylde.gov.uk/council/finance/"" rel=""noopener noreferrer"" target=""_blank"">https://new.fylde.gov.uk/council/finance/</a>",
-Lancashire,Preston City Council,LAD,"<a href=""https://www.preston.gov.uk/article/1235/Open-data"" rel=""noopener noreferrer"" target=""_blank"">https://www.preston.gov.uk/article/1235/Open-data</a>",
-Lancashire,Wyre Council,LAD,"<a href=""https://www.wyre.gov.uk/opendata"" rel=""noopener noreferrer"" target=""_blank"">https://www.wyre.gov.uk/opendata</a>",
-Lancashire,Lancaster City Council,LAD,"<a href=""https://www.lancaster.gov.uk/the-council-and-democracy/local-government-transparency-code"" rel=""noopener noreferrer"" target=""_blank"">https://www.lancaster.gov.uk/the-council-and-democracy/local-government-transparency-code</a>",
-Lancashire,Ribble Valley Borough Council,LAD,"<a href=""https://www.ribblevalley.gov.uk/info/200415/open_data_and_transparency/1613/open_data_and_data_transparency"" rel=""noopener noreferrer"" target=""_blank"">https://www.ribblevalley.gov.uk/info/200415/open_data_and_transparency/1613/open_data_and_data_transparency</a>",
-Lancashire,Pendle Borough Council,LAD,"<a href=""https://www.pendle.gov.uk/info/20094/data_protection_and_freedom_of_information/148/open_data"" rel=""noopener noreferrer"" target=""_blank"">https://www.pendle.gov.uk/info/20094/data_protection_and_freedom_of_information/148/open_data</a>",
-Lancashire,Burnley Borough Council,LAD,"<a href=""https://www.burnley.gov.uk/about-council/finance-performance/transparency"" rel=""noopener noreferrer"" target=""_blank"">https://www.burnley.gov.uk/about-council/finance-performance/transparency</a>",
-Lancashire,Rossendale Borough Council,LAD,"<a href=""https://www.rossendale.gov.uk/info/210159/about_the_council/10561/access_to_information/3"" rel=""noopener noreferrer"" target=""_blank"">https://www.rossendale.gov.uk/info/210159/about_the_council/10561/access_to_information/3</a>",
-Lancashire,Hyndburn Borough Council,LAD,"<a href=""https://www.hyndburnbc.gov.uk/local-government-transparency-code-2/"" rel=""noopener noreferrer"" target=""_blank"">https://www.hyndburnbc.gov.uk/local-government-transparency-code-2/</a>",
-Lancashire,Blackpool Council,UA,"<a href=""https://www.blackpool.gov.uk/Your-Council/Transparency-and-open-data/Transparency-and-open-data.aspx"" rel=""noopener noreferrer"" target=""_blank"">https://www.blackpool.gov.uk/Your-Council/Transparency-and-open-data/Transparency-and-open-data.aspx</a>",
-Lancashire,Blackburn with Darwin Council,UA,"<a href=""https://www.blackburn.gov.uk/data-and-information/freedom-information-requests/publication-scheme"" rel=""noopener noreferrer"" target=""_blank"">https://www.blackburn.gov.uk/data-and-information/freedom-information-requests/publication-scheme</a>",
-Merseyside (MC),Knowsley Council,LAD,"<a href=""https://www.knowsley.gov.uk/your-council/accounts,-budgets-and-finances"" rel=""noopener noreferrer"" target=""_blank"">https://www.knowsley.gov.uk/your-council/accounts,-budgets-and-finances</a>",
-Merseyside (MC),Liverpool City Council,LAD,"<a href=""https://liverpool.gov.uk/council/budgets-and-finance/transparency-in-local-government/"" rel=""noopener noreferrer"" target=""_blank"">https://liverpool.gov.uk/council/budgets-and-finance/transparency-in-local-government/</a>",
-Merseyside (MC),St Helens Council,LAD,"<a href=""https://www.sthelens.gov.uk/council/data-protection-freedom-of-information/local-transparency/"" rel=""noopener noreferrer"" target=""_blank"">https://www.sthelens.gov.uk/council/data-protection-freedom-of-information/local-transparency/</a>",
-Merseyside (MC),Sefton Council,LAD,"<a href=""https://www.sefton.gov.uk/your-council/open-data,-transparency-and-foi/transparency.aspx"" rel=""noopener noreferrer"" target=""_blank"">https://www.sefton.gov.uk/your-council/open-data,-transparency-and-foi/transparency.aspx</a>",
-Merseyside (MC),Wirral Council,LAD,"<a href=""https://www.wirral.gov.uk/about-council/freedom-information-and-data-protection/publication-scheme/transparency-code"" rel=""noopener noreferrer"" target=""_blank"">https://www.wirral.gov.uk/about-council/freedom-information-and-data-protection/publication-scheme/transparency-code</a>",
-Greater Manchester (MC),Bolton Council,LAD,"<a href=""https://www.bolton.gov.uk/downloads/file/2432/open-data"" rel=""noopener noreferrer"" target=""_blank"">https://www.bolton.gov.uk/downloads/file/2432/open-data</a>",
-Greater Manchester (MC),Bury Council,LAD,"<a href=""https://www.bury.gov.uk/index.aspx?articleid=10555"" rel=""noopener noreferrer"" target=""_blank"">https://www.bury.gov.uk/index.aspx?articleid=10555</a>",
-Greater Manchester (MC),Manchester City Council,LAD,"<a href=""http://open.manchester.gov.uk/"" rel=""noopener noreferrer"" target=""_blank"">http://open.manchester.gov.uk/</a>",
-Greater Manchester (MC),Oldham Council,LAD,"<a href=""https://www.oldham.gov.uk/info/200943/open_data/1429/local_government_transparency_code"" rel=""noopener noreferrer"" target=""_blank"">https://www.oldham.gov.uk/info/200943/open_data/1429/local_government_transparency_code</a>",
-Greater Manchester (MC),Rochdale Borough Council,LAD,"<a href=""http://www.rochdale.gov.uk/opendata"" rel=""noopener noreferrer"" target=""_blank"">http://www.rochdale.gov.uk/opendata</a>
-But details(links) hosted on data.gov.uk",
-Greater Manchester (MC),Salford City Council,LAD,"<a href=""https://salforddataquay.uk/"" rel=""noopener noreferrer"" target=""_blank"">https://salforddataquay.uk/</a>",
-Greater Manchester (MC),Stockport Metropolitan Borough Council,LAD,"<a href=""https://www.stockport.gov.uk/transparency"" rel=""noopener noreferrer"" target=""_blank"">https://www.stockport.gov.uk/transparency</a>",
-Greater Manchester (MC),Tameside Metroplitan Borough Council,LAD,"<a href=""https://www.tameside.gov.uk/opendata"" rel=""noopener noreferrer"" target=""_blank"">https://www.tameside.gov.uk/opendata</a>",
-Greater Manchester (MC),Trafford Council,LAD,"<a href=""https://www.trafford.gov.uk/about-your-council/data-protection/open-data/open-data.aspx"" rel=""noopener noreferrer"" target=""_blank"">https://www.trafford.gov.uk/about-your-council/data-protection/open-data/open-data.aspx</a>",
-Greater Manchester (MC),Wigan Council,LAD,"<a href=""https://www.wigan.gov.uk/Council/DataProtection-FOI-Stats/Open-Data.aspx"" rel=""noopener noreferrer"" target=""_blank"">https://www.wigan.gov.uk/Council/DataProtection-FOI-Stats/Open-Data.aspx</a>",
-Greater Manchester Combined Authority,Greater Manchester Combined Authority,AB,"<a href=""https://www.greatermanchester-ca.gov.uk/who-we-are/accounts-transparency-and-governance/"" rel=""noopener noreferrer"" target=""_blank"">https://www.greatermanchester-ca.gov.uk/who-we-are/accounts-transparency-and-governance/</a>",
-Cheshire,Cheshire East Council,UA,"<a href=""https://www.cheshireeast.gov.uk/council_and_democracy/council_information/open-data-and-transparency/open-data-and-transparency.aspx"" rel=""noopener noreferrer"" target=""_blank"">https://www.cheshireeast.gov.uk/council_and_democracy/council_information/open-data-and-transparency/open-data-and-transparency.aspx</a>",
-Cheshire,Cheshire West and Chester,UA,"<a href=""http://inside.cheshirewestandchester.gov.uk/find_out_more/datasets_and_statistics/opendata"" rel=""noopener noreferrer"" target=""_blank"">http://inside.cheshirewestandchester.gov.uk/find_out_more/datasets_and_statistics/opendata</a>",
-Cheshire,Halton Borough Council,UA,"<a href=""https://www3.halton.gov.uk/Pages/councildemocracy/opendata/transparency.aspx"" rel=""noopener noreferrer"" target=""_blank"">https://www3.halton.gov.uk/Pages/councildemocracy/opendata/transparency.aspx</a>",
-Cheshire,Warrington Borough Council,UA,"<a href=""https://www.warrington.gov.uk/opendata"" rel=""noopener noreferrer"" target=""_blank"">https://www.warrington.gov.uk/opendata</a>",
+Region,Local Authority,Type,Open Data Page
+Cumbria,Carlisle City Council,LAD,https://www.carlisle.gov.uk/open-data/
+Cumbria,Allerdale Borough Council,LAD,https://www.allerdale.gov.uk/en/data-protection-and-freedom-information/open-data/
+Cumbria,Eden District Council,LAD,https://www.eden.gov.uk/your-council/council-business/requesting-information/open-data/
+Cumbria,Copeland Borough Council,LAD,https://www.copeland.gov.uk/data-transparency
+Cumbria,South Lakeland District Council,LAD,https://www.southlakeland.gov.uk/your-council/have-your-say/information-and-data/open-data/
+Cumbria,Barrow in Furness Borough Council,LAD,https://www.barrowbc.gov.uk/residents/planning/mapping/open-data/
+Lancashire,"West Lancashire Borough Council",LAD,https://www.westlancs.gov.uk/about-the-council/how-the-council-works/open-data.aspx
+Lancashire,Chorley Council,LAD,https://chorley.gov.uk/Pages/AtoZ/Council%20spending.aspx - No open data landing page
+Lancashire,South Ribble Borough Council,LAD,https://www.southribble.gov.uk/search/node/transparency - No open data landing page  - try search 'transparency'
+Lancashire,Fylde Council,LAD,https://new.fylde.gov.uk/council/open-data/ and https://new.fylde.gov.uk/council/finance/
+Lancashire,Preston City Council,LAD,https://www.preston.gov.uk/article/1235/Open-data
+Lancashire,Wyre Council,LAD,https://www.wyre.gov.uk/opendata
+Lancashire,Lancaster City Council,LAD,https://www.lancaster.gov.uk/the-council-and-democracy/local-government-transparency-code
+Lancashire,Ribble Valley Borough Council,LAD,https://www.ribblevalley.gov.uk/info/200415/open_data_and_transparency/1613/open_data_and_data_transparency
+Lancashire,Pendle Borough Council,LAD,https://www.pendle.gov.uk/info/20094/data_protection_and_freedom_of_information/148/open_data
+Lancashire,Burnley Borough Council,LAD,https://www.burnley.gov.uk/about-council/finance-performance/transparency
+Lancashire,Rossendale Borough Council,LAD,https://www.rossendale.gov.uk/info/210159/about_the_council/10561/access_to_information/3
+Lancashire,Hyndburn Borough Council,LAD,https://www.hyndburnbc.gov.uk/local-government-transparency-code-2/
+Lancashire,Blackpool Council,UA,https://www.blackpool.gov.uk/Your-Council/Transparency-and-open-data/Transparency-and-open-data.aspx
+Lancashire,Blackburn with Darwin Council,UA,https://www.blackburn.gov.uk/data-and-information/freedom-information-requests/publication-scheme
+Merseyside (MC),Knowsley Council,LAD,https://www.knowsley.gov.uk/your-council/accounts-budgets-and-finances
+Merseyside (MC),Liverpool City Council,LAD,https://liverpool.gov.uk/council/budgets-and-finance/transparency-in-local-government/
+Merseyside (MC),St Helens Council,LAD,https://www.sthelens.gov.uk/council/data-protection-freedom-of-information/local-transparency/
+Merseyside (MC),Sefton Council,LAD,https://www.sefton.gov.uk/your-council/open-data-transparency-and-foi/transparency.aspx
+Merseyside (MC),Wirral Council,LAD,https://www.wirral.gov.uk/about-council/freedom-information-and-data-protection/publication-scheme/transparency-code
+Greater Manchester (MC),Bolton Council,LAD,https://www.bolton.gov.uk/downloads/file/2432/open-data
+Greater Manchester (MC),Bury Council,LAD,https://www.bury.gov.uk/index.aspx?articleid=10555
+Greater Manchester (MC),Manchester City Council,LAD,http://open.manchester.gov.uk/
+Greater Manchester (MC),Oldham Council,LAD,https://www.oldham.gov.uk/info/200943/open_data/1429/local_government_transparency_code
+Greater Manchester (MC),Rochdale Borough Council,LAD,http://www.rochdale.gov.uk/opendata - But details(links) hosted on data.gov.uk
+Greater Manchester (MC),Salford City Council,LAD,https://salforddataquay.uk/
+Greater Manchester (MC),Stockport Metropolitan Borough Council,LAD,https://www.stockport.gov.uk/transparency
+Greater Manchester (MC),Tameside Metroplitan Borough Council,LAD,https://www.tameside.gov.uk/opendata
+Greater Manchester (MC),Trafford Council,LAD,https://www.trafford.gov.uk/about-your-council/data-protection/open-data/open-data.aspx
+Greater Manchester (MC),Wigan Council,LAD,https://www.wigan.gov.uk/Council/DataProtection-FOI-Stats/Open-Data.aspx
+Greater Manchester Combined Authority,Greater Manchester Combined Authority,AB,https://www.greatermanchester-ca.gov.uk/who-we-are/accounts-transparency-and-governance/
+Cheshire,Cheshire East Council,UA,https://www.cheshireeast.gov.uk/council_and_democracy/council_information/open-data-and-transparency/open-data-and-transparency.aspx
+Cheshire,Cheshire West and Chester,UA,http://inside.cheshirewestandchester.gov.uk/find_out_more/datasets_and_statistics/opendata
+Cheshire,Halton Borough Council,UA,https://www3.halton.gov.uk/Pages/councildemocracy/opendata/transparency.aspx
+Cheshire,Warrington Borough Council,UA,https://www.warrington.gov.uk/opendata

@@ -1,9 +1,8 @@
 = Local Authorities Open Data Links
 
-== Introduction
-A list of 40 local authority councils in the Northwest of England
 
-[%header,format=csv]
+.Local Authority Open Data Pages 
+[%header,format=csv,cols="1,1,1,4",stripes="odd"]
 |===
 include::example$Local-Authorities-Open-Data-Links.csv[]
 |===
