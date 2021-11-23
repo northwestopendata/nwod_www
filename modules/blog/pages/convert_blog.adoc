@@ -8,6 +8,8 @@ _Posted : {revremark} : {revdate} - {author}_
 
 image::Antora_Peak.jpg[]
 
+_Antora Peak - 13,275 feet is located in Rio Grande National Forest, 4.6 miles west-northwest of the Town of Bonanza in Saguache County, Colorado, United States._
+
 == Background
 
 I started this project in January 2020 and initially set up a Wordpress(WP) site
@@ -88,7 +90,7 @@ antora.yml               <2>
 <4> The modules directory is the top level of the sites content
 <5> The blog subdirectory
 <6> The docs sub directory
-<7> The ROOT sundirectory - ROOT is a special key word that
+<7> The ROOT subdirectory - ROOT is a special key word that
  signifies a space for non specific files, this will become clearer when you see the output
  structure after running Antora. Basically I thought I would place my index page,
  privacy and T&C pages
@@ -219,6 +221,8 @@ $ find .  -type d
 
 == The Default Output
 
+After generating open the index.html page in a browser
+
 image::antora1.png[]
 
 . The site name (site: title)
@@ -237,6 +241,54 @@ image::antora2.png[]
 
 . The version navigation widget
 . The page footer
+
+== Transferring the Content
+
+Rather than pushing and pulling from GitHub - I decided to set up a local working
+environment as suggested in the documentation. So I created a directory and located 
+the following within it.
+
+* `nwod_www` which contained the content repo
+* `cache` directory, I seemed to experience problems when generating the site 
+ where changes weren't picked up. I didn't really get to the bottom of the problem
+ but I wrote a small shell script to build the site where I deleted and recreated
+ the cache area each time.
+* `antora_ui_default` this contains the original source code extracted from the 
+ ui-bundle.zip.
+* `ui-bundle.zip` itself located at the top level
+* I also created a couple of `playbook.yml` files:
+** `antora-local-playbook.yml` where the content and ui values are
+----
+	content:
+	  sources:
+	    - url: ./nwod_www       <1>
+	      branches: HEAD        <2>
+
+	ui:
+	  bundle:
+	    snapshot: true
+	    url: ./ui-bundle.zip    <3>
+----
+<1> Use the local repo directory
+<2> `HEAD` is a special keyword to signify a local files repo
+<3> Use the local zip file to theme the website
+** `antora-site-playbook` with the following content
+----
+	content:
+	  sources:
+	    - url: https://github.com/northwestopendata/nwod_www  <1>
+	      branches: main
+	      edit_url: false                                     <2>
+----
+<1> Alway build the website from the GitHub repo
+<2> Turn off the 'Edit this Page' button (see  item 6 <<The Default Output>>)
+* `build.sh` a simple shell script to run antora with euther the local
+or site playbook
+
+Then it was just a matter of transferring the Wordpress web pages via cut and paste into .adoc files in vi. 
+Download and save any images I had to and recreate some charts that were originally made by custom plugins, 
+it took me a couple of weekends and the odd hour midweek. It also gave me a chance to correct spelling 
+mistakes and add some updates for any parts that had changed.
 
 == Theming with the UI
 
