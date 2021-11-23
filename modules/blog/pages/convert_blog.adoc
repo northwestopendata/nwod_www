@@ -58,32 +58,44 @@ involved in setting up any `.yml` files
 
 == Configure Directories
 
-* A content source is a git repository, I think the minimal requirement is a `git init` 
- followed by a commit on a local filesystem. Once I had the structure complete and a few
- pages written I committed/pushed to GitHub to test the full Antora build.
+A content source is a git repository, I think the minimal requirement is a `git init` 
+followed by a commit on a local filesystem. Once I had the structure complete and a few
+pages written I committed/pushed to GitHub to test the full Antora build.
 
-image::antora3.png[align="left"]
-
-* The `modules` directory contains the `.adoc` documents. I think it _may_
- be required to be called modules.
-
-image::antora4.png[align="left"]
-
-* This is where I decided how I was going to structure the content, I decided to keep
- all the converted blog posts in one directory.
-* I decided to hcreate a documents directory for other material in the first instance,
- I may need to revisit this at some point.
-* The `ROOT` directory is a feature you can use in Antora, ROOT is a special key word that
+.Source Filesystem
+----
+README.md                <1>
+antora.yml               <2>
+./.git                   <3>
+./modules                <4>
+./modules/blog           <5>
+./modules/blog/images
+./modules/blog/pages
+./modules/blog/partials
+./modules/docs           <6>
+./modules/docs/examples
+./modules/docs/images
+./modules/docs/pages
+./modules/docs/partials
+./modules/ROOT           <7>
+./modules/ROOT/images
+./modules/ROOT/pages
+./modules/ROOT/partials
+----
+<1> The repo README file
+<2> The site's antora.yml file
+<3> .git directory, subdirectories snipped
+<4> The modules directory is the top level of the sites content
+<5> The blog subdirectory
+<6> The docs sub directory
+<7> The ROOT sundirectory - ROOT is a special key word that
  signifies a space for non specific files, this will become clearer when you see the output
  structure after running Antora. Basically I thought I would place my index page,
  privacy and T&C pages
 
-.Next level view
 
-image::antora5.png[align="left"]
-
-* In each 'ROOT', 'blog' and 'docs' directory I created the above directories
-* These were the locations of the content files, content types are described below
+In each 'ROOT', 'blog' and 'docs' directory I created some subdirectories. These were the 
+locations of the content files, content types are described below. Not all are compulsory.
 
 |===
 | Directory | Purpose | Access method
