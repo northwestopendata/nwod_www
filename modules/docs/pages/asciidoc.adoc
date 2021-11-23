@@ -233,9 +233,14 @@ a|----
 |-> => <- <=
 
 a|----
-&rarr &rArr &larr &lArr
+&rarr; &rArr; &larr; &lArr;
 ----
-|&rarr &rArr &larr &lArr
+|&rarr; &rArr; &larr; &lArr;
+
+a|----
+&hearts; &clubs; &diams; &spades;
+----
+|&hearts; &clubs; &diams; &spades;
 
 a|----
 {pp} {plus} {deg} {cpp}
@@ -282,6 +287,8 @@ _Depreciated_
 
 [.small]#To be young believers#
 
+NOTE: [%collapsible] does not work in Antora
+
 [%collapsible]
 .View the syntax
 ====
@@ -295,6 +302,9 @@ _Depreciated_
 [.small]#To be young believers#
 ----
 ====
+
+* https://docs.asciidoctor.org/asciidoc/latest/text/custom-inline-styles/[Custom Styles]
+* https://docs.asciidoctor.org/asciidoc/latest/text/troubleshoot-unconstrained-formatting/[Unconstrained Pairs]
 
 ==== Comments
 ----
@@ -312,9 +322,43 @@ Comments, comments, comments
 
 === Apostrophes and Quotes
 
-TODO
+[%header,cols="2,.^2",width=100%]
+|===
+|Item | Description
 
-=== 
+a|----
+“The horror! The horror!” 
+----
+| “The horror! The horror!” 
+
+a|----
+'The horror! The horror!'
+----
+| 'The horror! The horror!'
+
+a|----
+"\n\t" and '\n\t'
+----
+| "\n\t" and '\n\t'
+
+a|----
+"`Joseph Conrad’s “Heart of Darkness.”`"
+----
+| "`Joseph Conrad’s “Heart of Darkness.”`"
+
+a|----
+Conrad’s and Conrad\’s 
+----
+| Conrad’s and Conrad\’s
+
+a|----
+``vi```'s my favourite text editor
+----
+| ``vi```'s my favourite text editor
+
+|===
+
+* See https://docs.asciidoctor.org/asciidoc/latest/text/quotation-marks-and-apostrophes/[Asciidoctor Docs] for details
 
 
 

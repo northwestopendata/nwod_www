@@ -69,4 +69,10 @@ a useful primer to using Sheets for handling datasets.
 * This website was ported form Wordpress to a static site written in
  https://asciidoc-py.github.io/index.html[AsciiDoc], generated with
  https://asciidoctor.org/[Asciidoctor] and built and themed with
- https://antora.org/[Antora]
+ https://antora.org/[Antora]. 
+* For writing I've used https://asciidocfx.com/[AsciiDocFX] or 
+ https://man7.org/linux/man-pages/man1/vi.1p.html['vi']
+* For viewing `.adoc` files locally, a Chrome Extension 
+ https://github.com/asciidoctor/asciidoctor-browser-extension[Ascii Doctor Live Preview]
+ has proved useful.
+ 

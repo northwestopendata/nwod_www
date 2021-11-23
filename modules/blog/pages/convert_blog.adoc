@@ -1,0 +1,230 @@
+= Wordpress to Antora Conversion
+
+:author: NorthwestOpenData
+:revdate: 25.11.2021
+:revremark: Blog Post
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::Antora_Peak.jpg[]
+
+== Background
+
+I started this project in January 2020 and initially set up a Wordpress(WP) site
+to document the learning process. I think WP is pretty good, it's free, easy to
+install and use. It's got hundreds of themes and plugins, it's easy to manage,
+relatively secure and commercially adaptable. With that said _what's my problem_? 
+
+Well on reflection I don't feel this is a blog, it's an exploration of a problem,
+more like an obervational scientific field notebook, where the 'observations' are
+suitable for a 'blog' style but there is not the space for the 'synthesis' articles
+and the continual reworking of the work.
+
+There's also an element of IT fundamentalism at play, the data source of a WP site
+is a https://www.mysql.com/[MySQL] database. When hosting commercially you are likely
+to be running on a shared server this will impact user performance and to a certain 
+extent the writers process. I found the performance quite slow also I found myself 
+spending more time writing posts than doing what I enjoyed.
+
+I like markdown languages, which are shorthand for html, they are easy to learn, 
+fast to write in a bare bones text editor. I've used AsciiDoc for several years
+and AsciiDoctor in particular. It's feature rich yet readable in it's source *but*
+more importantly it's ascii, the https://en.wikipedia.org/wiki/Lingua_franca[lingua franca] 
+of computing. I can take them between operating systems, store them in
+source code control systems, write scripts to generate pages. 
+
+There's a rich ecology developing around AsciiDoc, I had considered adopting 'Hugo'
+as a website platform but my background use of AsciiDoc finally nudged me in the 
+direction of adopting Antora as my static website generator. I also realised Antora
+was much more than a documentation site generator and I would only be interested in 
+a few of it's features and would be looking to remove alot of the options available 
+by default.
+
+The following are some basic technical points and reminders to myself for working 
+with Antora to create a static website. I would point out I am no expert in node, 
+html, css or javascript in general. I read the Antora docs and did a bit of '_playing_'
+
+== Installation
+
+* https://docs.antora.org/antora/2.3/install-and-run-quickstart/[Quickstart Guide] 
+ I would stop at 'Create a playbook' if you are new to Antora
+* There are detailed guides for Linux, Window or MacOS.
+* I did the installation on Cygwin and found no issues with the documentation
+
+NOTE: Did I??
+
+NOTE: After installation you need to understand the filesystem layout *before* you get
+involved in setting up any `.yml` files
+
+== Configure Directories
+
+* A content source is a git repository, I think the minimal requirement is a `git init` 
+ followed by a commit on a local filesystem. Once I had the structure complete and a few
+ pages written I committed/pushed to GitHub to test the full Antora build.
+
+image::antora3.png[align="left"]
+
+* The `modules` directory contains the `.adoc` documents. I think it _may_
+ be required to be called modules.
+
+image::antora4.png[align="left"]
+
+* This is where I decided how I was going to structure the content, I decided to keep
+ all the converted blog posts in one directory.
+* I decided to hcreate a documents directory for other material in the first instance,
+ I may need to revisit this at some point.
+* The `ROOT` directory is a feature you can use in Antora, ROOT is a special key word that
+ signifies a space for non specific files, this will become clearer when you see the output
+ structure after running Antora. Basically I thought I would place my index page,
+ privacy and T&C pages
+
+.Next level view
+
+image::antora5.png[align="left"]
+
+* In each 'ROOT', 'blog' and 'docs' directory I created the above directories
+* These were the locations of the content files, content types are described below
+
+|===
+| Directory | Purpose | Access method
+| attachments | For files to download eg .tar, .zip etc | AsciiDoc `link:` directive
+| examples | For source code, terminal output, .csv data sets | AsciiDoc `include::` directive
+| images | For image files included in pages(.png,.jpg,.svg,.gif) | AsciiDoc `image::` or `image:` directives 
+| pages | AsciiDoc files(.adoc) These are automatically converted to .html | n/a
+| partials | AsciiDoc fragments eg a table or list to be included in multiple .adoc pages | AsciiDoc `include::` directive
+|===
+
+////
+[tree,file="tree-view-new.png"]
+--
+nwod_www
+|--antora.yml
+|--modules
+|  |--blog
+|  |  |--images
+|  |  |--pages
+|  |  |  |--beginnings.adoc
+|  |  |  `--index.adoc
+|  |  `--partials
+|  |     `--nav.adoc
+|  |--docs
+|  |  |--examples
+|  |  |--images
+|  |  |--pages
+|  |  |  `--index.adoc
+|  |  `--partials
+|  |     `--nav.adoc
+|  |--images
+|  `--ROOT
+|     |--examples
+|     |--images
+|     |  `--nwod.png
+|     |--pages
+|     |  `--index.adoc
+|     `--partials
+|        `--nav.adoc
+`--README.md
+--
+////
+
+== Playbooks and Yml's
+
+=== antora.yml
+
+The `antora.yml` is located in the root level of the repository, it signals to
+Antora the modules directory it also signals the version metadata
+
+
+Here's my antora.yml
+
+----
+name: nwod                           <1>
+title: Northwest Open Data           <2>
+version: master                      <3>
+nav:                                
+- modules/ROOT/partials/nav.adoc     <4>
+- modules/blog/partials/nav.adoc
+- modules/docs/partials/nav.adoc
+----
+<1> Together with `version` uniquely identifies component version
+<2> Used in pages, version selector, breadcrumbs etc
+<3> Together with `name` uniquely identifies component version
+<4> Identifies Navigation Files(`nav.adoc`) - more on this later
+
+See https://docs.antora.org/antora/2.3/component-version-descriptor/#locate-content-source-root-with-antora-yml[here] for futher information
+
+=== antora-playbook.yml
+
+This was my basic antora-playbook.yml
+
+----
+site:       <1>
+  title: North West Open Data                 
+  url: https://northwestopendata.org.uk
+
+content:    <2>
+  sources:
+    - url: https://github.com/northwestopendata/nwod_www
+      branches: main
+
+ui:         <3>
+  bundle:
+    snapshot: true
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+----
+<1> This is the site name and url of the website
+<2> This defines where the content can be found, in this case GitHub, but it could be a local directory
+<3> This is the UI or the theme to use. Antora splits content from theme.
+
+== Building 
+
+You can then generate a website by running antora from the command line
+
+----
+ antora antora-playbook.yml
+----
+
+A local directory was created called `build` containing the generated html files, images and
+in the `_` directory the css, fonts, javascript etc required
+
+----
+$ find .  -type d
+.
+./site
+./site/nwod
+./site/nwod/blog
+./site/nwod/blog/_images
+./site/nwod/docs
+./site/nwod/docs/_images
+./site/nwod/_images
+./site/_
+./site/_/css
+./site/_/font
+./site/_/img
+./site/_/js
+./site/_/js/vendor
+----
+
+== The Default Output
+
+image::antora1.png[]
+
+. The site name (site: title)
+. Default navigation features, links and drop downs
+. A download button for the page
+. The site name (site: title) again 
+. The breadcrumb location
+. This allows editing of the file on GitHub
+. The site navigation, created with nav.adoc files(antora.yml)
+. The web page
+. The table of contents(toc) for the page
+
+image::antora2.png[]
+
+[start=10]
+
+. The version navigation widget
+. The page footer
+
+== Theming with the UI
+
