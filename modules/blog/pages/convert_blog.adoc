@@ -285,19 +285,50 @@ the following within it.
 * `build.sh` a simple shell script to run antora with euther the local
 or site playbook
 
-Then it was just a matter of transferring the Wordpress web pages via cut and paste into .adoc files in vi. 
-Download and save any images I had to and recreate some charts that were originally made by custom plugins, 
-it took me a couple of weekends and the odd hour midweek. It also gave me a chance to correct spelling 
-mistakes and add some updates for any parts that had changed.
+Then it was just a matter of transferring the Wordpress web pages via cut and
+paste into .adoc files in vi.  Download and save any images I had to and 
+recreate some charts that were originally made by custom plugins, it took 
+me a couple of weekends and the odd hour midweek. It also gave me a chance 
+to correct spelling mistakes and add some updates for any parts that had 
+changed.
 
 == Theming with the UI
 
+WARNING: For quick minor changes to the UI it may be better to look at 
+https://docs.antora.org/antora/3.0/publish-to-github-pages/#use-the-supplemental-ui[supplemental] 
+files . A good example is at https://lightbend.github.io/antora-supplemental-ui-lightbend-theme/build/site/index.html[Lightbend]
+
+I decided to unzip the antora-ui-default bundle to see what was inside and 
+try and relate that to the website
+
+Below is a list of changes I have made
+
 === Page Layout
 
+==== Header bar changes
+.Page Header
 image::antora7.png[]
 
+* I changed `header-contents.hbs` to remove unwanted items, I decided on a simple 'Home' 
+and a dropdown to other areas of the site. Currently Blog and Documents under a Navigation item
+
+* The Site name is picked up from the `antora.yml`
+
+* The 'Edit this Page' button will be removed via the playbook `edit_url: false` content 
+optin
+
+.Page Footer
+image::antora8.png[]
+
+* The `footer.content.hbs` is theeasiest file to work with, I added some links to social media, 
+kept but expanded info regarding website generation and addeda (C) statement and a link to the 
+current page
 
 
 === CSS Changes
+
+* Header background text colour
+
+NOTE: Need to add a subscript text to header or maybe an image 
 
 === AsciiDoc Attributes
