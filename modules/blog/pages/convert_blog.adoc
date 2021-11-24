@@ -320,14 +320,23 @@ optin
 .Page Footer
 image::antora8.png[]
 
-* The `footer.content.hbs` is theeasiest file to work with, I added some links to social media, 
+* The `footer.content.hbs` is the easiest file to work with, I added some links to social media, 
 kept but expanded info regarding website generation and addeda (C) statement and a link to the 
 current page
 
+* I wanted to remove the default version selector from the page, I did this by commenting out 
+the `nav-explore.hbs` file
 
 === CSS Changes
 
 * Header background text colour
+
+* Missing AsciiDoc Functionality in Antora
+** overline
+** collapsible
+
+* Personal Changes
+** Table header
 
 NOTE: Need to add a subscript text to header or maybe an image 
 
