@@ -18,7 +18,7 @@ install and use. It's got hundreds of themes and plugins, it's easy to manage,
 relatively secure and commercially adaptable. With that said _what's my problem_? 
 
 Well on reflection I don't feel this is a blog, it's an exploration of a problem,
-more like an obervational scientific field notebook, where the 'observations' are
+more like an obervational field notebook, where the 'observations' are
 suitable for a 'blog' style but there is not the space for the 'synthesis' articles
 and the continual reworking of the work.
 
@@ -50,12 +50,14 @@ html, css or javascript in general. I read the Antora docs and did a bit of '_pl
 
 * https://docs.antora.org/antora/2.3/install-and-run-quickstart/[Quickstart Guide] 
  I would stop at 'Create a playbook' if you are new to Antora
-* There are detailed guides for Linux, Window or MacOS.
-* I did the installation on Cygwin and found no issues with the documentation
+* There are detailed guides for 
+https://docs.antora.org/antora/3.0/install/linux-requirements/#install-nvm[Linux], 
+https://docs.antora.org/antora/3.0/install/windows-requirements/[Window] or 
+https://docs.antora.org/antora/3.0/install/macos-requirements/#install-nvm[MacOS].
+* If you want to make changes to the default UI or them you will need to install `gulp` - See https://docs.antora.org/antora-ui-default/prerequisites/[here] for details.
 
-NOTE: Did I??
 
-NOTE: After installation you need to understand the filesystem layout *before* you get
+TIP: After installation you need to understand the filesystem layout *before* you get
 involved in setting up any `.yml` files
 
 == Configure Directories
@@ -64,40 +66,49 @@ A content source is a git repository, I think the minimal requirement is a `git 
 followed by a commit on a local filesystem. Once I had the structure complete and a few
 pages written I committed/pushed to GitHub to test the full Antora build.
 
+
 .Source Filesystem
 ----
-README.md                <1>
-antora.yml               <2>
-./.git                   <3>
-./modules                <4>
-./modules/blog           <5>
-./modules/blog/images
-./modules/blog/pages
-./modules/blog/partials
-./modules/docs           <6>
-./modules/docs/examples
-./modules/docs/images
-./modules/docs/pages
-./modules/docs/partials
-./modules/ROOT           <7>
-./modules/ROOT/images
-./modules/ROOT/pages
-./modules/ROOT/partials
+.
+├── README.md                  <.>
+├── antora.yml                 <.>
+└── .git                       <.>
+└── modules                    <.>
+    ├── ROOT                   <.>
+    │   ├── images
+    │   │   ├── github.png
+    │   │   ├── nwod.png
+    │   │   ├── reddit.png
+    │   │   └── twitter.png
+    │   ├── pages
+    │   │   └── index.adoc
+    │   └── partials
+    │       └── nav.adoc
+    ├── blog                   <.>
+    │   ├── images
+    │   ├── pages
+    │   │   ├── index.adoc
+    │   └── partials
+    │       ├── nav.adoc
+    └── docs                   <.>
+        ├── examples
+        ├── images
+        ├── pages
+        │   ├── index.adoc
+        └── partials
+            └── nav.adoc
 ----
-<1> The repo README file
-<2> The site's antora.yml file
-<3> .git directory, subdirectories snipped
-<4> The modules directory is the top level of the sites content
-<5> The blog subdirectory
-<6> The docs sub directory
-<7> The ROOT subdirectory - ROOT is a special key word that
- signifies a space for non specific files, this will become clearer when you see the output
- structure after running Antora. Basically I thought I would place my index page,
- privacy and T&C pages
+<.> The repo README file
+<.> The site's antora.yml file
+<.> .git directory, subdirectories snipped
+<.> The modules directory is the top level of the sites content
+<.> The ROOT subdirectory - ROOT is a special key word that signifies a space for non specific files, this will become clearer when you see the output structure after running Antora. Basically I thought I would place my index page, privacy and T&C pages
+<.> The blog subdirectory
+<.> The docs sub directory
 
-
-In each 'ROOT', 'blog' and 'docs' directory I created some subdirectories. These were the 
-locations of the content files, content types are described below. Not all are compulsory.
+In each 'ROOT', 'blog' and 'docs' directory I created some subdirectories.
+These were the locations of the content files, content types are described
+below. Not all are compulsory.
 
 |===
 | Directory | Purpose | Access method
@@ -108,48 +119,19 @@ locations of the content files, content types are described below. Not all are c
 | partials | AsciiDoc fragments eg a table or list to be included in multiple .adoc pages | AsciiDoc `include::` directive
 |===
 
-////
-[tree,file="tree-view-new.png"]
---
-nwod_www
-|--antora.yml
-|--modules
-|  |--blog
-|  |  |--images
-|  |  |--pages
-|  |  |  |--beginnings.adoc
-|  |  |  `--index.adoc
-|  |  `--partials
-|  |     `--nav.adoc
-|  |--docs
-|  |  |--examples
-|  |  |--images
-|  |  |--pages
-|  |  |  `--index.adoc
-|  |  `--partials
-|  |     `--nav.adoc
-|  |--images
-|  `--ROOT
-|     |--examples
-|     |--images
-|     |  `--nwod.png
-|     |--pages
-|     |  `--index.adoc
-|     `--partials
-|        `--nav.adoc
-`--README.md
---
-////
+== The `.yml` Files
 
-== Playbooks and Yml's
+There are two key 'YAML' files. https://yaml.org/[YAML] files are basically
+config files for `antora', indentations are important but the format is quite
+simple(see https://yaml.org/spec/1.2.2/#chapter-2-language-overview[here] for
+details).
 
 === antora.yml
 
 The `antora.yml` is located in the root level of the repository, it signals to
 Antora the modules directory it also signals the version metadata
 
-
-Here's my antora.yml
+Here's my initial antora.yml
 
 ----
 name: nwod                           <1>
@@ -186,8 +168,8 @@ ui:         <3>
     snapshot: true
     url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
 ----
-<1> This is the site name and url of the website
-<2> This defines where the content can be found, in this case GitHub, but it could be a local directory
+<1> This is the site name and url of the website. See https://docs.antora.org/antora/2.3/playbook/site-url/#when-should-the-site-url-be-set[When should the site URL be set?]
+<2> This defines where the content can be found, in this case GitHub, but it could be a local directory. See <<Transferring the Content>> for a local directory example.
 <3> This is the UI or the theme to use. Antora splits content from theme.
 
 == Building 
@@ -202,26 +184,37 @@ A local directory was created called `build` containing the generated html files
 in the `_` directory the css, fonts, javascript etc required
 
 ----
-$ find .  -type d
 .
-./site
-./site/nwod
-./site/nwod/blog
-./site/nwod/blog/_images
-./site/nwod/docs
-./site/nwod/docs/_images
-./site/nwod/_images
-./site/_
-./site/_/css
-./site/_/font
-./site/_/img
-./site/_/js
-./site/_/js/vendor
+└── site
+    ├── 404.html
+    ├── _
+    │   ├── css
+    │   │   └── site.css
+    │   ├── font
+    │   │   └── roboto-mono-*               # content snipped
+    │   ├── img
+    │   │   └──                             # content snipped
+    │   └── js
+    │       ├── site.js
+    │       └── vendor
+    │           └── highlight.js
+    ├── index.html
+    ├── nwod
+    │   ├── _images
+    │   ├── blog
+    │   │   ├── _images
+    │   │   ├── index.html
+    │   ├── docs
+    │   │   ├── _images
+    │   │   ├── index.html
+    │   └── index.html
+    ├── robots.txt
+    └── sitemap.xml
 ----
 
 == The Default Output
 
-After generating open the index.html page in a browser
+After generating, open the index.html page in a browser to view the default structure of the generated website.
 
 image::antora1.png[]
 
@@ -242,6 +235,11 @@ image::antora2.png[]
 . The version navigation widget
 . The page footer
 
+For the time being I was quite pleased with the results but Antora is designed
+for working with multiversion documentation content. I was going to have to
+simplify some of the features as my requirements for a basic website did not
+require alot of the features on Antora.
+
 == Transferring the Content
 
 Rather than pushing and pulling from GitHub - I decided to set up a local working
@@ -253,6 +251,8 @@ the following within it.
  where changes weren't picked up. I didn't really get to the bottom of the problem
  but I wrote a small shell script to build the site where I deleted and recreated
  the cache area each time.
+* `build.sh` a simple shell script to run antora with either the local or site 
+ playbook
 * `antora_ui_default` this contains the original source code extracted from the 
  ui-bundle.zip.
 * `ui-bundle.zip` itself located at the top level
@@ -282,8 +282,6 @@ the following within it.
 ----
 <1> Alway build the website from the GitHub repo
 <2> Turn off the 'Edit this Page' button (see  item 6 <<The Default Output>>)
-* `build.sh` a simple shell script to run antora with euther the local
-or site playbook
 
 Then it was just a matter of transferring the Wordpress web pages via cut and
 paste into .adoc files in vi.  Download and save any images I had to and 
@@ -294,9 +292,17 @@ changed.
 
 == Theming with the UI
 
+One of the things I liked about Antora is that working with the content is
+cleanly seperated from the look and feel, theme or in Antora speak the 'UI'
+of the website
+
 WARNING: For quick minor changes to the UI it may be better to look at 
 https://docs.antora.org/antora/3.0/publish-to-github-pages/#use-the-supplemental-ui[supplemental] 
 files . A good example is at https://lightbend.github.io/antora-supplemental-ui-lightbend-theme/build/site/index.html[Lightbend]
+
+=== Working with the default UI
+
+Changing the default UI is https://docs.antora.org/antora-ui-default/[well documented]
 
 I decided to unzip the antora-ui-default bundle to see what was inside and 
 try and relate that to the website
