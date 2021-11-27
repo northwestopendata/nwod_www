@@ -8,7 +8,6 @@ _Posted : {revremark} : {revdate} - {author}_
 
 image::Antora_Peak.jpg[]
 
-
 _Antora Peak - 13,275 feet is located in Rio Grande National Forest, 4.6 miles west-northwest of the Town of Bonanza in Saguache County, Colorado, United States. - Wikipedia_
 
 == Background
