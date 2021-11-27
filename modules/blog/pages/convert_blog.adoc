@@ -296,54 +296,133 @@ One of the things I liked about Antora is that working with the content is
 cleanly seperated from the look and feel, theme or in Antora speak the 'UI'
 of the website
 
-WARNING: For quick minor changes to the UI it may be better to look at 
+IMPORTANT: For quick minor changes to the UI it may be better to look at 
 https://docs.antora.org/antora/3.0/publish-to-github-pages/#use-the-supplemental-ui[supplemental] 
 files . A good example is at https://lightbend.github.io/antora-supplemental-ui-lightbend-theme/build/site/index.html[Lightbend]
 
-=== Working with the default UI
+=== The Default UI
 
 Changing the default UI is https://docs.antora.org/antora-ui-default/[well documented]
 
-I decided to unzip the antora-ui-default bundle to see what was inside and 
-try and relate that to the website
+I cloned the default repo, you need that to make changes, you can not use the `ui-bundle.zip`
 
-Below is a list of changes I have made
+----
+git clone https://gitlab.com/antora/antora-ui-default
+----
+
+.The UI Directory Structure
+----
+.
+├── docs
+│   └── modules
+│       └── ROOT
+│           └── pages
+├── gulp.d                     <.>
+│   ├── lib
+│   └── tasks
+├── preview-src
+└── src                        <.>
+    ├── css
+    ├── helpers
+    ├── img
+    ├── js
+    │   └── vendor
+    ├── layouts
+    └── partials
+----
+<.> You will need to download ihttps://gulpjs.com/[`gulp`] as mentioned in <<Installation>>
+<.> The `src` directory contains the css files and the partials which control the appearance of the generated website
+
+=== Using `gulp`
+
+* Change directory to the antora-ui-default directory
+* Run `gulp preview` which will start a local sever on \http://localhost:5252
+* You can open the url in a browser
+* You are now ready to edit the `partial.hbs` or the `*.css` files to make changes
+* When you have finished kbd:[Ctrl] + kbd:[C] to stop the preview session
+* Then run `gulp bundle` this will create the new zip file in `antora-ui-default/build`. It will also check for errors in the css files
+* Copy the ui-bundle.zip to the location required in your `antora-playbook.yml` to run antora and generate with changes
+* See https://docs.antora.org/antora-ui-default/build-preview-ui/[Build a UI Project for Local Preview]
 
 === Page Layout
+
+The partials provide html fragments that fit together to create the final page.(See below)
 
 ==== Header bar changes
 .Page Header
 image::antora7.png[]
 
-* I changed `header-contents.hbs` to remove unwanted items, I decided on a simple 'Home' 
-and a dropdown to other areas of the site. Currently Blog and Documents under a Navigation item
+* I changed `header-contents.hbs` to add an image and to remove unwanted items, I decided on 
+a simple 'Home' link and a dropdown to other areas of the site. Currently Blog and Documents 
+under a Navigation item
 
 * The Site name is picked up from the `antora.yml`
 
-* The 'Edit this Page' button will be removed via the playbook `edit_url: false` content 
-optin
+* The 'Edit this Page' button will be removed via the website playbook with the `edit_url: false` 
+content option. However I will keep that for a local build it is quite a useful feature.
 
 .Page Footer
 image::antora8.png[]
 
 * The `footer.content.hbs` is the easiest file to work with, I added some links to social media, 
-kept but expanded info regarding website generation and addeda (C) statement and a link to the 
+kept but expanded info regarding website generation and addeda (C) statement and a url for the 
 current page
 
 * I wanted to remove the default version selector from the page, I did this by commenting out 
-the `nav-explore.hbs` file
+the entire contents of the `nav-explore.hbs` file
+
+* Working with the 'Handlebar Template' files is documented
+ https://docs.antora.org/antora-ui-default/templates/[here].  I did find some
+ of them quite confusing. At one point I created a table in the
+ `footer-content.hbs` file with all the values in and could see them change as
+ I navigated around the site.
+
+.Example table to troubleshoot the mustache tags
+----
+<table>
+<tr>
+    <th>site.url</th>
+    <th>{{{site.url}}}</th>
+</tr>
+.........
+<tr>
+    <th>uiRootPath</th>
+    <th>{{{uiRootPath}}}</th>
+</tr>
+</table>
+----
 
 === CSS Changes
 
-* Header background text colour
+* Header background text colour - `--navbar-font-color` to `#52de16` in `vars.css`
+* The table headers did not seem to be working so I added the following to doc.css
+----
+.doc th {
+  background: var(--code-background);
+}
+----
+* Some text decorations seemed to be missing, overline was one I noticed so added that to doc.css
+----
+.doc .overline {
+  text-decoration: overline;
+}
+----
 
-* Missing AsciiDoc Functionality in Antora
-** overline
-** collapsible
+=== AsciiDoc Keys
 
-* Personal Changes
-** Table header
+AsciiDoc attributes are usually defined on a per document level but with Antora these can be 
+defined in the antora-playbook.yml file. They can be https://docs.antora.org/antora/3.0/playbook/asciidoc-attributes/[hard or soft] 
+set, allowing for overiding at the page level.
 
-NOTE: Need to add a subscript text to header or maybe an image 
+I added the following to my playbook files
 
-=== AsciiDoc Attributes
+----
+asciidoc:
+  attributes:
+    toclevels: '3'
+    experimental: ''
+    numbered: ''
+    source-highlighter: highlight.js
+----
+
+https://asciidoctor.org/docs/extensions/[Extensions] can also be configured at this level
