@@ -110,6 +110,7 @@ In each 'ROOT', 'blog' and 'docs' directory I created some subdirectories.
 These were the locations of the content files, content types are described
 below. Not all are compulsory.
 
+[%header]
 |===
 | Directory | Purpose | Access method
 | attachments | For files to download eg .tar, .zip etc | AsciiDoc `link:` directive
