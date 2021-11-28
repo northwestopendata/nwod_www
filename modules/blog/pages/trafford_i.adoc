@@ -1,8 +1,9 @@
 = Trafford Spends : A Quick Look at the Data
-
-:author: NorthwestOpenData
 :revdate: 12.10.2020
 :revremark: Blog Post
+:description: A detailed review of Trafford Council’s spending data, \
+including details of their high redaction rates
+:keywords: Local Government Transparency Code, Trafford open data, council redactions 
 
 _Posted : {revremark} : {revdate} - {author}_
 

@@ -1,8 +1,9 @@
 = So What’s Wrong With Council Spending Data? Part II
-
-:author: NorthwestOpenData
 :revdate: 18.12.2020
 :revremark: Blog Post
+:description: A review of council spending data including payment amounts and beneficiary names
+:keywords: Local Council spending data
+
 
 _Posted : {revremark} : {revdate} - {author}_
 

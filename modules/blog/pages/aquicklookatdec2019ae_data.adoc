@@ -1,5 +1,4 @@
 = A quick look at Dec 2019 A&E data
-
 :author: NorthwestOpenData
 :revdate: 19.01.2020
 :revremark: Blog Post

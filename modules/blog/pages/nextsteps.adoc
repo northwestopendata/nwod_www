@@ -1,5 +1,4 @@
 = Next Steps...
-
 :author: North West Open Data
 :revdate: 28.01.2020
 :revremark: Blog Post

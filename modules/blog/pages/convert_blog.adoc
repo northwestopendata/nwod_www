@@ -1,8 +1,8 @@
 = Wordpress to Antora Conversion
-
-:author: NorthwestOpenData
 :revdate: 25.11.2021
 :revremark: Blog Post
+:description: Some notes on converting this website from Wordpress to AsciiDoc and Antora
+:keywords: asciidoc, asciidoctor,antora,wordpress, migration,convertion
 
 _Posted : {revremark} : {revdate} - {author}_
 
@@ -409,7 +409,9 @@ the entire contents of the `nav-explore.hbs` file
 }
 ----
 
-=== AsciiDoc Keys
+=== AsciiDoc Attributes
+
+==== Global Attributes
 
 AsciiDoc attributes are usually defined on a per document level but with Antora these can be 
 defined in the antora-playbook.yml file. They can be https://docs.antora.org/antora/3.0/playbook/asciidoc-attributes/[hard or soft] 
@@ -420,6 +422,7 @@ I added the following to my playbook files
 ----
 asciidoc:
   attributes:
+    author: North West Open Data
     toclevels: '3'
     experimental: ''
     numbered: ''
@@ -427,3 +430,29 @@ asciidoc:
 ----
 
 https://asciidoctor.org/docs/extensions/[Extensions] can also be configured at this level
+
+==== Page Attributes
+
+For the blog posts I defined the `revdate`, `revremark`, `description` and `keywords`. These are 
+defined at the top of the page, directly below the 'Header 1' line.
+
+IMPORTANT: Do not leave a space between the title and the first attribute declaration
+
+.Page Attributes assigned to this post
+----
+= Wordpress to Antora Conversion                                         <.>
+:revdate: 25.11.2021                                                     <.>
+:revremark: Blog Post                                                    <.>
+:description: Some notes on converting this website \                    <.>
+from Wordpress to AsciiDoc and Antora
+:keywords: asciidoc, asciidoctor,antora,wordpress, migration,convertion  <.>
+
+_Posted : {revremark} : {revdate} - {author}_                            <.>
+----
+<.> Document Title(Level 0)  for this page, will be expanded as page title in an un named xref link xref:blog:convert_blog.adoc[]
+<.> Date of blog post
+<.> Type of page
+<.> Description of document, split multilines with `\` - backslash
+<.> Key words for web search engines
+<.> The first line of a blog post uses the above attributes "_Posted : Blog Post : 25.11.2021 - North West Open Data_"
+

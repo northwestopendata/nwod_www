@@ -1,5 +1,4 @@
 = Url Hunting in Lancashire
-
 :author: North West Open Data
 :revdate: 12.06.2020
 :revremark: Blog Post

@@ -1,9 +1,8 @@
 = So What’s Wrong With Council Spending Data? Part III
-
-:author: NorthwestOpenData
 :revdate: 26.03.2021
 :revremark: Blog Post
-
+:description: A review of council spending data including data scope and category problems
+:keywords:  Local Government Transparency Code, council spending data
 _Posted : {revremark} : {revdate} - {author}_
 
 image::5242.jpg[]

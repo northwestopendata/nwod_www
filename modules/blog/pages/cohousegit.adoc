@@ -1,5 +1,4 @@
 = CoHouseLite, GitHub, APIs and getting organised
-
 :author: North West Open Data
 :revdate: 20.07.2020
 :revremark: Blog Post

@@ -1,8 +1,8 @@
 = So What’s Wrong With Council Spending Data? Part I
-
-:author: NorthwestOpenData
 :revdate: 19.11.2020
 :revremark: Blog Post
+:description: A review of council spending data including CSV issues and problems with date formats
+:keywords: Local Council spending data
 
 _Posted : {revremark} : {revdate} - {author}_
 

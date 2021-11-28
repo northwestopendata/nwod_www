@@ -1,8 +1,8 @@
 = Wigan Spends : A Quick Look at the Data
-
-:author: NorthwestOpenData
 :revdate: 13.10.2020
 :revremark: Blog Post
+:description: A review of Wigan Council spending data including CSV issues and problems with date formats
+:keywords: Wigan council open data, open data csv problems
 
 _Posted : {revremark} : {revdate} - {author}_
 

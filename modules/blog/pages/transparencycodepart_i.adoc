@@ -1,5 +1,4 @@
 = Transparency Code Part 1
-
 :author: North West Open Data
 :revdate: 13.01.2020
 :revremark: Blog Post

@@ -1,5 +1,4 @@
 = Charity Commission Data Set 1
-
 :author: North West Open Data
 :revdate: 05.09.2020
 :revremark: Blog Post

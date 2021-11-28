@@ -21,7 +21,7 @@ _The Charities Commission makes it's dataset available in an unusual format_
 * xref:cumbria_spends_iv.adoc[] +
 _The fourth of a detailed look at spending data from the six Cumbrian Councils. An infographic of the spending data analysed_
 * xref:cumbria_spends_iii.adoc[] +
-_The third of a detailed look at spending data from the six Cumbrian Councils. Reviewing data redactions across the councils
+_The third of a detailed look at spending data from the six Cumbrian Councils. Reviewing data redactions across the councils_
 * xref:cumbria_spends_ii.adoc[] +
 _The second of a detailed look at spending data from the six Cumbrian Councils. Issues covered include amount, beneficiary, categories, payment dates, organisation directorates and data coverage_
 * xref:cohousegit.adoc[] +
@@ -41,4 +41,4 @@ _After a family member's visit to A&E at the Countess of Chester Hospital in Che
 * xref:transparencycodepart_i.adoc[] +
 _A review of the Local Government Transparency Code 2015 Part 1_
 * xref:beginnings.adoc[] +
-_ My first ever look at local council data and a data breach by Cheshire West and Chester_
+_My first ever look at local council data and a data breach by Cheshire West and Chester_

@@ -1,5 +1,4 @@
 = Cumbria Spends : Redacted
-
 :author: North West Open Data
 :revdate: 03.08.2020
 :revremark: Blog Post

@@ -1,5 +1,4 @@
 = Greater Manchester Spends : Infographic
-
 :author: NorthwestOpenData
 :revdate: 29.10.2020
 :revremark: Blog Post

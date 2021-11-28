@@ -1,5 +1,4 @@
 = Manchester Redacted
-
 :author: NorthwestOpenData
 :revdate: 30.10.2020
 :revremark: Blog Post
