@@ -1,15 +1,17 @@
 = Transparency Code Part 1
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 13.01.2020
 :revremark: Blog Post
+:description: A review of the Local Government Transparency Code 2015 Part 1
+:keywords: Local Government Transparency Code 2015, Local Government Transparency Code
 
 _Posted : {revremark} : {revdate} - {author}_
 
 
 This post summarises the first section of the Department for Communities and
 https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/408386/150227_PUBLICATION_Final_LGTC_2015.pdf[Local
-Government Local Government Transparency Code 2015]. The document is split into
+Government Transparency Code 2015]. The document is split into
 3 parts with 3 related Annexes
 
 include::partial$blog1.adoc[]

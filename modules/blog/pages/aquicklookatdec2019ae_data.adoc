@@ -8,7 +8,7 @@ _Posted : {revremark} : {revdate} - {author}_
 
 My father in law spent some time at the Countess of Chester Hospital in Chester this month, 
 he was admitted via A&E. Visiting him there made it clear that the A&E was at or beyond 
-it’s capacity. A tweet from last year by ihttps://twitter.com/owenboswarva[@owenboswarva] 
+it’s capacity. A tweet from last year by https://twitter.com/owenboswarva[@owenboswarva] 
 caught my attention in a thread in mid January.
 
 I downloaded the data and imported it into Google Sheets, the fact that it was under 

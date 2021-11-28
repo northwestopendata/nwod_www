@@ -1,8 +1,9 @@
 = Next Steps...
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 28.01.2020
 :revremark: Blog Post
+:description: A plan for the next few months
 
 _Posted : {revremark} : {revdate} - {author}_
 

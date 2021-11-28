@@ -1,8 +1,12 @@
 = Cumbria Spends : Redacted
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 03.08.2020
 :revremark: Blog Post
+:description: The third of a detailed look at spending data \
+from the six Cumbrian Councils. Reviewing data redactions \
+across the councils
+:keywords: Local Government Transparency Code, Cumbria Councils, data issues
 
 _Posted : {revremark} : {revdate} - {author}_
 

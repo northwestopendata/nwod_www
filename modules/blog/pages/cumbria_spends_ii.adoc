@@ -1,8 +1,13 @@
 = Cumbria Spends : Aggregation & Review
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 07.07.2020
 :revremark: Blog Post
+:description: The second of a detailed look at spending data \
+from the six Cumbrian Councils. Issues covered include amount, \
+beneficiary, categories, payment dates, organisation directorates \
+and data coverage
+:keywords: Local Government Transparency Code, Cumbria Councils, data issues
 
 _Posted : {revremark} : {revdate} - {author}_
 

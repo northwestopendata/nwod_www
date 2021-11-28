@@ -1,8 +1,12 @@
 = Cumbria Spends : Database Import
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 29.06.2020
 :revremark: Blog Post
+:description: The first of a detailed look at spending data \
+from the six Cumbrian Councils. Looking at file formats, \
+character sets, data formats and incorrect data values
+:keywords: Local Government Transparency Code, Cumbria Councils, data issues
 
 _Posted : {revremark} : {revdate} - {author}_
 

@@ -1,8 +1,11 @@
 = Charity Commission Data Set 1
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 05.09.2020
 :revremark: Blog Post
+:description: The Charities Commission makes it's dataset \
+available in an unusual format
+:keywords: Charity Commission Data, bcp format
 
 _Posted : {revremark} : {revdate} - {author}_
 

@@ -1,8 +1,12 @@
 = CoHouseLite, GitHub, APIs and getting organised
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 20.07.2020
 :revremark: Blog Post
+:description: A review of progress, a mini Companies House \
+dataset, the Proclass category system and the start of a \
+company matching algorithm
+:keywords: Local Government Transparency Code, Companies House Data, Proclass codes
 
 _Posted : {revremark} : {revdate} - {author}_
 

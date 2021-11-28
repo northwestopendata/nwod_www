@@ -1,8 +1,11 @@
 = Beginnings
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 08.01.2020
 :revremark: Blog Post
+:description: My first ever look at local council data and a \
+data breach by Cheshire West and Chester
+:keywords: Council spending data, Cheshire Data Breach
 
 _Posted : {revremark} : {revdate} - {author}_
 

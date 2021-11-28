@@ -1,24 +1,44 @@
 = Blog Posts
 
-* xref:convert_blog.adoc[]
-* xref:sww_iii.adoc[]
-* xref:sww_ii.adoc[]
-* xref:sww_i.adoc[]
-* xref:manchester_redacted.adoc[]
-* xref:manchester_spends_i.adoc[]
-* xref:wigan_i.adoc[]
-* xref:trafford_i.adoc[]
-* xref:charity_commission_i.adoc[]
-* xref:cumbria_spends_iv.adoc[]
-* xref:cumbria_spends_iii.adoc[]
-* xref:cumbria_spends_ii.adoc[]
-* xref:cohousegit.adoc[]
-* xref:cumbria_spends_i.adoc[]
-* xref:urlhuntingin_lancashire.adoc[]
-* xref:nextsteps.adoc[]
-* xref:transparencycodepart_iii.adoc[]
-* xref:transparencycodepart_ii.adoc[]
-* xref:aquicklookatdec2019ae_data.adoc[]
-* xref:transparencycodepart_i.adoc[]
-* xref:beginnings.adoc[]
-
+* xref:convert_blog.adoc[] +
+_Some notes on converting this website from Wordpress to AsciiDoc and Antora_
+* xref:sww_iii.adoc[] +
+_A review of council spending data including data scope and category problems_
+* xref:sww_ii.adoc[] +
+_A review of council spending data including payment amounts  and beneficiary names_
+* xref:sww_i.adoc[] +
+_A review of council spending data including CSV issues and problems with date formats_
+* xref:manchester_redacted.adoc[] +
+_A detailed look at redactions per council across the  Greater Manchester Combined Authority_
+* xref:manchester_spends_i.adoc[] +
+_An infographic of Greater Manchester Combined Authority spending data for 2019_
+* xref:wigan_i.adoc[] +
+_A detailed review of Wigan Council's spending data_
+* xref:trafford_i.adoc[] +
+_A detailed review of Trafford Council's spending data, including details of their high redaction rates_
+* xref:charity_commission_i.adoc[] +
+_The Charities Commission makes it's dataset available in an unusual format_
+* xref:cumbria_spends_iv.adoc[] +
+_The fourth of a detailed look at spending data from the six Cumbrian Councils. An infographic of the spending data analysed_
+* xref:cumbria_spends_iii.adoc[] +
+_The third of a detailed look at spending data from the six Cumbrian Councils. Reviewing data redactions across the councils
+* xref:cumbria_spends_ii.adoc[] +
+_The second of a detailed look at spending data from the six Cumbrian Councils. Issues covered include amount, beneficiary, categories, payment dates, organisation directorates and data coverage_
+* xref:cohousegit.adoc[] +
+_A review of progress, a mini Companies House dataset, the Proclass category system and the start of a company matching algorithm_
+* xref:cumbria_spends_i.adoc[] +
+_The first of a detailed look at spending data from the six Cumbrian Councils. Looking at file formats, character sets, data formats and incorrect data values_
+* xref:urlhuntingin_lancashire.adoc[] +
+_Some problems locating and downloading spending data files and a score card for the Lancashire Councils_
+* xref:nextsteps.adoc[] +
+_A plan for the next few months_
+* xref:transparencycodepart_iii.adoc[] +
+_A review of the Local Government Transparency Code 2015 Part 3_
+* xref:transparencycodepart_ii.adoc[] +
+_A review of the Local Government Transparency Code 2015 Part 2_
+* xref:aquicklookatdec2019ae_data.adoc[] +
+_After a family member's visit to A&E at the Countess of Chester Hospital in Chester a look at waiting and admission times_
+* xref:transparencycodepart_i.adoc[] +
+_A review of the Local Government Transparency Code 2015 Part 1_
+* xref:beginnings.adoc[] +
+_ My first ever look at local council data and a data breach by Cheshire West and Chester_

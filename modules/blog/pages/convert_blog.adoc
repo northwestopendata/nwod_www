@@ -331,7 +331,7 @@ git clone https://gitlab.com/antora/antora-ui-default
     ├── layouts
     └── partials
 ----
-<.> You will need to download ihttps://gulpjs.com/[`gulp`] as mentioned in <<Installation>>
+<.> You will need to download https://gulpjs.com/[`gulp`] as mentioned in <<Installation>>
 <.> The `src` directory contains the css files and the partials which control the appearance of the generated website
 
 === Using `gulp`

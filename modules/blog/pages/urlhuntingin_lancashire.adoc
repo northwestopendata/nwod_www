@@ -1,8 +1,12 @@
 = Url Hunting in Lancashire
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 12.06.2020
 :revremark: Blog Post
+:description: Some problems locating and downloading spending data \
+files and a score card for the Lancashire Councils
+:keywords: Lancashire Councils, spending data, opendata , url problems, accessibility
+
 
 _Posted : {revremark} : {revdate} - {author}_
 

@@ -1,8 +1,11 @@
 = Transparency Code Part 3
 
-:author: NorthwestOpenData
+:author: North West Open Data
 :revdate: 27.01.2020
 :revremark: Blog Post
+:description: A review of the Local Government Transparency Code 2015 Part 3
+:keywords: Local Government Transparency Code 2015, Local Government Transparency Code
+
 
 _Posted : {revremark} : {revdate} - {author}_
 
