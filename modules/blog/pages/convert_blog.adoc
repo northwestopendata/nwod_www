@@ -23,24 +23,26 @@ suitable for a 'blog' style but there is not the space for the 'synthesis' artic
 and the continual reworking of the work.
 
 There's also an element of IT fundamentalism at play, the data source of a WP site
-is a https://www.mysql.com/[MySQL] database. When hosting commercially you are likely
-to be running on a shared server this will impact user performance and to a certain 
-extent the writers process. I found the performance quite slow also I found myself 
-spending more time writing posts than doing what I enjoyed.
+is a https://www.mysql.com/[MySQL] database. 
+I do not think a relational database is the best place to store text.
+I also thought the performance was slow, my WP database was likely to be running 
+on a shared server this will impact the  readers experience and to a certain
+extent the writering process. I found myself spending more time writing 
+posts than doing what I enjoyed.
 
 I like markdown languages, which are shorthand for html, they are easy to learn, 
 fast to write in a bare bones text editor. I've used AsciiDoc for several years
 and AsciiDoctor in particular. It's feature rich yet readable in it's source *but*
 more importantly it's ascii, the https://en.wikipedia.org/wiki/Lingua_franca[lingua franca] 
-of computing. I can take them between operating systems, store them in
-source code control systems, write scripts to generate pages. 
+of computing. I can take the pages between operating systems, store them in
+source code control systems and even write scripts to generate pages. 
 
 There's a rich ecology developing around AsciiDoc, I had considered adopting 'Hugo'
 as a website platform but my background use of AsciiDoc finally nudged me in the 
-direction of adopting Antora as my static website generator. I also realised Antora
-was much more than a documentation site generator and I would only be interested in 
-a few of it's features and would be looking to remove alot of the options available 
-by default.
+direction of adopting https://antora.org[Antora] as my static website generator. 
+I also realised Antora was feature rich documenation site generator and I would only 
+be interested in a few of it's features and would be looking to remove alot of the 
+options available by default.
 
 The following are some basic technical points and reminders to myself for working 
 with Antora to create a static website. I would point out I am no expert in node, 
@@ -347,27 +349,34 @@ git clone https://gitlab.com/antora/antora-ui-default
 
 === Page Layout
 
-The partials provide html fragments that fit together to create the final page.(See below)
+The layout of the page is controlled by files in `src/layouts` and the
+`src/partials` define the parts of the page with html and moustached values
+that are holding spaces for paths or Antora attributes
 
-==== Header bar changes
+Some of the key `.hbs` partial files are highlighted below. 
+
 .Page Header
 image::antora7.png[]
 
-* I changed `header-contents.hbs` to add an image and to remove unwanted items, I decided on 
+.Page Footer
+image::antora8.png[]
+
+==== Page/html Changes
+
+* Changed `header-contents.hbs` to add an image and to remove unwanted items, I decided on 
 a simple 'Home' link and a dropdown to other areas of the site. Currently Blog and Documents 
 under a Navigation item
 
 * The Site name is picked up from the `antora.yml`
 
-* The 'Edit this Page' button will be removed via the website playbook with the `edit_url: false` 
-content option. However I will keep that for a local build it is quite a useful feature.
-
-.Page Footer
-image::antora8.png[]
+* The 'Edit this Page' button is quite useful for working on the local version for fixing minor
+issues but I did not want that appearing on the website.
 
 * The `footer.content.hbs` is the easiest file to work with, I added some links to social media, 
-kept but expanded info regarding website generation and addeda (C) statement and a url for the 
+kept but expanded info regarding website generation and added (C) statement and a url for the 
 current page
+
+* Add links to Terms and Privacy pages
 
 * I wanted to remove the default version selector from the page, I did this by commenting out 
 the entire contents of the `nav-explore.hbs` file
@@ -393,6 +402,8 @@ the entire contents of the `nav-explore.hbs` file
 </table>
 ----
 
+* Add a favicon image to `src/img` directory and added the icon link to `head-meta.hbs`
+
 === CSS Changes
 
 * Header background text colour - `--navbar-font-color` to `#52de16` in `vars.css`
@@ -408,10 +419,9 @@ the entire contents of the `nav-explore.hbs` file
   text-decoration: overline;
 }
 ----
+* The `collapsible` action did not work but I will look at that later
 
-=== AsciiDoc Attributes
-
-==== Global Attributes
+==== Asciidoctor Global Attributes
 
 AsciiDoc attributes are usually defined on a per document level but with Antora these can be 
 defined in the antora-playbook.yml file. They can be https://docs.antora.org/antora/3.0/playbook/asciidoc-attributes/[hard or soft] 
@@ -431,7 +441,7 @@ asciidoc:
 
 https://asciidoctor.org/docs/extensions/[Extensions] can also be configured at this level
 
-==== Page Attributes
+==== Asciidoctor Page Attributes
 
 For the blog posts I defined the `revdate`, `revremark`, `description` and `keywords`. These are 
 defined at the top of the page, directly below the 'Header 1' line.
@@ -455,4 +465,34 @@ _Posted : {revremark} : {revdate} - {author}_                            <.>
 <.> Description of document, split multilines with `\` - backslash
 <.> Key words for web search engines
 <.> The first line of a blog post uses the above attributes "_Posted : Blog Post : 25.11.2021 - North West Open Data_"
+
+==== Webserver Changes
+
+* Edit `.htaccess` to remove Wordpress directives
+* Unfortunately I had changed the names of some of the articles in the new blog
+ so I added some rewrite rules for ones I had posted to Reddit so as to 
+ maintain the links
+
+== Conclusions
+
+Once I had changed the above I wrote a shell script that would build two types of 
+sites, local and one for the web as well as run the UI build.
+
+When I want to update the website I just transfer a tar file to the webserver and unpack it.
+
+The website proved to be fast and responsive and fullfilled my basic requirements
+
+I now have all my posts in asciidoctor in GitHub and  I have the ui file in a repo as well
+
+There are a few outstanding issue I'll be looking at
+
+* Customise 404.html
+* Come up test document to compare Asciidoctor vs Antora output as I think some asciidoc 
+directives do not work in Antora
+* Review the changes I have made to see if I have done them in the best way, I suspect I 
+could have done things differently but I was just learning about Antora at the time.
+
+
+
+
 

@@ -1,4 +1,4 @@
-= image:nwod.png[80,80] North West Open Data
+= image:nwod.png[60,60] North West Open Data
 
 :author: NorthwestOpenData
 :revdate: 29.10.2021
@@ -10,10 +10,12 @@ _A random walk through open data in the Northwest of England_
 
 == Latest
 
+* xref:blog:convert_blog.adoc[Wordpress to Antora Conversion]
+
+== Council Spending Data in the North West of England.
+
 * xref:blog:sww_i.adoc[So What’s Wrong With Council Spending Data? Part I],
  xref:blog:sww_ii.adoc[Part II] and xref:blog:sww_iii.adoc[Part III]
-
-== Local Council Data in the North West of England.
 
 * Greater Manchester Councils spending is reviewed for
  xref:blog:trafford_i.adoc[Trafford], xref:blog:wigan_i.adoc[Wigan],
