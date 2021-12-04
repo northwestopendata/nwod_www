@@ -361,7 +361,7 @@ image::antora7.png[]
 .Page Footer
 image::antora8.png[]
 
-==== Page/html Changes
+=== Page/html Changes
 
 * Changed `header-contents.hbs` to add an image and to remove unwanted items, I decided on 
 a simple 'Home' link and a dropdown to other areas of the site. Currently Blog and Documents 
@@ -421,7 +421,7 @@ the entire contents of the `nav-explore.hbs` file
 ----
 * The `collapsible` action did not work but I will look at that later
 
-==== Asciidoctor Global Attributes
+=== Asciidoctor Global Attributes
 
 AsciiDoc attributes are usually defined on a per document level but with Antora these can be 
 defined in the antora-playbook.yml file. They can be https://docs.antora.org/antora/3.0/playbook/asciidoc-attributes/[hard or soft] 
@@ -441,7 +441,7 @@ asciidoc:
 
 https://asciidoctor.org/docs/extensions/[Extensions] can also be configured at this level
 
-==== Asciidoctor Page Attributes
+=== Asciidoctor Page Attributes
 
 For the blog posts I defined the `revdate`, `revremark`, `description` and `keywords`. These are 
 defined at the top of the page, directly below the 'Header 1' line.
@@ -466,7 +466,7 @@ _Posted : {revremark} : {revdate} - {author}_                            <.>
 <.> Key words for web search engines
 <.> The first line of a blog post uses the above attributes "_Posted : Blog Post : 25.11.2021 - North West Open Data_"
 
-==== Webserver Changes
+=== Webserver Changes
 
 * Edit `.htaccess` to remove Wordpress directives
 * Unfortunately I had changed the names of some of the articles in the new blog
