@@ -1,0 +1,14 @@
+= Companies House Data Set
+
+== Introduction
+
+Companies House  is an executive agency and trading fund of Her Majesty's Government, falling under the remit of the Department for Business, Energy and Industrial Strategy. 
+They incorporate and dissolve limited companies, register company information and make it available to the public.
+As of January 2022 they produce https://data.gov.uk/search?filters%5Bpublisher%5D=Companies+House[12 datasets]. The following are of interest in the contexts of analysing council spending data
+
+* http://download.companieshouse.gov.uk/en_output.html[Basic Company Data]. Details of the data fields can be found in https://resources.companieshouse.gov.uk/toolsToHelp/pdf/freeDataProductDataset.pdf[this] document.
+* http://download.companieshouse.gov.uk/en_pscdata.html[People with Significant Control(PSC)] 
+*  https://forum.aws.chdev.org/t/psc-streaming-api/529[Details of an API here]
+
+== Basic Company Data
+ 

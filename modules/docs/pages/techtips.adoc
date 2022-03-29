@@ -1,0 +1,28 @@
+= Project Software
+
+== Introduction
+
+Brief notes on software
+
+== Core Tools
+
+=== PostgreSQL
+
+. Install latest version with Cygwin installer
+. /usr/sbin/initdb -D /usr/share/postgresql/data
+. Set up aliases
+----
+alias startpg='/usr/sbin/pg_ctl -D /usr/share/postgresql/data -l \
+    /usr/share/postgresql/data/logfile start'
+alias stoppg='/usr/sbin/pg_ctl -D /usr/share/postgresql/data stop'
+----
+. Create database
+
+[%header]
+|===
+| Directory | Contents
+| /usr/share/postgresql | Base installation
+| /usr/share/postgresql/data | Log file and executables
+| /usr/share/postgresql/data/base | Data files
+| /usr/sbin | Utility programs
+|===

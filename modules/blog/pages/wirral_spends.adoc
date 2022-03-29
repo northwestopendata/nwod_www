@@ -1,0 +1,19 @@
+= Wirral 2019 Spends : Google Data Studio
+:author: North West Open Data
+:revdate: 30.01.2022
+:revremark: Blog Post
+:description: 2019 Wirral Council Spending data imported into Google Data Studio \
+with some details of matching company names to Companies House dataset. 
+:keywords: Local Government Transparency Code, Wirral Council, Google Data Studio
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::Wirral_Council_Spending_Data_2019.png[link="https://datastudio.google.com/reporting/17d9344e-66ad-4903-814c-3b0d3d52b0ed"]
+
+Last year I imported the Wirral 2019 Spending data into Google Data Studio and 
+prepared a presentation explaining how the data company data was matched against 
+the Companies House data set. Additionally once matching had been completed the 
+spending could be categorised using the SIC codes from the CH data set
+
+* https://datastudio.google.com/reporting/17d9344e-66ad-4903-814c-3b0d3d52b0ed[Google Data Studio Presentation]
+* Data available on https://github.com/northwestopendata/lgtc_nwod_data/blob/master/lcrca/wirral_2019.csv[GitHub]
