@@ -9,5 +9,69 @@ _Posted : {revremark} : {revdate} - {author}_
 
 image::register_of_members.png[]
 
+== Introduction
+
+Following winning the UK General Election in 2024 alot of 
+https://www.dailymail.co.uk/news/article-13871441/Keir-Starmer-justify-free-gift-worse-Labour-Baroness-Harman.html[press coverage appeared criticizing Labour MPs] for accepting donations and gifts from individuals and companies.
+Most of the claims related to information in the 
+https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-members-financial-interests/[Register of Members' Financial Interests]. This is available on the Houses of Parliament(HoP) website. 
+It appears that at the start of this Parliamentary year they have mades some changes to what and how they release data.
+All of this has been tracked by the folks at https://www.mysociety.org/[mySociety], the following articles will bring you 
+up to speed on the changes and issue as well as some philosophical points about transparency being a hedge against reform.
+
+* https://www.mysociety.org/2024/08/19/the-new-register-of-members-financial-interests-is-out-and-we-have-thoughts-and-spreadsheets/[The new Register of Members Financial Interests is out and we have thoughts (and spreadsheets)]
+* https://www.mysociety.org/2024/08/20/new-register-of-interests-spreadsheet-with-much-richer-data/[New register of interests spreadsheet – with much richer data]
+* https://www.mysociety.org/2024/09/25/what-do-we-know-about-mps-financial-interests/[What do we know about MPs’ financial interests?]
+
+_Disclosure : I'm a volounteer on their latest project mentioned in the last article_
+
+== Method
+
+* Ultimate data source root page : https://www.parliament.uk/mps-lords-and-offices/standards-and-financial-interests/parliamentary-commissioner-for-standards/registers-of-interests/register-of-members-financial-interests/
+* Dataset page : https://publications.parliament.uk/pa/cm/cmregmem/contents2425.htm
+* Dataset Name : Register of Members' Financial Interests - as at 2 September 2024 (CSV Version)
+
+As mySociety had already downloaded the files and created an Excel file available https://pages.mysociety.org/parl_register_interests/datasets/commons_rmfi/latest[here]. You can also https://data.mysociety.org/datasette/?mysoc=parl_register_interests/commons_rmfi/latest#commons_rmfi[Explore data in Datasette].
+As this allowed me to run SQL against the various files/tables I did my initial 'look' with this tool. I chose the Category_2
+file which contained donations data.
+
+
+[cols="1,1"]
+|===
+| Column Name | Description/Comments
+
+|id
+| Unique identifier for the interest
+
+|parent_interest_id |Unique identifier for the parent interest
+|summary |Text summary of the interest
+|registration_date |Date the interest was registered
+|published_date |Date the interest was published
+|updated_date |Date the interest was last updated
+|category |Category of the interest
+|party |Political party of the MP
+|member |Name of the MP
+|mnis_id |Parliamentary ID of the MP
+|twfy_id |TheyWorkForYou ID of the MP
+|donation_source |Source of the donation
+|payment_type |Type of payment
+|payment_description |Description of the payment
+|value |Value of the donation
+|received_date |Date the payment was received
+|accepted_date |Date the payment was accepted
+|received_end_date |End date of the payment
+|is_sole_beneficiary |Whether the MP is the sole beneficiary
+|donor_name |Name of the donor
+|donor_public_address |Public address of the donor
+|donor_status |Status of the donor
+|donor_company_name |Name of the donor company
+|donor_company_url |URL of the donor company
+|donor_company_identifier |Identifier of the donor company
+|donor_company_identifier_source |Source of the donor company identifier
+|donor_trust_details |Details of the donor trust
+|donor_other_details |Details of the donor
+|api_link |Link to the API endpoint for the interest
+|category_code |Code for the category of the interest 
+|===
 
 * https://lookerstudio.google.com/s/gs7MC7CfQn4[Google [.line-through]#Data# Looker Studio Presentation]
