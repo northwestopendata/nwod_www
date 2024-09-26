@@ -1,4 +1,6 @@
 .Blog Posts
+* 2024 September
+** xref:mps_donations.adoc[Register of Members' Financial Interests - A First Look]
 * 2022 January
 ** xref:wirral_spends.adoc[Wirral Spends - Infographic]
 * 2021 November

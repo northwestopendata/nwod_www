@@ -7,12 +7,13 @@
 
 _A random walk through open data in the Northwest of England_
 
+== Houses of Parliament - MPs Data
 
-== Latest
-
-* xref:blog:convert_blog.adoc[Wordpress to Antora Conversion]
+* Placeholder
 
 == Council Spending Data in the North West of England.
+
+* xref:blog:wirral_spends.adoc[Wirral 2019 Spends : Google Data Studio]
 
 * xref:blog:sww_i.adoc[So What’s Wrong With Council Spending Data? Part I],
  xref:blog:sww_ii.adoc[Part II] and xref:blog:sww_iii.adoc[Part III]
@@ -34,3 +35,7 @@ _A random walk through open data in the Northwest of England_
 * https://www.gov.uk/government/publications/local-government-transparency-code-2015[Local Government Transparency Code, 2015] is reviewed in 3 parts - xref:blog:transparencycodepart_i.adoc[Transparency Code Part 1],
  xref:blog:transparencycodepart_ii.adoc[Part 2] and
  xref:blog:transparencycodepart_iii.adoc[Part 3]
+
+== Miscellaneous
+
+* xref:blog:convert_blog.adoc[Wordpress to Antora Conversion]

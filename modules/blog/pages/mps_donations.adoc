@@ -1,0 +1,13 @@
+= Register of Members' Financial Interests - A First Look
+:author: North West Open Data
+:revdate: 19.09.2024
+:revremark: Blog Post
+:description: Register of Members' Financial Interests - 2024 Parliament, a look at donations data
+:keywords: Register of Members' Financial Interests, donations, MPs
+
+_Posted : {revremark} : {revdate} - {author}_
+
+image::register_of_members.png[]
+
+
+* https://lookerstudio.google.com/s/gs7MC7CfQn4[Google [.line-through]#Data# Looker Studio Presentation]

@@ -1,5 +1,7 @@
 = Blog Posts
 
+* xref: mps_donations.adoc +
+_A first look at Members Interest Data from the Houses of Parliament_
 * xref:convert_blog.adoc[] +
 _Some notes on converting this website from Wordpress to AsciiDoc and Antora_
 * xref:sww_iii.adoc[] +
